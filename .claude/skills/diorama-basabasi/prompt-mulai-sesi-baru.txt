@@ -1,0 +1,22 @@
+PRODUKSI VIDEO BARU — SERI EDUKASI BASABASI (MODE A)
+
+Repo ini berisi skill di .claude/skills/diorama-basabasi/SKILL.md.
+Baca file itu sekarang, lalu baca references/mode-a.md di folder yang
+sama, dan ikuti seluruh isinya persis — termasuk urutan tahap, gerbang
+persetujuan, validator, dan QC mandiri wajibnya. Jangan melompati tahap.
+
+Data produksi kali ini:
+- Topik: [ISI TOPIK VIDEO]
+- Sumber fakta utama: [TEMPEL TEKS SUMBER / SEBUTKAN FILE SUMBER DI REPO] — sumber ini menang bila bertentangan dengan sumber lain. Kamu boleh melengkapinya dengan riset web; cantumkan semua sumber tambahan di laporan akhir dan tandai klaim yang belum terverifikasi.
+- Label seri: [MIS. Sejarah Alam 3D] — Part [NOMOR]
+- Naskah narasi: [TEMPEL NASKAH FINAL, ATAU tulis: "belum ada — buatkan draf dari sumber di atas, lalu berhenti dan tunggu persetujuan saya sebelum lanjut"]
+- File MP3 narasi ada di root repo (nama file bebas) → pindahkan ke public/narasi.mp3. File musik saya juga di root repo → public/musik. Kalau salah satu belum ada, berhenti dan kabari saya — jangan menentukan timing apa pun sebelum MP3 narasi tersedia.
+
+Pengingat kunci dari skill (jangan dilanggar):
+- Durasi final 30–60 detik mengikuti audio; timeline.json adalah sumber kebenaran tunggal dan harus lolos scripts/validate_timeline.py sebelum scene dibangun.
+- Angka/data tampil sebagai readout layar; satu-satunya pengecualian: maksimal satu angka hero 3D emas untuk angka puncak video.
+- Penutup = kesimpulan + label seri; call to value hanya bila saya minta untuk video ini; ajakan membeli dilarang.
+- Render per scene + concat FFmpeg -c copy; preview skala 0.5; full-res hanya sekali di tahap akhir; jalankan scripts/check_output.sh pada file final.
+- Dua gerbang berhenti: (1) ringkasan timeline, (2) contact sheet still-frame. Tunggu persetujuan saya di keduanya.
+
+Saya hanya memakai tablet — semua berkas hasil harus tampil sebagai file di sesi ini.
