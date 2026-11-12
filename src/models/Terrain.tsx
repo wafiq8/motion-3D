@@ -48,13 +48,21 @@ export const makeHeightFn = ({
   };
 };
 
+const DEFAULT_CENTER: [number, number] = [0, -60];
+const NO_CLEARINGS: [number, number, number, number][] = [];
+
 export const Terrain: React.FC<{
   height: (x: number, z: number) => number;
   size?: number;
   segments?: number;
   center?: [number, number];
   seed?: number;
-}> = ({ height, size = 420, segments = 260, center = [0, -60], seed = 5 }) => {
+  /** Mode pulau: pantai pasir di dekat permukaan laut, dasar laut kebiruan. */
+  island?: boolean;
+  /** Warna rona (harus warna palet/turunan) + kekuatannya. */
+  tint?: string;
+  tintAmount?: number;
+}> = ({ height, size = 420, segments = 260, center = DEFAULT_CENTER, seed = 5, island = false, tint, tintAmount = 0 }) => {
   const { geometry, material } = useMemo(() => {
     const g = new PlaneGeometry(size, size, segments, segments);
     g.rotateX(-Math.PI / 2);
@@ -65,6 +73,8 @@ export const Terrain: React.FC<{
     const cPas = new Color(PALETTE.pasir);
     const cGel = new Color(DERIVED.tanahGelap);
     const cFar = new Color(DERIVED.bukitJauh);
+    const cSea = new Color(PALETTE.laut);
+    const cTint = new Color(tint ?? PALETTE.sabana);
     const col: number[] = [];
     const c = new Color();
     for (let i = 0; i < pos.count; i++) {
@@ -77,7 +87,14 @@ export const Terrain: React.FC<{
       c.copy(cSab);
       c.lerp(cPas, smoothstep(0.15, 0.55, patch) * 0.55);
       c.lerp(cGel, smoothstep(-0.2, -0.6, patch) * 0.45);
-      c.lerp(cFar, smoothstep(10, 30, y) * 0.35);
+      if (island) {
+        c.lerp(cPas, 1 - smoothstep(0.25, 0.9, y));
+        c.lerp(cGel, smoothstep(3, 7, y) * 0.35);
+        if (y < 0) c.lerp(cSea, smoothstep(0, -2.5, y) * 0.7);
+      } else {
+        c.lerp(cFar, smoothstep(10, 30, y) * 0.35);
+      }
+      if (tint) c.lerp(cTint, tintAmount * (0.75 + patch * 0.5));
       c.offsetHSL(0, 0, fine);
       col.push(c.r, c.g, c.b);
     }
@@ -95,7 +112,7 @@ export const Terrain: React.FC<{
       bumpScale: 1.5,
     });
     return { geometry: g, material: m };
-  }, [height, size, segments, center, seed]);
+  }, [height, size, segments, center[0], center[1], seed, island, tint, tintAmount]);
   return <mesh geometry={geometry} material={material} receiveShadow />;
 };
 
@@ -160,6 +177,8 @@ export type GrassProps = {
   seed?: number;
   minH?: number;
   maxH?: number;
+  tint?: string;
+  tintAmount?: number;
 };
 
 export const Grass: React.FC<GrassProps> = ({
@@ -167,10 +186,12 @@ export const Grass: React.FC<GrassProps> = ({
   t,
   count = 9000,
   area = { xMin: -40, xMax: 40, zMin: -70, zMax: 24 },
-  clearings = [],
+  clearings = NO_CLEARINGS,
   seed = 21,
   minH = 0.25,
   maxH = 0.75,
+  tint,
+  tintAmount = 0,
 }) => {
   const { mesh, uniforms } = useMemo(() => {
     const geo = makeTuft(11, seed);
@@ -229,6 +250,7 @@ export const Grass: React.FC<GrassProps> = ({
       o.updateMatrix();
       inst.setMatrixAt(placed, o.matrix);
       c.setRGB(1, 1, 1).offsetHSL((r() - 0.5) * 0.03, (r() - 0.5) * 0.1, (r() - 0.5) * 0.12);
+      if (tint) c.lerp(new Color(tint).multiplyScalar(1.6), tintAmount * r());
       inst.setColorAt(placed, c);
       placed++;
     }
@@ -239,7 +261,7 @@ export const Grass: React.FC<GrassProps> = ({
     inst.castShadow = false;
     inst.frustumCulled = false;
     return { mesh: inst, uniforms };
-  }, [height, count, area.xMin, area.xMax, area.zMin, area.zMax, clearings, seed, minH, maxH]);
+  }, [height, count, area.xMin, area.xMax, area.zMin, area.zMax, clearings, seed, minH, maxH, tint, tintAmount]);
 
   uniforms.uTime.value = t;
   return <primitive object={mesh} />;

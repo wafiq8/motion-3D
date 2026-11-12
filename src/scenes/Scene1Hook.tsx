@@ -1,8 +1,8 @@
 /**
- * S1 (frame 0–210) — Hook sabana NTT golden hour.
+ * S1 (frame 0–328) — Hook sabana NTT golden hour.
  * Kamera: dolly-in 18 m -> 11 m dari Komodo, tinggi 3 m (parallax nyata terhadap rumput,
  * batu, lontar, bukit, awan, dan kartu judul 3D yang berada di kedalaman berbeda).
- * Teks (3D, di dalam scene): "KOMODO LAHIR DI AUSTRALIA?" lalu sorot "BUKAN GIGANTISME PULAU".
+ * Narasi kalimat 1–2. Teks (3D, di dalam scene): "KOMODO LAHIR DI AUSTRALIA?" lalu sorot "BUKAN GIGANTISME PULAU".
  */
 import React, { useMemo } from 'react';
 import { Easing, interpolate, useCurrentFrame, useVideoConfig } from 'remotion';
@@ -11,9 +11,10 @@ import { Komodo, komodoCenter } from '../models/Komodo';
 import { Grass, Terrain, makeHeightFn } from '../models/Terrain';
 import { Cloud, Lontar, Rock, SkyDome } from '../models/Scenery';
 import { Text3DBlock, TextLine } from '../three/Text3D';
-import { RULES } from '../styleLock';
+import { RULES, sceneDuration, sceneLocal } from '../styleLock';
 
-export const S1_DURATION = 210;
+export const S1_DURATION = sceneDuration('S1');
+const K2 = sceneLocal('S1', 6.76); // kalimat 2 dimulai
 
 const KOMODO_SPEED = 0.25; // m/s
 const KOMODO_X0 = -1.0;
@@ -95,8 +96,8 @@ export const Scene1Hook: React.FC = () => {
     throw new Error(`QC: kamera terlalu dekat ke Komodo (${distance.toFixed(2)} m) di frame ${frame}`);
   }
 
-  const titleOpacity = fade(frame, 10, 24, 98, 108);
-  const hlOpacity = fade(frame, 114, 126, 400, 401);
+  const titleOpacity = fade(frame, 10, 24, K2 - 14, K2 - 4);
+  const hlOpacity = fade(frame, K2, K2 + 12, 9999, 10000);
 
   const clearings = useMemo<[number, number, number, number][]>(() => [[0.0, 0, 3.4, 1.7]], []);
 

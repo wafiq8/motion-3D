@@ -1,8 +1,14 @@
 import React from 'react';
 import { AbsoluteFill, Audio, Composition, Sequence, getStaticFiles, staticFile } from 'remotion';
 import { SCENES, VIDEO } from './styleLock';
-import { Scene1Hook, S1_DURATION } from './scenes/Scene1Hook';
+import { Scene1Hook } from './scenes/Scene1Hook';
 import { ScenePending } from './scenes/ScenePending';
+import { Scene2Fossil } from './scenes/Scene2Fossil';
+import { Scene3Rivals } from './scenes/Scene3Rivals';
+import { Scene4Islands } from './scenes/Scene4Islands';
+import { Scene5DNA } from './scenes/Scene5DNA';
+import { Scene6Contrast } from './scenes/Scene6Contrast';
+import { Scene7Legacy } from './scenes/Scene7Legacy';
 
 const NARRATION = 'narasi-komodo.mp3';
 
@@ -14,7 +20,12 @@ const NarrationSlot: React.FC = () => {
 
 const SCENE_COMPONENTS: Record<string, React.FC> = {
   S1: Scene1Hook,
-  // S2–S7: dibangun SETELAH test render S1 disetujui.
+  S2: Scene2Fossil,
+  S3: Scene3Rivals,
+  S4: Scene4Islands,
+  S5: Scene5DNA,
+  S6: Scene6Contrast,
+  S7: Scene7Legacy,
 };
 
 /** Komposisi utama 60 detik — 7 scene, hard cut (Sequence berurutan tanpa transisi). */
@@ -42,13 +53,19 @@ export const RemotionRoot: React.FC = () => (
       fps={VIDEO.fps}
       durationInFrames={VIDEO.durationInFrames}
     />
-    <Composition
-      id="KomodoS1Test"
-      component={Scene1Hook}
-      width={VIDEO.width}
-      height={VIDEO.height}
-      fps={VIDEO.fps}
-      durationInFrames={S1_DURATION}
-    />
+    {/* Komposisi per-scene untuk preview/QC */}
+    {SCENES.map((s) =>
+      SCENE_COMPONENTS[s.id] ? (
+        <Composition
+          key={s.id}
+          id={`Scene-${s.id}`}
+          component={SCENE_COMPONENTS[s.id]}
+          width={VIDEO.width}
+          height={VIDEO.height}
+          fps={VIDEO.fps}
+          durationInFrames={s.to - s.from}
+        />
+      ) : null,
+    )}
   </>
 );

@@ -7,7 +7,7 @@ const require = createRequire(import.meta.url);
 const ttf = require.resolve('@expo-google-fonts/oswald/700Bold/Oswald_700Bold.ttf');
 const font = opentype.parse(fs.readFileSync(ttf).buffer);
 const chars =
-  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 .,:;!?-–—+/\'"()&%#@';
+  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 .,:;!?-–—+/\'"()&%#@·×';
 const round = (v) => Math.round(v);
 const glyphs = {};
 for (const ch of chars) {

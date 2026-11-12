@@ -123,7 +123,8 @@ export const Lontar: React.FC<{
   height?: number;
   seed?: number;
   t?: number;
-}> = ({ position, height = 12, seed = 1, t = 0 }) => {
+  scale?: number;
+}> = ({ position, height = 12, seed = 1, t = 0, scale = 1 }) => {
   const data = useMemo(() => {
     const r = mulberry32(seed);
     const trunk = new CylinderGeometry(0.17, 0.28, height, 10, 6);
@@ -149,7 +150,7 @@ export const Lontar: React.FC<{
   }, [height, seed]);
   const sway = Math.sin(t * 0.9 + seed) * 0.02;
   return (
-    <group position={position} rotation={[sway, 0, data.lean]}>
+    <group position={position} rotation={[sway, 0, data.lean]} scale={scale}>
       <mesh geometry={data.trunk} material={trunkMat} castShadow receiveShadow />
       <group position={[0, height, 0]}>
         {data.leaves.map((l, i) => (
@@ -196,3 +197,39 @@ export const Rock: React.FC<{ position: [number, number, number]; scale?: [numbe
     receiveShadow
   />
 );
+
+/* ---------------- Pohon sabana purba (eukaliptus stilasi) ---------------- */
+const canopyMat = new MeshStandardMaterial({ color: DERIVED.daunLontar, roughness: 0.95, metalness: 0, flatShading: true });
+const canopyGeo = new DodecahedronGeometry(1, 1);
+export const SavannaTree: React.FC<{ position: [number, number, number]; height?: number; seed?: number; dry?: boolean; scale?: number }> = ({
+  position,
+  height = 7,
+  seed = 1,
+  dry = false,
+  scale = 1,
+}) => {
+  const parts = useMemo(() => {
+    const r = mulberry32(seed + 500);
+    return Array.from({ length: 4 }).map(() => ({
+      p: [(r() - 0.5) * 2.6, height + (r() - 0.3) * 1.2, (r() - 0.5) * 2.2] as [number, number, number],
+      s: 1.2 + r() * 0.9,
+    }));
+  }, [height, seed]);
+  return (
+    <group position={position} scale={scale}>
+      <mesh material={trunkMat} position={[0, height / 2, 0]} castShadow>
+        <cylinderGeometry args={[0.16, 0.3, height, 8]} />
+      </mesh>
+      {[0.6, -0.7].map((a, i) => (
+        <mesh key={i} material={trunkMat} position={[a * 0.9, height * 0.75, 0]} rotation={[0, 0, -a]} castShadow>
+          <cylinderGeometry args={[0.07, 0.12, height * 0.45, 6]} />
+        </mesh>
+      ))}
+      {dry
+        ? null
+        : parts.map((c, i) => (
+            <mesh key={i} geometry={canopyGeo} material={canopyMat} position={c.p} scale={[c.s * 1.3, c.s * 0.6, c.s * 1.2]} castShadow />
+          ))}
+    </group>
+  );
+};

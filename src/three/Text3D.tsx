@@ -4,7 +4,9 @@
  *  - GoldNumber: angka kunci emas #D9A62E (metalness 0.65).
  */
 import React, { useMemo } from 'react';
-import { Box3, BufferGeometry, MeshStandardMaterial } from 'three';
+import { Box3, BufferGeometry, MeshStandardMaterial, PMREMGenerator, Texture, WebGLRenderer } from 'three';
+import { useThree } from '@react-three/fiber';
+import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
 import fontJson from '../fonts/oswald-bold.typeface.json';
@@ -38,8 +40,24 @@ const wordGeo = (text: string, size: number, depth: number) => {
   return out;
 };
 
-const useTextMaterials = (opacity: number, variant: 'title' | 'gold') =>
-  useMemo(() => {
+/** Env map prosedural (RoomEnvironment = kotak & lampu dari kode) — hanya untuk logam emas. */
+const envCache = new WeakMap<WebGLRenderer, Texture>();
+export const useGoldEnv = () => {
+  const gl = useThree((st) => st.gl);
+  return useMemo(() => {
+    const hit = envCache.get(gl);
+    if (hit) return hit;
+    const pm = new PMREMGenerator(gl);
+    const tex = pm.fromScene(new RoomEnvironment(), 0.04).texture;
+    pm.dispose();
+    envCache.set(gl, tex);
+    return tex;
+  }, [gl]);
+};
+
+const useTextMaterials = (opacity: number, variant: 'title' | 'gold') => {
+  const env = useGoldEnv();
+  return useMemo(() => {
     const transparent = opacity < 0.999;
     const mk = (color: string, emissive: number, metal = 0, rough = 0.88) =>
       new MeshStandardMaterial({
@@ -53,7 +71,9 @@ const useTextMaterials = (opacity: number, variant: 'title' | 'gold') =>
         fog: false,
       });
     if (variant === 'gold') {
-      const face = mk(MATERIAL.gold.color, 0.28, MATERIAL.gold.metalness, MATERIAL.gold.roughness);
+      const face = mk(MATERIAL.gold.color, 0.06, MATERIAL.gold.metalness, MATERIAL.gold.roughness);
+      face.envMap = env;
+      face.envMapIntensity = 0.9;
       const side = mk(PALETTE.kayu, 0.05, 0, 0.9);
       return { main: [face, side], accent: [face, side] };
     }
@@ -62,7 +82,8 @@ const useTextMaterials = (opacity: number, variant: 'title' | 'gold') =>
       main: [mk(TYPE_COLORS.utama, 0.55), side],
       accent: [mk(TYPE_COLORS.aksen, 0.45), side],
     };
-  }, [opacity, variant]);
+  }, [opacity, variant, env]);
+};
 
 /**
  * Blok teks 3D multi-baris, rata tengah. Titik origin = tengah blok.

@@ -101,13 +101,40 @@ export const VIDEO = {
   durationInFrames: 1800,
 } as const;
 
+/**
+ * NARASI = MASTER CLOCK. public/narasi-komodo.mp3 (48,04 dtk) dimulai di frame 0.
+ * Batas kalimat diukur dari jeda hening (ffmpeg silencedetect, -35 dB, >=0,38 dtk):
+ *   k1 3,39–6,21 | k2 6,76–10,71 | k3 11,16–13,76 | k4 14,28–18,72 | k5 19,14–25,95
+ *   k6 26,43–37,18 | k7 37,60–40,78 | k8 41,16–43,46 | k9 43,88–47,83
+ * (k5 berisi satu jeda napas 23,56–23,97 yang diperlakukan sebagai koma.)
+ * Hard cut diletakkan di tengah jeda antar kalimat.
+ */
+export const NARRATION = {
+  file: 'narasi-komodo.mp3',
+  durationSec: 48.04,
+  sentences: [
+    [3.39, 6.21], [6.76, 10.71], [11.16, 13.76], [14.28, 18.72], [19.14, 25.95],
+    [26.43, 37.18], [37.6, 40.78], [41.16, 43.46], [43.88, 47.83],
+  ] as [number, number][],
+} as const;
+
 /** Batas scene (frame @30fps). Hard cut antar scene. */
 export const SCENES = [
-  { id: 'S1', from: 0, to: 210 },
-  { id: 'S2', from: 210, to: 480 },
-  { id: 'S3', from: 480, to: 780 },
-  { id: 'S4', from: 780, to: 1080 },
-  { id: 'S5', from: 1080, to: 1290 },
-  { id: 'S6', from: 1290, to: 1560 },
-  { id: 'S7', from: 1560, to: 1800 },
+  { id: 'S1', from: 0, to: 328 }, // kalimat 1–2
+  { id: 'S2', from: 328, to: 568 }, // kalimat 3–4
+  { id: 'S3', from: 568, to: 786 }, // kalimat 5
+  { id: 'S4', from: 786, to: 1122 }, // kalimat 6
+  { id: 'S5', from: 1122, to: 1229 }, // kalimat 7
+  { id: 'S6', from: 1229, to: 1310 }, // kalimat 8
+  { id: 'S7', from: 1310, to: 1800 }, // kalimat 9 + kartu penutup s/d 60 dtk
 ] as const;
+
+/** Frame lokal scene untuk detik narasi absolut. */
+export const sceneLocal = (sceneId: string, sec: number) => {
+  const s = SCENES.find((x) => x.id === sceneId)!;
+  return Math.round(sec * VIDEO.fps) - s.from;
+};
+export const sceneDuration = (sceneId: string) => {
+  const s = SCENES.find((x) => x.id === sceneId)!;
+  return s.to - s.from;
+};
