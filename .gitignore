@@ -4,3 +4,5 @@ out/*
 !out/scene1-test.mp4
 !out/komodo-final.mp4
 *.log
+out/scenes/
+out/preview/

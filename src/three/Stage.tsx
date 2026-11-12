@@ -9,6 +9,12 @@ import { ACESFilmicToneMapping, Object3D, PCFShadowMap, PerspectiveCamera, Vecto
 import { useVideoConfig } from 'remotion';
 import { LIGHT, RENDER } from '../styleLock';
 
+/**
+ * Mode preview (scripts/render.mjs --preview): MSAA dimatikan. Diukur: render ~45% lebih cepat
+ * di software WebGL. Render final selalu dengan anti-aliasing.
+ */
+const IS_PREVIEW = typeof process !== 'undefined' && process.env.KOMODO_PREVIEW === '1';
+
 export type CameraPose = { position: [number, number, number]; target: [number, number, number] };
 
 /** Pasang pose kamera tiap frame (kamera = satu-satunya sumber gerak shot). */
@@ -66,7 +72,7 @@ export const DioramaStage: React.FC<{
       height={height}
       shadows={{ type: PCFShadowMap }}
       camera={{ fov: RENDER.fov, near: 0.1, far: 1500, position: pose.position }}
-      gl={{ antialias: true, preserveDrawingBuffer: true, toneMapping: ACESFilmicToneMapping, toneMappingExposure: RENDER.exposure }}
+      gl={{ antialias: !IS_PREVIEW, preserveDrawingBuffer: true, toneMapping: ACESFilmicToneMapping, toneMappingExposure: RENDER.exposure }}
       onCreated={({ gl }) => {
         gl.toneMapping = ACESFilmicToneMapping;
         gl.toneMappingExposure = RENDER.exposure;

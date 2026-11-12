@@ -5,8 +5,10 @@
   "description": "Komodo Diorama 3D - Remotion + Three.js, 1080x1920 9:16, 60s",
   "scripts": {
     "studio": "remotion studio",
-    "render:scene1": "remotion render Scene-S1 out/scene1-test.mp4 --gl=swangle --concurrency=3",
-    "render": "remotion render KomodoDiorama60 out/komodo-final.mp4 --gl=swangle --concurrency=3",
+    "preview": "node scripts/render.mjs --preview",
+    "render": "node scripts/render.mjs",
+    "render:force": "node scripts/render.mjs --force",
+    "render:scene1": "node scripts/render.mjs --preview S1",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
