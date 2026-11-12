@@ -1,0 +1,5 @@
+node_modules/
+.DS_Store
+out/*
+!out/scene1-test.mp4
+*.log

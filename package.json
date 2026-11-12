@@ -1,0 +1,29 @@
+{
+  "name": "komodo-diorama",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Komodo Diorama 3D - Remotion + Three.js, 1080x1920 9:16, 60s",
+  "scripts": {
+    "studio": "remotion studio",
+    "render:scene1": "remotion render KomodoS1Test out/scene1-test.mp4 --gl=swangle --concurrency=3",
+    "render": "remotion render KomodoDiorama60 out/komodo-diorama-60.mp4 --gl=swangle",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^9.8.2",
+    "@remotion/cli": "^4.0.543",
+    "@remotion/media": "^4.0.543",
+    "@remotion/three": "^4.0.543",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "remotion": "^4.0.543",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "@expo-google-fonts/oswald": "^0.4.2",
+    "@types/react": "^19.3.0",
+    "@types/three": "^0.187.0",
+    "opentype.js": "^2.0.0",
+    "typescript": "^7.0.2"
+  }
+}
