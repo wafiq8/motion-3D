@@ -5,7 +5,7 @@ Config.setEntryPoint('./src/index.ts');
 Config.setVideoImageFormat('jpeg');
 Config.setJpegQuality(92);
 Config.setCodec('h264');
-Config.setCrf(18);
+Config.setCrf(21); // jaga file final < 100 MB (batas GitHub)
 Config.setPixelFormat('yuv420p');
 // Tanpa GPU: software WebGL (SwiftShader lewat ANGLE).
 Config.setChromiumOpenGlRenderer('swangle');
