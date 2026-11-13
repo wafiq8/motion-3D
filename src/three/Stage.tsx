@@ -62,10 +62,11 @@ const Bokeh: React.FC<{t: number; cam: Cam; seed: number}> = ({t, cam, seed}) =>
 };
 
 /** Kilau emas lewat paket: dipakai di transisi masuk/keluar scene (match-cut pada paket). */
-const Flash: React.FC<{amount: number; cam: Cam}> = ({amount, cam}) => {
+const Flash: React.FC<{amount: number; cam: Cam; color: string}> = ({amount, cam, color}) => {
   const mat = useMemo(() => new THREE.MeshBasicMaterial({color: '#FFE2A0', transparent: true, depthTest: false, depthWrite: false}), []);
   if (amount <= 0.001) return null;
   mat.opacity = amount;
+  mat.color.set(color);
   const d = new THREE.Vector3(...cam.target).sub(new THREE.Vector3(...cam.pos)).normalize().multiplyScalar(0.2).add(new THREE.Vector3(...cam.pos));
   return (
     <mesh position={d} renderOrder={999} material={mat} onUpdate={(m) => m.lookAt(...cam.pos)}>
@@ -74,26 +75,34 @@ const Flash: React.FC<{amount: number; cam: Cam}> = ({amount, cam}) => {
   );
 };
 
-export const Stage: React.FC<{cam: Cam; t: number; flash?: number; seed?: number; children: React.ReactNode}> = ({cam, t, flash = 0, seed = 7, children}) => {
+/**
+ * dim 0..1 = suasana suram (cahaya redup, sedikit dingin); warm 0..1 = payoff cerah hangat.
+ * Keduanya hanya menggeser intensitas/temperatur rig yang SAMA (bawaan 0/0 = rig Part 1).
+ */
+export const Stage: React.FC<{cam: Cam; t: number; flash?: number; flashColor?: string; seed?: number; dim?: number; warm?: number; children: React.ReactNode}> = ({cam, t, flash = 0, flashColor = '#FFE2A0', seed = 7, dim = 0, warm = 0, children}) => {
   const {width, height} = useVideoConfig();
   const vm = useMemo(voidMat, []);
   const dir = new THREE.Vector3(...cam.target).sub(new THREE.Vector3(...cam.pos)).normalize();
   vm.uniforms.dir.value.copy(dir);
+  const kI = (1 - 0.45 * dim) * (1 + 0.5 * warm);
+  const keyCol = new THREE.Color('#FFF4EC').lerp(new THREE.Color('#C4C2E4'), 0.6 * dim).lerp(new THREE.Color('#FFD0A0'), 0.65 * warm);
+  vm.uniforms.cA.value.set(C.voidCenter).lerp(new THREE.Color('#26123F'), 0.55 * dim).lerp(new THREE.Color('#5E2B63'), 0.7 * warm);
+  vm.uniforms.cB.value.set(C.voidEdge).lerp(new THREE.Color('#0E0620'), 0.5 * dim).lerp(new THREE.Color('#24102E'), 0.5 * warm);
   return (
     <ThreeCanvas width={width} height={height} gl={{antialias: true, preserveDrawingBuffer: true}} style={{position: 'absolute', inset: 0}}>
       <CamSync cam={cam} />
       {/* Rig cahaya Mode C — satu untuk semua scene */}
-      <ambientLight intensity={0.28} color="#B9A8E8" />
-      <hemisphereLight args={['#D9CCFF', '#1A0D33', 0.35]} />
-      <directionalLight position={[3, 6, 8]} intensity={2.2} color="#FFF4EC" />
-      <directionalLight position={[-7, 3, -6]} intensity={3.2} color="#C9A6FF" />
-      <directionalLight position={[6, -2, -5]} intensity={1.6} color="#FF9FC4" />
+      <ambientLight intensity={0.28 * kI} color="#B9A8E8" />
+      <hemisphereLight args={['#D9CCFF', '#1A0D33', 0.35 * kI]} />
+      <directionalLight position={[3, 6, 8]} intensity={2.2 * kI} color={keyCol} />
+      <directionalLight position={[-7, 3, -6]} intensity={3.2 * (1 - 0.3 * dim) * (1 + 0.2 * warm)} color="#C9A6FF" />
+      <directionalLight position={[6, -2, -5]} intensity={1.6 * (1 - 0.3 * dim) * (1 + 0.4 * warm)} color="#FF9FC4" />
       <mesh position={cam.pos} material={vm} renderOrder={-10}>
         <sphereGeometry args={[150, 32, 16]} />
       </mesh>
       <Bokeh t={t} cam={cam} seed={seed} />
       {children}
-      <Flash amount={flash} cam={cam} />
+      <Flash amount={flash} cam={cam} color={flashColor} />
     </ThreeCanvas>
   );
 };

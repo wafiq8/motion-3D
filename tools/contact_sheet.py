@@ -4,7 +4,7 @@ from PIL import Image, ImageDraw, ImageFont
 args = [a for a in sys.argv[1:] if not a.startswith('--')]
 opts = dict(a[2:].split('=') for a in sys.argv[1:] if a.startswith('--'))
 d, out = args[0], args[1]
-scenes = [int(x) for x in args[2:]] or list(range(1, 9))
+scenes = [int(x) for x in args[2:]] or [s['id'] for s in json.load(open('docs/timeline.json'))['scenes']]
 W = int(opts.get('w', 360)); H = W * 16 // 9; pad = 10; lab = 34
 tl = json.load(open('docs/timeline.json'))
 sheet = Image.new('RGB', (pad + 3 * (W + pad), pad + len(scenes) * (H + lab + pad)), (10, 6, 20))

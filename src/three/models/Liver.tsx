@@ -33,7 +33,7 @@ export const HEPATIC = curveOf([[0.35, 1.5, 0.5], [0.4, 2.6, 0.3], [0.4, 4.4, 0.
 export const STORE: [number, number, number] = [-1.55, 0.25, 0.95];
 export const FILTER: [number, number, number] = [-0.25, 0.1, 1.0];
 
-export const Liver: React.FC<{opacity: number; glowFilter: number; glowStore: number}> = ({opacity, glowFilter, glowStore}) => {
+export const Liver: React.FC<{opacity: number; glowFilter: number; glowStore: number; vessels?: boolean}> = ({opacity, glowFilter, glowStore, vessels = true}) => {
   const g = useMemo(() => ({liver: liverGeo(), portal: varTube(PORTAL, () => 0.32, {n: 40, m: 16}), hep: varTube(HEPATIC, () => 0.36, {n: 40, m: 16})}), []);
   const m = useMemo(
     () => ({
@@ -50,8 +50,8 @@ export const Liver: React.FC<{opacity: number; glowFilter: number; glowStore: nu
   m.store.uniforms.k.value = 0.9 * glowStore;
   return (
     <group>
-      <mesh geometry={g.portal} material={m.blue} />
-      <mesh geometry={g.hep} material={m.blue} />
+      {vessels && <mesh geometry={g.portal} material={m.blue} />}
+      {vessels && <mesh geometry={g.hep} material={m.blue} />}
       {glowFilter > 0 && (
         <mesh position={FILTER} material={m.ring} rotation={[0, 0, 0]}>
           <torusGeometry args={[0.42, 0.035, 10, 48]} />

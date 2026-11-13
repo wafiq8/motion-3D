@@ -18,7 +18,8 @@ export const Chip: React.FC<{
   active: number;
   appear: number;
   maxW?: number;
-}> = ({anchor, box, text, sub, subs = [], color = C.gold, active, appear, maxW = W * 0.62}) => {
+  subPrefix?: string;
+}> = ({anchor, box, text, sub, subs = [], color = C.gold, active, appear, maxW = W * 0.62, subPrefix = '✓ '}) => {
   if (appear <= 0.01) return null;
   const size = fitSize(text, FONT_SANS, '800', maxW - 56, 44, 30) ?? 30;
   const subSize = sub ? fitSize(sub, FONT_SANS, '500', maxW - 56, 30, 22) ?? 22 : 0;
@@ -55,7 +56,7 @@ export const Chip: React.FC<{
         <div style={{fontFamily: FONT_SANS, fontWeight: 800, fontSize: size, color: a > 0.5 ? C.text : 'rgba(255,255,255,0.7)', whiteSpace: 'nowrap', textShadow: '0 2px 6px rgba(0,0,0,0.8)'}}>{text}</div>
         {subs.map((sb) => {
           const ss = fitSize(sb.text, FONT_SANS, '700', maxW - 56, 30, 22) ?? 22;
-          return sb.k > 0.01 ? <div key={sb.text} style={{fontFamily: FONT_SANS, fontWeight: 700, fontSize: ss, color: C.text, opacity: sb.k, marginTop: 6, whiteSpace: 'nowrap'}}>{'✓ ' + sb.text}</div> : null;
+          return sb.k > 0.01 ? <div key={sb.text} style={{fontFamily: FONT_SANS, fontWeight: 700, fontSize: ss, color: C.text, opacity: sb.k, marginTop: 6, whiteSpace: 'nowrap'}}>{subPrefix + sb.text}</div> : null;
         })}
         {sub && <div style={{fontFamily: FONT_SANS, fontWeight: 500, fontSize: subSize, color: 'rgba(255,255,255,0.85)', marginTop: 6, whiteSpace: 'nowrap'}}>{sub}</div>}
       </div>

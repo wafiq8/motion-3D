@@ -34,7 +34,7 @@ const capsule = (a: V3, b: V3, r: number) => {
   return g;
 };
 
-export const Body: React.FC<{t: number; beat: number; net: number; brain: number; muscle: number; cells: number; bodyOpacity: number}> = ({t, beat, net, brain, muscle, cells, bodyOpacity}) => {
+export const Body: React.FC<{t: number; beat: number; net: number; brain: number; muscle: number; cells: number; bodyOpacity: number; hideBrain?: boolean; artColor?: string; artEmissive?: number}> = ({t, beat, net, brain, muscle, cells, bodyOpacity, hideBrain = false, artColor, artEmissive}) => {
   const g = useMemo(() => {
     const parts = [
       capsule([0, 4.2, 0], [0, 4.85, 0], 0.62), // kepala
@@ -85,7 +85,9 @@ export const Body: React.FC<{t: number; beat: number; net: number; brain: number
   m.sil.opacity = bodyOpacity;
   m.sil.transparent = bodyOpacity < 0.99;
   m.rim.opacity = 0.8 * bodyOpacity;
-  m.art.emissiveIntensity = 0.25 + 0.55 * net;
+  m.art.color.set(artColor ?? C.bloodRed);
+  m.art.emissive.set(artColor ?? C.bloodRed);
+  m.art.emissiveIntensity = artEmissive ?? 0.25 + 0.55 * net;
   m.brain.emissive.set(C.goldEmissive);
   m.brain.emissiveIntensity = 0.55 * brain;
   m.muscle.emissive.set(C.goldEmissive);
@@ -115,7 +117,7 @@ export const Body: React.FC<{t: number; beat: number; net: number; brain: number
       ))}
       <mesh material={m.lung} position={[-0.55, 2.55, 0.0]} scale={[0.45, 0.85, 0.32]} renderOrder={2}><sphereGeometry args={[1, 32, 20]} /></mesh>
       <mesh material={m.lung} position={[0.6, 2.55, 0.0]} scale={[0.45, 0.85, 0.32]} renderOrder={2}><sphereGeometry args={[1, 32, 20]} /></mesh>
-      <mesh material={m.brain} position={BRAIN_POS} scale={[0.46, 0.34, 0.4]}><sphereGeometry args={[1, 32, 20]} /></mesh>
+      {!hideBrain && <mesh material={m.brain} position={BRAIN_POS} scale={[0.46, 0.34, 0.4]}><sphereGeometry args={[1, 32, 20]} /></mesh>}
       {[1, -1].map((s) => (
         <mesh key={s} material={m.muscle} position={[0.48 * s, -1.85, 0.05]} scale={[0.3, 0.95, 0.28]}><sphereGeometry args={[1, 24, 16]} /></mesh>
       ))}

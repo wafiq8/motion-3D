@@ -3,7 +3,8 @@ import {C, FONT_SANS, W} from '../lib/style';
 import {WORDS, Word, SENTENCES} from '../lib/time';
 import {fitSize} from './fit';
 
-const KEY = new Set(['amilase', 'karbohidrat', 'peristaltik', 'kerongkongan', 'pepsin', 'kimus', 'protein', 'empedu', 'pankreas', 'glukosa', 'amino', 'lemak', 'vili', 'penyerapan', 'kapiler', 'limfa', 'hati', 'racun', 'cadangan', 'jantung', 'otak', 'otot', 'sel', 'mulut', 'lambung', 'nutrisi']);
+import {EP} from '../lib/episode';
+const KEY = new Set(EP.key);
 const norm = (x: string) => x.toLowerCase().replace(/[^a-z]/g, '');
 
 type Page = {words: Word[]; s: number; e: number};
@@ -11,6 +12,7 @@ type Page = {words: Word[]; s: number; e: number};
 const buildPages = (): Page[] => {
   const pages: Page[] = [];
   for (const sent of SENTENCES) {
+    if (EP.bigTextSentences.includes(sent.id)) continue;
     const ws = WORDS.filter((w) => w.sent === sent.id);
     let cur: Word[] = [];
     const groups: Word[][] = [];

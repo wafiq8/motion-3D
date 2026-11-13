@@ -28,6 +28,21 @@ export const C = {
   liver: '#A8564C',
   heart: '#CE5C6B',
   villus: '#E07C84',
+  // Part 2 (Leaky Gut) — warna khusus, BUKAN biru/merah:
+  endotoxin: '#3E5A2C', // racun: hijau keruh gelap
+  endotoxinGlow: '#86A54A',
+  plaque: '#EDE3A6', // plak/kolesterol: kuning pucat
+  inflame: '#FF8A1F', // sinyal peradangan: kilatan oranye
+  residue: '#7A6A4C', // sisa makanan (stilasi, bukan realistis)
+  bacteria: '#5B3A72', // bakteri jahat
+  rinse: '#FFF0D2', // gelombang bilasan pemulihan
+  healthy: '#FF9DB0', // cahaya organ sehat
+  colon: '#C8707E',
+  smallInt: '#DE8A93',
+  epithelium: '#E28C96',
+  arteryWall: '#D9737D',
+  intima: '#F0A6AE',
+  brain: '#E3A2B4',
   text: '#FFFFFF',
   pillBg: 'rgba(16,8,32,0.78)',
 };
