@@ -31,9 +31,9 @@ export const ToxinField: React.FC<{items: InstItem[]; max?: number}> = ({items, 
 export const HeroToxin: React.FC<{position: V3; t: number; size?: number; halo?: number; flare?: number}> = ({position, t, size = 1, halo = 1, flare = 0}) => {
   const hm = useMemo(() => haloMat(C.endotoxinGlow, 1.1), []);
   const fm = useMemo(() => haloMat('#FF6A00', 1.2), []);
-  const mat = useMemo(() => glossy(C.endotoxin, {roughness: 0.35, emissive: C.endotoxinGlow, emissiveIntensity: 0.45}), []);
+  const mat = useMemo(() => glossy(C.endotoxin, {roughness: 0.35, emissive: C.endotoxinGlow, emissiveIntensity: 0.3}), []);
   hm.uniforms.k.value = 1.0 * halo;
-  fm.uniforms.k.value = 0.75 * flare;
+  fm.uniforms.k.value = 0.4 * flare;
   return (
     <group position={position} scale={size}>
       <mesh geometry={toxinGeo} material={mat} rotation={[t * 0.9, t * 0.6, 0]} />
@@ -41,7 +41,7 @@ export const HeroToxin: React.FC<{position: V3; t: number; size?: number; halo?:
         <sphereGeometry args={[1, 24, 16]} />
       </mesh>
       {flare > 0.01 && (
-        <mesh material={fm} scale={3.4 + 1.2 * Math.sin(t * 9)}>
+        <mesh material={fm} scale={4.2 + 1.0 * Math.sin(t * 9)}>
           <sphereGeometry args={[1, 24, 16]} />
         </mesh>
       )}
@@ -51,8 +51,8 @@ export const HeroToxin: React.FC<{position: V3; t: number; size?: number; halo?:
 
 /** Kilatan sinyal peradangan (oranye) yang berjalan di sepanjang kurva pembuluh. */
 export const InflameFlow: React.FC<{curves: THREE.Curve<THREE.Vector3>[]; t: number; amount: number; count?: number; size?: number; speed?: number; seed?: number; zOff?: number}> = ({curves, t, amount, count = 40, size = 0.06, speed = 0.25, seed = 1, zOff = 0.05}) => {
-  const core = useMemo(() => new THREE.MeshStandardMaterial({color: C.inflame, emissive: C.inflame, emissiveIntensity: 2.2, toneMapped: true}), []);
-  const halo = useMemo(() => haloMatInst(C.inflame, 1.3), []);
+  const core = useMemo(() => new THREE.MeshBasicMaterial({color: '#FF6A0A'}), []);
+  const halo = useMemo(() => haloMatInst('#FF6A0A', 0.9), []);
   const geo = useMemo(() => new THREE.SphereGeometry(1, 12, 8), []);
   if (amount <= 0.01) return null;
   const items: InstItem[] = [];

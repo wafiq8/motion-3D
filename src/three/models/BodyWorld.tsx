@@ -19,7 +19,7 @@ export const toBody = (p: V3): V3 => [GUT_POS[0] + p[0] * GUT_S, GUT_POS[1] + p[
 export const ORGANS = {
   heart: {c: HEART_POS, r: [0.34, 0.4, 0.3] as V3},
   liver: {c: [LIVER_POS[0], LIVER_POS[1], LIVER_POS[2] + 0.08] as V3, r: [0.4, 0.2, 0.17] as V3},
-  brain: {c: [BRAIN_POS[0], BRAIN_POS[1] + 0.02, BRAIN_POS[2] + 0.05] as V3, r: [0.36, 0.27, 0.36] as V3},
+  brain: {c: [BRAIN_POS[0], BRAIN_POS[1] + 0.02, BRAIN_POS[2] + 0.05] as V3, r: [0.29, 0.22, 0.3] as V3},
 };
 
 export const BodyWorld: React.FC<{
