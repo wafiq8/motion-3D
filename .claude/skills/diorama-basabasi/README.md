@@ -31,7 +31,7 @@ Puppeteer/FFmpeg).
 - `scripts/validate_timeline.py` — validator fail-closed untuk
   timeline.json (sudah diuji: PASS pada contoh valid).
 - `scripts/check_output.sh` — pemeriksa file final via ffprobe/ffmpeg:
-  resolusi, fps, durasi 31–55, keheningan, loudness (sudah diuji).
+  resolusi, fps, durasi 30–60, keheningan, loudness (sudah diuji).
 - `evals/evals.md` — 3 skenario uji (aliran, peta, bantahan mitos) +
   asersi lulus/gagal terukur; jalankan sebelum skill disebut selesai.
 - `prompt-mulai-sesi-baru.txt` — prompt pendek yang ditempel user sebagai
