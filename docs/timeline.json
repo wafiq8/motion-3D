@@ -1,0 +1,130 @@
+{
+  "fps": 30,
+  "audio_duration_s": 57.97,
+  "total_duration_s": 58.8,
+  "source": "public/narasi.mp3 (atempo 1.18x dari voice-offer.mp3 68.36s, disetujui user 13 Nov 2026); waktu: Whisper large-v3 language=id + silencedetect -35dB; teks: naskah resmi user",
+  "sentences": [
+    {
+      "id": 1,
+      "text": "Perjalanan dimulai di mulut. Gigi menghancurkan makanan, air liur melembutkannya, dan enzim amilase mulai memecah karbohidrat menjadi gumpalan siap telan.",
+      "start_s": 0.0,
+      "end_s": 8.3,
+      "scene": 1
+    },
+    {
+      "id": 2,
+      "text": "Saat ditelan, otot kerongkongan bergerak peristaltik — meremas bergelombang mendorong makanan turun ke lambung.",
+      "start_s": 8.67,
+      "end_s": 14.05,
+      "scene": 2
+    },
+    {
+      "id": 3,
+      "text": "Di lambung, asam dan enzim pepsin mengaduk makanan menjadi bubur halus bernama kimus, sambil memecah protein.",
+      "start_s": 14.39,
+      "end_s": 19.94,
+      "scene": 3
+    },
+    {
+      "id": 4,
+      "text": "Di usus dua belas jari, empedu memecah lemak dan enzim pankreas membongkar sisanya menjadi molekul terkecil: glukosa, asam amino, asam lemak.",
+      "start_s": 20.29,
+      "end_s": 27.94,
+      "scene": 4
+    },
+    {
+      "id": 5,
+      "text": "Dinding usus halus dilapisi jutaan tonjolan bernama vili, yang memperluas area penyerapan agar molekul nutrisi menembus masuk.",
+      "start_s": 28.28,
+      "end_s": 34.64,
+      "scene": 5
+    },
+    {
+      "id": 6,
+      "text": "Di dalam vili, nutrisi terbagi dua: gula dan asam amino masuk kapiler darah, sedangkan lemak lewat pembuluh limfa sebelum bergabung ke aliran darah.",
+      "start_s": 34.99,
+      "end_s": 42.56,
+      "scene": 6
+    },
+    {
+      "id": 7,
+      "text": "Sebelum menyebar, darah dari usus mampir ke hati — racun disaring, kadar gula diatur, sebagian glukosa disimpan sebagai cadangan.",
+      "start_s": 42.93,
+      "end_s": 49.74,
+      "scene": 7
+    },
+    {
+      "id": 8,
+      "text": "Akhirnya, jantung memompa darah penuh nutrisi ke seluruh tubuh: bahan bakar bagi otak, tenaga bagi otot, bahan baku perbaikan bagi setiap sel.",
+      "start_s": 50.08,
+      "end_s": 57.78,
+      "scene": 8
+    }
+  ],
+  "scenes": [
+    {
+      "id": 1,
+      "sentence_ids": [
+        1
+      ],
+      "start_s": 0.0,
+      "end_s": 8.67
+    },
+    {
+      "id": 2,
+      "sentence_ids": [
+        2
+      ],
+      "start_s": 8.67,
+      "end_s": 14.39
+    },
+    {
+      "id": 3,
+      "sentence_ids": [
+        3
+      ],
+      "start_s": 14.39,
+      "end_s": 20.29
+    },
+    {
+      "id": 4,
+      "sentence_ids": [
+        4
+      ],
+      "start_s": 20.29,
+      "end_s": 28.28
+    },
+    {
+      "id": 5,
+      "sentence_ids": [
+        5
+      ],
+      "start_s": 28.28,
+      "end_s": 34.99
+    },
+    {
+      "id": 6,
+      "sentence_ids": [
+        6
+      ],
+      "start_s": 34.99,
+      "end_s": 42.93
+    },
+    {
+      "id": 7,
+      "sentence_ids": [
+        7
+      ],
+      "start_s": 42.93,
+      "end_s": 50.08
+    },
+    {
+      "id": 8,
+      "sentence_ids": [
+        8
+      ],
+      "start_s": 50.08,
+      "end_s": 58.8
+    }
+  ]
+}
