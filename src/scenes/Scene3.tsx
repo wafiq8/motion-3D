@@ -37,7 +37,7 @@ export const Scene3: React.FC<{t: number}> = ({t}) => {
     target: kf3(t, [[t0, c], [t0 + 1.2, [0.7, 0.0, 0]], [tAduk, [0.5, -0.4, 0]], [tProtein, [1.1, -0.6, 0]], [t1, [2.6, 0.1, 0]]]),
     fov: 36,
   };
-  const {cam, flash} = withDive(base, pk, t, t0, t1);
+  const {cam, flash} = withDive(base, pk, t, t0, t1, {r: 0.6});
   const acid = ramp(t, tAsam - 0.2, tAsam + 0.6);
   const pep = ramp(t, tPepsin - 0.1, tPepsin + 0.4);
   const m = useMemo(

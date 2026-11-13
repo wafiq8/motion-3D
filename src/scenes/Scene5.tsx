@@ -26,7 +26,7 @@ export const Scene5: React.FC<{t: number}> = ({t}) => {
     target: kf3(t, [[t0, [0.6, 4.3, 2.4]], [t0 + 1.4, [0.3, 0.6, -0.8]], [tVili, [0.4, 1.4, 0.3]], [tPerluas, [top[0], top[1] - 0.25, top[2]]], [t1, [entry[0] - 0.1, entry[1], entry[2]]]]),
     fov: 38,
   };
-  const {cam, flash} = withDive(base, pk, t, t0, t1);
+  const {cam, flash} = withDive(base, pk, t, t0, t1, {r: 0.34});
   const micro = ramp(t, tVili + 0.3, tPerluas + 0.4);
   const hp = project(cam, [HERO_VILLUS.x - HERO_VILLUS.r, top[1] - 0.7, HERO_VILLUS.z]);
   return (

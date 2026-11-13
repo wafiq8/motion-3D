@@ -44,7 +44,7 @@ export const Scene1: React.FC<{t: number}> = ({t}) => {
     target: kf3(t, [[0, [0.15, -0.35, 0]], [tGigi, [0.4, -0.6, 0]], [tLiur, [0.8, -0.9, 0]], [tGumpal, [0.9, -0.92, 0]], [tTelan + 0.1, [0.75, -0.95, 0]], [t1, [0.1, -1.55, 0]]]),
     fov: 35,
   };
-  const {cam, flash} = withDive(base, pk, t, t0, t1, {inn: false});
+  const {cam, flash} = withDive(base, pk, t, t0, t1, {inn: false, r: 0.22});
   const merge = ramp(t, tAmilase + 0.6, tTelan);
   const gold = ramp(t, tGumpal - 0.4, tTelan + 0.1);
   const crush = clamp((t - tGigi) / 1.4);

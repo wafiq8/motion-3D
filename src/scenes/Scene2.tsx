@@ -34,7 +34,7 @@ export const Scene2: React.FC<{t: number}> = ({t}) => {
     base.pos = [base.pos[0], pk[1] + 0.4, base.pos[2]];
     base.target = [pk[0] * 0.5, pk[1] - 0.8, 0];
   }
-  const {cam, flash} = withDive(base, pk, t, t0, t1);
+  const {cam, flash} = withDive(base, pk, t, t0, t1, {r: 0.62});
   const ring = pt(Math.max(0, ub - 0.085));
   const a = project(cam, [ring[0] + 0.45, ring[1], 0.2]);
   return (

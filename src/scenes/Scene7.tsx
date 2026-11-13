@@ -36,7 +36,7 @@ export const Scene7: React.FC<{t: number}> = ({t}) => {
     target: kf3(t, [[t0, pk], [t0 + 1.3, [-0.2, -1.2, 0]], [tRacun, [-0.4, -0.8, 0]], [tSebagian, [-0.7, -0.6, 0]], [t1 - 0.5, [-0.3, -0.3, 0]], [t1, [pk[0], pk[1] + 0.6, pk[2]]]]),
     fov: 38,
   };
-  const {cam, flash} = withDive(base, pkz, t, t0, t1);
+  const {cam, flash} = withDive(base, pkz, t, t0, t1, {r: 0.42});
   const filt = ramp(t, tRacun - 0.15, tRacun + 0.4) * (1 - ramp(t, tSebagian, tSebagian + 0.5));
   const store = ramp(t, tSebagian, tCadangan + 0.3);
   const toxMat = useMemo(() => new THREE.MeshStandardMaterial({color: C.toxin, roughness: 0.6}), []);
@@ -45,7 +45,7 @@ export const Scene7: React.FC<{t: number}> = ({t}) => {
   return (
     <>
       <Stage cam={cam} t={t} flash={flash} seed={7}>
-        <Liver opacity={0.7} glowFilter={filt} glowStore={store} />
+        <Liver opacity={0.8} glowFilter={filt} glowStore={store} />
         {stream.map((s, i) => {
           let u = flow(s.o);
           let p = path(u);

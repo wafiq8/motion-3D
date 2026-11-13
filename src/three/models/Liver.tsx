@@ -1,24 +1,28 @@
 import React, {useMemo} from 'react';
 import * as THREE from 'three';
 import {C} from '../../lib/style';
-import {glossy} from '../materials';
+import {glossy, haloMat} from '../materials';
 import {varTube, curveOf} from '../VarTube';
 
 // Hati glossy (lobus kanan besar + lobus kiri meruncing), vena porta & vena hepatika (BIRU = miskin O2).
 const liverGeo = () => {
-  const g = new THREE.SphereGeometry(1, 96, 64);
+  // Bentuk baji: lobus kanan (kiri layar) tebal-membulat, lobus kiri menipis & meruncing ke atas,
+  // permukaan atas berkubah, tepi bawah miring tajam, alur ligamen falsiformis memisah dua lobus.
+  const g = new THREE.SphereGeometry(1, 128, 80);
   const p = g.attributes.position;
   const v = new THREE.Vector3();
   for (let i = 0; i < p.count; i++) {
     v.fromBufferAttribute(p, i);
-    // x: -1 (lobus kanan, kiri layar) .. 1 (lobus kiri meruncing)
     const x = v.x;
-    const taper = x > 0 ? 1 - 0.62 * x * x : 1 - 0.1 * x * x;
-    let y = v.y * 1.25 * taper;
-    if (y < 0) y *= 0.55; // permukaan bawah lebih datar
-    y += 0.25 * (1 - x * x) * (v.y > 0 ? 0.6 : 0.0);
-    const z = v.z * 0.95 * taper;
-    p.setXYZ(i, x * 2.9, y, z);
+    const k = THREE.MathUtils.clamp((x + 0.35) / 1.35, 0, 1);
+    const hx = 1 - 0.78 * Math.pow(k, 1.1); // tinggi menyusut ke lobus kiri
+    let y = v.y * 1.75 * hx;
+    if (v.y < 0) y *= 0.7; // bawah lebih datar
+    y += 0.9 * (1 - hx); // lobus kiri naik ke atas
+    y -= 0.22 * (x + 1) * 0.5 * (v.y < 0 ? 1 : 0.2); // tepi bawah miring
+    const groove = v.y > -0.2 && v.z > 0 ? 0.09 * Math.exp(-(((x - 0.12) / 0.06) ** 2)) : 0;
+    const z = v.z * (0.45 + 0.55 * hx) * (1 - groove);
+    p.setXYZ(i, x * 3.0 + 0.2 * (1 - x * x) * 0, y - groove * 0.4, z);
   }
   g.computeVertexNormals();
   return g;
@@ -36,13 +40,14 @@ export const Liver: React.FC<{opacity: number; glowFilter: number; glowStore: nu
       liver: glossy(C.liver, {transparent: true, depthWrite: false, roughness: 0.3}),
       blue: glossy(C.bloodBlue, {roughness: 0.28, emissive: C.bloodBlue, emissiveIntensity: 0.25}),
       ring: new THREE.MeshStandardMaterial({color: C.enzyme, emissive: C.enzyme, emissiveIntensity: 1, transparent: true}),
-      store: new THREE.MeshStandardMaterial({color: C.gold, emissive: C.goldEmissive, emissiveIntensity: 0.6, transparent: true}),
+      gb: glossy(C.gallbladder, {roughness: 0.25}),
+      store: haloMat('#FFC460', 1),
     }),
     [],
   );
   m.liver.opacity = opacity;
   m.ring.opacity = 0.7 * glowFilter;
-  m.store.opacity = 0.35 * glowStore;
+  m.store.uniforms.k.value = 0.9 * glowStore;
   return (
     <group>
       <mesh geometry={g.portal} material={m.blue} />
@@ -53,11 +58,15 @@ export const Liver: React.FC<{opacity: number; glowFilter: number; glowStore: nu
         </mesh>
       )}
       {glowStore > 0 && (
-        <mesh position={STORE} material={m.store}>
+        <mesh position={STORE} material={m.store} renderOrder={6}>
           <sphereGeometry args={[0.5, 24, 16]} />
         </mesh>
       )}
       <mesh geometry={g.liver} material={m.liver} renderOrder={5} />
+      {/* kantong empedu mengintip di bawah lobus kanan (konsisten dengan scene 4) */}
+      <mesh material={m.gb} position={[-0.9, -1.35, 0.6]} rotation={[0.3, 0, 0.5]} scale={[0.28, 0.45, 0.26]}>
+        <sphereGeometry args={[1, 24, 16]} />
+      </mesh>
     </group>
   );
 };

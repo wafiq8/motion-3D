@@ -37,7 +37,7 @@ export const Scene4: React.FC<{t: number}> = ({t}) => {
     target: kf3(t, [[t0, pkz], [t0 + 1.3, [0.1, 0.5, 0]], [tPankreas, [0.3, 0.3, 0]], [tMolekul - 0.35, [0.3, 0.2, 0]], [tMolekul + 0.4, [pk[0], pk[1] - 0.35, 0]], [t1, [pk[0], pk[1] - 0.3, 0]]]),
     fov: 36,
   };
-  const {cam, flash} = withDive(base, pkz, t, t0, t1);
+  const {cam, flash} = withDive(base, pkz, t, t0, t1, {r: 0.55});
   const m = useMemo(
     () => ({
       bile: new THREE.MeshStandardMaterial({color: C.bile, emissive: C.bile, emissiveIntensity: 0.6, roughness: 0.15}),

@@ -36,11 +36,11 @@ export const Scene8: React.FC<{t: number}> = ({t}) => {
   const beatPh = ((t - t0) % 0.82) / 0.82;
   const beat = Math.exp(-((beatPh - 0.1) ** 2) / 0.004) + 0.5 * Math.exp(-((beatPh - 0.3) ** 2) / 0.004);
   const base = {
-    pos: kf3(t, [[t0, [0.9, 1.1, 2.6]], [tJantung, [0.75, 2.35, 2.2]], [tMemompa, [0.55, 2.45, 2.6]], [tNutrisi, [0.2, 2.6, 3.6]], [tTubuh, [0.1, 2.2, 9.5]], [tOtak, [0, 0.5, 20.5]], [tOtot, [0, 0.3, 22.0]], [55.3, [0, 0.3, 23.0]], [56.4, [0, 2.6, 31.5]], [TOTAL_S, [0, 2.6, 32.5]]]),
-    target: kf3(t, [[t0, [0.35, 1.0, 0.35]], [tJantung, HEART_POS], [tMemompa, [-0.15, 2.45, 0.3]], [tNutrisi, [-0.1, 2.6, 0.3]], [tTubuh, [0, 2.4, 0]], [tOtak, [0, 0.4, 0]], [55.3, [0, 0.2, 0]], [56.4, [0, 2.5, 0]], [TOTAL_S, [0, 2.5, 0]]]),
+    pos: kf3(t, [[t0, [1.3, 1.2, 1.9]], [tJantung, [0.45, 2.15, 3.0]], [tMemompa, [0.35, 2.35, 3.4]], [tNutrisi, [0.2, 2.6, 3.6]], [tTubuh, [0.1, 2.2, 9.5]], [tOtak, [0, 0.5, 20.5]], [tOtot, [0, 0.3, 22.0]], [55.3, [0, 0.3, 23.0]], [56.4, [0, 2.6, 31.5]], [TOTAL_S, [0, 2.6, 32.5]]]),
+    target: kf3(t, [[t0, [0.45, 1.3, 0.15]], [tJantung, HEART_POS], [tMemompa, [-0.15, 2.45, 0.3]], [tNutrisi, [-0.1, 2.6, 0.3]], [tTubuh, [0, 2.4, 0]], [tOtak, [0, 0.4, 0]], [55.3, [0, 0.2, 0]], [56.4, [0, 2.5, 0]], [TOTAL_S, [0, 2.5, 0]]]),
     fov: 36,
   };
-  const {cam, flash} = withDive(base, pk, t, t0, TOTAL_S, {out: false});
+  const {cam, flash} = withDive(base, pk, t, t0, TOTAL_S, {out: false, r: 0.12});
   const net = ramp(t, tNutrisi, tTubuh + 0.4);
   const heartChip = project(cam, [HEART_POS[0] + 0.25, HEART_POS[1] - 0.1, 0.5]);
   const lung = project(cam, [-0.8, 2.6, 0.3]);

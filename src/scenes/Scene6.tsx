@@ -38,7 +38,7 @@ export const Scene6: React.FC<{t: number}> = ({t}) => {
     target: kf3(t, [[t0, start], [t0 + 1.3, [0, -0.2, 0]], [tKapiler, [0.3, -0.4, 0]], [tLimfa, [0, -0.9, 0]], [tBergabung, [0.2, -2.2, 0]], [t1 - 0.75, [0.3, -2.5, 0]], [t1, pk]]),
     fov: 38,
   };
-  const {cam, flash} = withDive(base, pk, t, t0, t1);
+  const {cam, flash} = withDive(base, pk, t, t0, t1, {r: 0.36});
   const split = ramp(t, tDua - 0.2, tDua + 0.4);
   const capOn = ramp(t, tKapiler - 0.3, tKapiler + 0.3);
   const lymOn = ramp(t, tLimfa - 0.3, tLimfa + 0.3);

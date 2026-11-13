@@ -4,10 +4,11 @@ import {C} from '../../lib/style';
 import {glossy, haloMat} from '../materials';
 import {varTube, curveOf} from '../VarTube';
 import {V3, seeded} from '../../lib/time';
+import {Heart} from './Heart';
 
 // Siluet tubuh utuh tanpa wajah + jantung glossy + paru + jaringan arteri. Koordinat dunia (tinggi ±10).
-export const HEART_POS: V3 = [0.15, 2.3, 0.35];
-export const IVC = curveOf([[0.4, 0.4, 0.35], [0.38, 1.3, 0.38], [0.32, 2.12, 0.42]]);
+export const HEART_POS: V3 = [0.12, 2.25, 0.55];
+export const IVC = curveOf([[0.45, 0.4, 0.1], [0.46, 1.3, 0.12], [0.42, 2.05, 0.22]]);
 export const PULM_A = curveOf([[0.28, 2.3, 0.55], [0.0, 2.75, 0.5], [-0.45, 2.85, 0.35], [-0.8, 2.6, 0.2]]);
 export const PULM_V = curveOf([[-0.8, 2.6, 0.2], [-0.6, 2.3, 0.25], [-0.25, 2.3, 0.35], [-0.02, 2.35, 0.42]]);
 export const AORTA = curveOf([[0.05, 2.45, 0.45], [0.12, 2.95, 0.35], [-0.08, 3.18, 0.15], [-0.28, 2.9, -0.05], [-0.18, 1.5, -0.1], [-0.05, 0.0, -0.1], [0, -0.55, -0.1]]);
@@ -103,8 +104,7 @@ export const Body: React.FC<{t: number; beat: number; net: number; brain: number
     return pts;
   }, [r]);
   const flowPts: {c: number; o: number}[] = useMemo(() => Array.from({length: 42}, (_, i) => ({c: i % ARTERIES.length, o: (i * 0.237) % 1})), []);
-  const hs = 0.36 * (1 + 0.07 * beat);
-  return (
+    return (
     <group>
       {/* siluet (transparan) + garis tepi */}
       {g.parts.map((p, i) => (
@@ -125,10 +125,8 @@ export const Body: React.FC<{t: number; beat: number; net: number; brain: number
       <mesh geometry={g.ivc} material={m.blue} />
       <mesh geometry={g.pa} material={m.blue} />
       <mesh geometry={g.pv} material={m.art} />
-      <group position={HEART_POS} rotation={[0.2, 0, -0.42]} scale={hs}>
-        <mesh geometry={g.vent} material={m.heart} />
-        <mesh material={m.heart} position={[0.48, 0.62, 0.05]} scale={0.48}><sphereGeometry args={[1, 28, 18]} /></mesh>
-        <mesh material={m.heart} position={[-0.42, 0.68, -0.05]} scale={0.42}><sphereGeometry args={[1, 28, 18]} /></mesh>
+      <group position={HEART_POS} rotation={[0.15, -0.25, -0.55]} scale={0.5}>
+        <Heart beat={beat} />
       </group>
       {/* nutrisi emas mengalir di arteri */}
       {net > 0 &&
