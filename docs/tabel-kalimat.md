@@ -1,34 +1,36 @@
-# Tabel Kalimat & Pemetaan Scene — PERJALANAN NUTRISI
+# Tabel Kalimat & Pemetaan Scene — LEAKY GUT — USUS BOCOR (Seri Tubuh Manusia — Part 2)
 
-- File audio: `public/narasi.mp3` (versi dipercepat 1,18× dari `voice-offer.mp3` 68,36 dtk — disetujui user 13 Nov 2026)
-- Durasi audio terukur: 57.97 detik · total komposisi: 58.8 detik
+- File audio: `public/narasi.mp3` (dari `voice-offer-usus.mp3`, tempo asli)
+- Durasi audio terukur: 43.47 dtk · total video 44.5 dtk (1335 frame)
 - FPS komposisi: 30
-- Metode: Whisper large-v3 (`language=id` dipaksa) untuk waktu + verifikasi jeda hening (silencedetect −35 dB). Teks kalimat dari naskah resmi user.
+- Metode: Whisper large-v3 (`language="id"` dipaksa) untuk waktu + verifikasi jeda hening silencedetect −35 dB; teks dari naskah resmi (selisih ASR: «Taukah» → «Tahukah»).
+- Batas scene = awal suara kalimat berikutnya (dibulatkan ke frame, selisih ≤ 0,01 dtk).
 
 ## Tabel Kalimat
 
-| No | Kalimat | Mulai (dtk) | Selesai (dtk) | Frame mulai | Frame selesai | Scene |
-|----|---------|-------------|---------------|-------------|---------------|-------|
-| 1 | Perjalanan dimulai di mulut. Gigi menghancurkan makanan, air liur melembutkannya, dan enzim amilase mulai memecah karbohidrat menjadi gumpalan siap telan. | 0.00 | 8.30 | 0 | 249 | 1 |
-| 2 | Saat ditelan, otot kerongkongan bergerak peristaltik — meremas bergelombang mendorong makanan turun ke lambung. | 8.67 | 14.05 | 260 | 422 | 2 |
-| 3 | Di lambung, asam dan enzim pepsin mengaduk makanan menjadi bubur halus bernama kimus, sambil memecah protein. | 14.39 | 19.94 | 432 | 598 | 3 |
-| 4 | Di usus dua belas jari, empedu memecah lemak dan enzim pankreas membongkar sisanya menjadi molekul terkecil: glukosa, asam amino, asam lemak. | 20.29 | 27.94 | 609 | 838 | 4 |
-| 5 | Dinding usus halus dilapisi jutaan tonjolan bernama vili, yang memperluas area penyerapan agar molekul nutrisi menembus masuk. | 28.28 | 34.64 | 848 | 1039 | 5 |
-| 6 | Di dalam vili, nutrisi terbagi dua: gula dan asam amino masuk kapiler darah, sedangkan lemak lewat pembuluh limfa sebelum bergabung ke aliran darah. | 34.99 | 42.56 | 1050 | 1277 | 6 |
-| 7 | Sebelum menyebar, darah dari usus mampir ke hati — racun disaring, kadar gula diatur, sebagian glukosa disimpan sebagai cadangan. | 42.93 | 49.74 | 1288 | 1492 | 7 |
-| 8 | Akhirnya, jantung memompa darah penuh nutrisi ke seluruh tubuh: bahan bakar bagi otak, tenaga bagi otot, bahan baku perbaikan bagi setiap sel. | 50.08 | 57.78 | 1502 | 1733 | 8 |
+| No | Kalimat | Mulai | Selesai | Frame mulai | Frame selesai | Scene |
+|----|---------|-------|---------|-------------|---------------|-------|
+| 1 | Tahukah kamu, banyak masalah kesehatan sebenarnya berawal dari usus? Sisa makanan yang menumpuk memicu bakteri jahat menghasilkan racun di dalam usus. | 0.00 | 9.08 | 0 | 272 | 1 |
+| 2 | Iritasi yang dibiarkan terus-menerus membuat dinding usus merenggang dan bocor—kondisi yang disebut leaky gut. | 9.43 | 15.57 | 283 | 467 | 2 |
+| 3 | Lewat celah bocor inilah racun endotoksin lolos masuk ke aliran darah dan memicu peradangan di seluruh tubuh. | 16.06 | 22.16 | 482 | 665 | 3 |
+| 4 | Peradangan ini melukai dinding pembuluh darah, bikin kolesterol mudah menempel hingga menumpuk menjadi plak penyumbat. | 22.54 | 28.58 | 676 | 857 | 4 |
+| 5 | Saat darah penuh peradangan ini mengalir ke jantung, hati, hingga otak, sel-sel sehat perlahan rusak dan memicu berbagai penyakit. | 28.98 | 36.46 | 869 | 1094 | 5 |
+| 6 | Karena itu, hidup sehat selalu diawali dari usus yang sehat. Rawat dari dalam, jangan sampai terlambat. | 36.88 | 43.23 | 1106 | 1297 | 6 |
 
 ## Pemetaan Scene
 
-| Scene | Kalimat | Frame range | Pill (pos n/8) | Visual inti | Chip label |
-|-------|---------|-------------|----------------|-------------|------------|
-| 1 | 1 | 0–260 | MULUT · pos 1/8 | Penampang kepala siluet profil: gigi, lidah, kelenjar ludah; bolus emas terbentuk | Pencernaan Mekanis & Enzim Amilase |
-| 2 | 2 | 260–432 | KERONGKONGAN · pos 2/8 | Kerongkongan, gelombang peristaltik mendorong bolus emas turun | Gerak Peristaltik |
-| 3 | 3 | 432–609 | LAMBUNG · pos 3/8 | Lambung glossy, bolus diaduk jadi kimus | Asam Lambung (HCl) & Enzim Pepsin → Kimus |
-| 4 | 4 | 609–848 | USUS DUA BELAS JARI · pos 4/8 | Duodenum + kantong empedu + pankreas; kimus pecah jadi 3 jenis molekul emas | Glukosa • Asam Amino • Asam Lemak |
-| 5 | 5 | 848–1050 | VILI USUS · pos 5/8 | Zoom mikroskopis: vili & mikrovili, molekul emas menembus dinding | Vili & Mikrovili |
-| 6 | 6 | 1050–1288 | DUA JALUR · pos 6/8 | Di dalam satu vili: kapiler darah vs pembuluh limfa (lakteal) | Kapiler Darah & Pembuluh Limfa |
-| 7 | 7 | 1288–1502 | HATI · pos 7/8 | Vena porta → hati, sebagian glukosa disimpan | Hati |
-| 8 | 8 | 1502–1764 | SELURUH TUBUH · pos 8/8 | Jantung → siluet tubuh utuh, jaringan arteri merah menyala; teks callback + kartu seri | Distribusi Sistemik |
+| Scene | Kalimat | Detik | Frame | Visual inti | Teks layar |
+|---|---|---|---|---|---|
+| 1 | 1 | 0.00–9.43 (9.43 dtk) | 0–282 | Rongga usus besar (tabung cutaway Villi/VarTube, cahaya redup); sisa makanan menumpuk, bakteri jahat menghasilkan partikel racun hijau keruh — kamera memilih SATU partikel endotoksin (hero) | Hook kalimat 1 sejak dtk 0 · chip «Penumpukan Sisa & Racun Usus» saat «menumpuk» · pill USUS 1/6 |
+| 2 | 2 | 9.43–16.07 (6.64 dtk) | 283–481 | Zoom ke dinding usus: sel dinding (vili) merenggang, celah terbuka; hero menempel di celah | Judul serif tunda «LEAKY GUT — USUS BOCOR» di awal scene · chip «Leaky Gut (Usus Bocor)» saat «bocor» · pill DINDING USUS 2/6 |
+| 3 | 3 | 16.07–22.53 (6.46 dtk) | 482–675 | Hero lolos lewat celah masuk kapiler; ikut arus sel darah; kilatan oranye sinyal radang menyebar | chip «Endotoksin Masuk ke Darah» saat «endotoksin» · pill ALIRAN DARAH 3/6 |
+| 4 | 4 | 22.53–28.97 (6.44 dtk) | 676–868 | Penampang pembuluh: kilatan oranye melukai dinding; kolesterol kuning pucat menempel jadi plak penyempit | chip «Inflamasi & Plak Pembuluh Darah» saat «melukai/plak» · pill PEMBULUH DARAH 4/6 |
+| 5 | 5 | 28.97–36.87 (7.90 dtk) | 869–1105 | Arus membawa hero ke jantung → hati → otak (model Part 1 + penampang kepala); sel organ meredup bercak; zoom-out ke siluet tubuh | chip «Sel Rusak & Picu Penyakit» saat «rusak» · pill ORGAN VITAL 5/6 |
+| 6 | 6 | 36.87–44.50 (7.63 dtk) | 1106–1334 | Payoff: rig sama dinaikkan intensitas & dihangatkan; gelombang bilasan menyapu rongga usus, celah menutup, darah merah terang, jantung/hati/otak menyala sehat | Teks besar «Hidup Sehat Diawali dari Usus yang Sehat» (37,46) → «Rawat dari Dalam — Jangan Sampai Terlambat.» (40,66) → kartu «SERI TUBUH MANUSIA · Part 2» (±43,2) · pill PEMULIHAN 6/6 · fade hitam |
 
-Judul serif tunda "PERJALANAN NUTRISI": awal scene 2 (8,67 dtk). Teks callback + kartu "Seri Tubuh Manusia — Part 1": akhir scene 8 (±55,7–58,8 dtk), lalu fade hitam.
+## Cek akhir pra-produksi
+
+- [x] Scene terakhir menutup di akhir audio (43,47) + jeda payoff 1,03 dtk = 44,50 dtk.
+- [x] Zona tanpa narasi di akhir 1,27 dtk (≤ 5).
+- [x] Setiap teks layar terikat ke nomor kalimat / kata pemicunya.
+- [x] `validate_timeline.py` → PASS SEMUA (20 cek).
