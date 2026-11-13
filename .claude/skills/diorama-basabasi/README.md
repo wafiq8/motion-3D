@@ -1,17 +1,18 @@
-# diorama-basabasi — Tool Produksi Video Edukasi Basabasi (Mode A)
+# diorama-basabasi — Tool Produksi Video Edukasi Basabasi (Mode A + C)
 
 Skill Claude Code untuk membuat video edukasi vertikal 9:16 (30–60 detik)
-bergaya diorama 3D semi-realistis Mode A (lanskap/sejarah + varian peta
-hidup) dari kode (Remotion + Three.js), pola Motion Format versi Basabasi,
-dengan tujuan membangun audiens. Dirancang agar render final pertama
+bergaya 3D dari kode (Remotion + Three.js), pola Motion Format versi
+Basabasi, dalam dua mode aktif: Mode A — diorama 3D semi-realistis
+(lanskap/sejarah + varian peta hidup); Mode C — ilustrasi anatomi 3D
+glossy (Seri Tubuh Manusia). Tujuannya membangun audiens. Dirancang agar render final pertama
 langsung lolos QC: timing diukur dari audio asli ke dalam satu
 timeline.json yang divalidasi mesin, teks readout tidak bisa keluar
 frame, ada gerbang still-frame yang murah, dan sesi wajib QC mandiri
 fail-closed sebelum menyerahkan hasil.
 
-## Keputusan terkunci (user, 12 Nov 2026)
+## Keputusan terkunci (user, 12 Nov 2026; daftar mode diperbarui 13 Nov 2026)
 
-Mode A saja · tujuan bangun audiens (penutup kesimpulan + label seri;
+Mode A + Mode C aktif (Mode B parkir) · tujuan bangun audiens (penutup kesimpulan + label seri;
 CTV hanya sesekali bila diminta) · angka = readout layar (hybrid: maks.
 satu angka hero 3D emas per video) · durasi 30–60 detik · suara agnostik (MP3 dari user) ·
 musik dari user · fakta: sumber user utama, riset web boleh melengkapi
@@ -21,18 +22,23 @@ Puppeteer/FFmpeg).
 
 ## Isi paket
 
-- `SKILL.md` — inti (195 baris): keputusan terkunci, larangan keras,
-  aturan timing/timeline.json, style lock ringkas, aturan teks, audio,
+- `SKILL.md` — inti (259 baris): keputusan terkunci, larangan keras,
+  aturan timing/timeline.json, style lock ringkas dua mode, aturan teks, audio,
   alur 5 tahap dengan 2 gerbang, pipeline render cepat, QC 10 poin.
 - `references/mode-a.md` — detail Mode A: gaya visual + palet + rig
   cahaya, tipografi serif, bahasa kamera & tangga zoom, tiga struktur
   narasi, penutup CTV, dan Varian A2 Peta Hidup.
+- `references/mode-c.md` — detail Mode C (anatomi): organ hero glossy
+  di void ungu, kode warna aliran mutlak, struktur ikuti-satu-aliran,
+  hook waktu-nyata + counter hidup, judul tunda, pill tahap, chip
+  menyala, penutup callback, QC khusus Mode C.
 - `templates/tabel-kalimat.md` — format baku tabel kalimat & pemetaan.
 - `scripts/validate_timeline.py` — validator fail-closed untuk
   timeline.json (sudah diuji: PASS pada contoh valid).
 - `scripts/check_output.sh` — pemeriksa file final via ffprobe/ffmpeg:
   resolusi, fps, durasi 30–60, keheningan, loudness (sudah diuji).
-- `evals/evals.md` — 3 skenario uji (aliran, peta, bantahan mitos) +
+- `evals/evals.md` — 4 skenario uji (aliran, peta, bantahan mitos,
+  anatomi Mode C) +
   asersi lulus/gagal terukur; jalankan sebelum skill disebut selesai.
 - `prompt-mulai-sesi-baru.txt` — prompt pendek yang ditempel user sebagai
   pesan pertama setiap produksi baru di sesi Claude Code cloud.
@@ -47,7 +53,7 @@ Salin folder `diorama-basabasi` ini ke dalam repo kerja, di lokasi:
 
 ## Cara pakai (alur user)
 
-1. Siapkan: topik + sumber fakta, naskah (atau minta draf), MP3 narasi,
+1. Siapkan: mode (A/C) + topik + sumber fakta, naskah (atau minta draf), MP3 narasi,
    dan file musik — upload MP3 + musik ke root repo.
 2. Buka sesi baru Claude Code cloud pada repo itu, tempel isi
    `prompt-mulai-sesi-baru.txt` yang sudah dilengkapi.
@@ -57,6 +63,14 @@ Salin folder `diorama-basabasi` ini ke dalam repo kerja, di lokasi:
 
 ## Versi
 
+- v2.7 (13 Nov 2026) — user mengaktifkan Mode C (anatomi, Seri Tubuh
+  Manusia) dari status parkir: file references/mode-c.md baru
+  (organ hero glossy di void ungu, kode warna aliran mutlak, struktur
+  ikuti-satu-aliran, hook waktu-nyata + counter hidup, judul tunda,
+  pill tahap tunggal, chip menyala, penutup callback, QC khusus),
+  SKILL.md membawa ringkasan + pengecualian aturan jarak untuk Mode C,
+  eval bertambah skenario 4 (anatomi), prompt mulai kini memilih mode
+  per video. Mode B tetap parkir. Kunci lain tidak berubah.
 - v2.6 (13 Nov 2026) — target ritme dilunakkan user menjadi 1–2
   video/hari (dari kunci datar 2/hari).
 - v2.5 (13 Nov 2026) — gerbang diputuskan user: tetap dua; Gerbang 2

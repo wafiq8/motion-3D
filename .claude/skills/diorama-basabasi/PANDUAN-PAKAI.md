@@ -1,4 +1,4 @@
-# Panduan Pakai — Skill diorama-basabasi (v2.6)
+# Panduan Pakai — Skill diorama-basabasi (v2.7)
 
 Alur lengkap pemakaian skill ini dari sisi operator (Wafiq, dari
 tablet), untuk setiap video. Skill terpasang di repo
@@ -13,8 +13,8 @@ kode scene, render, QC) dikerjakan sesi mengikuti SKILL.md.
 
 ## A. Siapkan bahan (di luar sesi, per video)
 
-1. Topik video + label seri + nomor part (mis. "Sejarah Alam 3D —
-   Part 2").
+1. Topik video + mode (A = lanskap/sejarah, C = anatomi) + label seri + nomor part (mis. "Sejarah Alam 3D —
+   Part 2" atau "Seri Tubuh Manusia — Part 1").
 2. Sumber fakta utama (teks ditempel, atau file yang sudah ada di
    repo). Sumber ini menang bila bertentangan dengan sumber lain;
    sesi boleh melengkapi lewat riset web dengan kewajiban mencantumkan
@@ -62,7 +62,8 @@ kode scene, render, QC) dikerjakan sesi mengikuti SKILL.md.
   BERHENTI. Tugas operator: periksa pemetaan masuk akal dan total
   durasi 30–60 detik; balas setuju, atau sebutkan yang harus diubah.
 - **Tahap 2 — Bangun scene.** Sesi menulis kode scene (Remotion +
-  Three.js) dari timeline.json dan mode-a.md: style lock Mode A,
+  Three.js) dari timeline.json dan file mode terpilih (mode-a.md /
+  mode-c.md): style lock mode itu,
   hook teks+suara+visual dalam ±1,5 detik pertama, subtitle karaoke
   halaman 2–4 kata, angka sebagai readout layar (maksimal satu angka
   hero 3D emas untuk angka puncak, selalu diduplikasi readout),

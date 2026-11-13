@@ -1,11 +1,13 @@
-PRODUKSI VIDEO BARU — SERI EDUKASI BASABASI (MODE A)
+PRODUKSI VIDEO BARU — SERI EDUKASI BASABASI (MODE A ATAU C)
 
 Repo ini berisi skill di .claude/skills/diorama-basabasi/SKILL.md.
-Baca file itu sekarang, lalu baca references/mode-a.md di folder yang
-sama, dan ikuti seluruh isinya persis — termasuk urutan tahap, gerbang
+Baca file itu sekarang, lalu baca file references mode yang saya
+pilih di bawah (mode-a.md untuk Mode A, mode-c.md untuk Mode C), dan
+ikuti seluruh isinya persis — termasuk urutan tahap, gerbang
 persetujuan, validator, dan QC mandiri wajibnya. Jangan melompati tahap.
 
 Data produksi kali ini:
+- Mode: [A — lanskap/sejarah / C — anatomi]
 - Topik: [ISI TOPIK VIDEO]
 - Sumber fakta utama: [TEMPEL TEKS SUMBER / SEBUTKAN FILE SUMBER DI REPO] — sumber ini menang bila bertentangan dengan sumber lain. Kamu boleh melengkapinya dengan riset web; cantumkan semua sumber tambahan di laporan akhir dan tandai klaim yang belum terverifikasi.
 - Label seri: [MIS. Sejarah Alam 3D] — Part [NOMOR]

@@ -1,23 +1,27 @@
 ---
 name: diorama-basabasi
-description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya diorama 3D semi-realistis Mode A (lanskap/sejarah, termasuk varian peta hidup) yang dirender dari kode dengan Remotion + Three.js, untuk seri edukasi Basabasi berbahasa Indonesia. Pakai skill ini setiap kali user meminta video edukasi baru seri Basabasi — sejarah, alam, geografi, budaya — yang visualnya dunia 3D prosedural berkamera bergerak; BUKAN footage asli dan BUKAN slideshow gambar AI. Mengunci timeline.json sebagai sumber kebenaran timing dari audio asli, style lock Mode A, teks readout overlay DOM anti-kepotong, gerbang still-frame, QC mandiri fail-closed, render cepat per-scene, dan penutup kesimpulan + label seri untuk membangun audiens.
+description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dari kode untuk seri edukasi Basabasi berbahasa Indonesia, dalam dua mode aktif — Mode A: diorama 3D semi-realistis (lanskap/sejarah, termasuk varian peta hidup); Mode C: ilustrasi anatomi 3D glossy (Seri Tubuh Manusia, ikuti-satu-aliran). Dirender dengan Remotion + Three.js; BUKAN footage asli dan BUKAN slideshow gambar AI. Mengunci timeline.json sebagai sumber kebenaran timing dari audio asli, style lock per mode, teks readout overlay DOM anti-kepotong, gerbang still-frame, QC mandiri fail-closed, render cepat per-scene, dan penutup label seri untuk membangun audiens.
 ---
 
-# Diorama Basabasi — Skill Produksi Video Edukasi Mode A (v2.6)
+# Diorama Basabasi — Skill Produksi Video Edukasi Basabasi (v2.7)
 
 > Prinsip inti: **periksa sebelum render, bukan sesudahnya.** Semua yang
 > bisa dicek murah (timeline, still-frame, lebar teks) WAJIB lolos dulu.
 > Render full-res hanya sekali, di ujung, setelah semua gerbang hijau.
 >
-> File ini adalah INTI. Detail Mode A ada di `references/mode-a.md`
-> (WAJIB dibaca sebelum membangun scene). Skenario uji ada di
-> `evals/evals.md`. Skrip di `scripts/` dijalankan PERSIS apa adanya —
-> jangan menulis ulang fungsinya.
+> File ini adalah INTI. Detail visual per mode ada di `references/`
+> — `mode-a.md` untuk Mode A, `mode-c.md` untuk Mode C (WAJIB dibaca
+> yang sesuai mode video ini, sebelum membangun scene). Skenario uji
+> ada di `evals/evals.md`. Skrip di `scripts/` dijalankan PERSIS apa
+> adanya — jangan menulis ulang fungsinya.
 
 ## Keputusan terkunci (dari user, 12 Nov 2026 — jangan diubah diam-diam)
 
-- **Mode A saja** (lanskap/sejarah + varian peta hidup). Mode lain tidak
-  dipakai sampai user memutuskan.
+- **Dua mode aktif: Mode A** (lanskap/sejarah + varian peta hidup)
+  dan **Mode C** (anatomi — Seri Tubuh Manusia). Mode B (bongkar
+  benda) TIDAK dipakai sampai user memutuskan. Mode dipilih user per
+  video lewat prompt mulai; sesi membaca file referensi mode itu
+  sebelum Tahap 2.
 - Tujuan: **membangun audiens.** Penutup bawaan = kesimpulan + label
   seri. Call to value HANYA sesekali, bila topiknya pas dan user
   memintanya untuk video itu — bukan elemen wajib. CTA jualan dilarang.
@@ -62,8 +66,10 @@ description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya dioram
 - Dilarang letterbox; kamera native 9:16.
 - Gerakan hanya dari kamera di ruang 3D (parallax nyata). Dilarang
   mensimulasikan gerak via zoom/pan gambar 2D.
-- Manusia hanya siluet gelap kecil tanpa wajah. Subjek utama tidak
-  close-up (jarak kamera minimum 8 m untuk hewan/objek hero lanskap).
+- Manusia hanya siluet gelap kecil tanpa wajah. Subjek utama Mode A
+  tidak close-up (jarak kamera minimum 8 m untuk hewan/objek hero
+  lanskap) — di Mode C aturan jarak ini tidak berlaku: organ hero
+  memang mengisi frame (lihat references/mode-c.md).
 - Satu renderer, satu set material, satu rig cahaya untuk semua scene.
 - Dilarang menebak durasi dari jumlah kata/storyboard. Timing HANYA dari
   audio asli (lihat Timing).
@@ -111,7 +117,9 @@ description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya dioram
    Keheningan tanpa alasan dilarang; jeda payoff 0,3–1 detik di penutup
    diperbolehkan dan dihitung dalam total.
 
-## Style lock Mode A (ringkas — detail di references/mode-a.md)
+## Style lock (ringkas — detail per mode di references/)
+
+### Mode A (detail di references/mode-a.md)
 
 - Diorama 3D stilasi semi-realistis: palet hangat sinematik, satu rig
   cahaya senja tetap, permukaan halus bersih, latar disederhanakan.
@@ -134,6 +142,27 @@ description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya dioram
 - Penutup: beauty shot + judul/era serif diulang + kalimat kesimpulan
   + label seri bernomor. Fade ke hitam. (Call to value hanya bila
   diminta untuk video ini.)
+
+### Mode C — Anatomi (detail di references/mode-c.md)
+
+- BUKAN diorama: satu organ hero 3D glossy melayang di kehampaan ungu
+  gelap berbokeh; satu model organ dibangun sekali, dipakai semua
+  scene. Seri baku "Seri Tubuh Manusia".
+- **Kode warna aliran MUTLAK:** biru = miskin oksigen, merah terang =
+  kaya oksigen — tidak pernah dibalik, di video ini maupun antar
+  video seri. Partikel sel berubah warna di titik pertukaran, tepat
+  pada kalimatnya.
+- Struktur WAJIB ikuti-satu-aliran: kamera mengawal satu paket
+  melewati seluruh sirkuit; tangga zoom organ → sistem → mikroskopis
+  → organ → tubuh utuh (siluet).
+- Hook = rujukan waktu-nyata penonton + counter hidup yang berjalan
+  sinkron ketukan visual organ sejak detik pertama. Judul serif
+  DITUNDA sampai ±5–8 detik (setelah hook), diikuti anotasi fakta.
+- Satu pill tahap satu baris di atas-tengah (titik warna semantik +
+  nama tahap aliran) — satu-satunya elemen HUD yang diizinkan; chip
+  label anatomi menempel di organ dan menyala saat bagiannya aktif.
+- Penutup Mode C: counter finale teranimasi + kalimat CALLBACK yang
+  memantulkan hook + label seri. Dilarang gore/realisme medis grafis.
 
 ## Aturan teks (anti-kepotong — penyebab revisi nomor satu)
 
@@ -166,8 +195,8 @@ description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya dioram
   renderer, kamera rig, style lock, dan primitif TIDAK ditulis ulang.
 - **Tahap 1 — Timeline:** sesuai bagian Timing → validator PASS →
   Gerbang 1 (persetujuan user).
-- **Tahap 2 — Bangun scene** membaca timeline.json dan
-  references/mode-a.md.
+- **Tahap 2 — Bangun scene** membaca timeline.json dan file referensi
+  mode video ini (references/mode-a.md atau references/mode-c.md).
 - **Tahap 3 — Gerbang still:** render 3 still per scene (awal/tengah/
   akhir scene) + contact sheet; tampilkan; TUNGGU persetujuan user.
   (Format mengikuti tangga pelonggaran Gerbang 2 di Keputusan terkunci.)
@@ -204,8 +233,11 @@ description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya dioram
 6. Tidak ada keheningan tanpa alasan > 1 detik; jeda payoff ≤ 1 detik.
 7. Loudness −14 LUFS ±1, peak ≤ −1 dB.
 8. Gaya konsisten antar scene (palet, rig cahaya, font, gaya caption).
-9. Manusia hanya siluet; subjek hero tidak close-up.
-10. Penutup memuat kesimpulan + label seri; fade ke hitam bersih.
+9. Manusia hanya siluet. Mode A: subjek hero tidak close-up. Mode C:
+   organ hero utuh terbaca dan kode warna aliran tidak terbalik
+   (cek khusus Mode C di references/mode-c.md WAJIB ikut diperiksa).
+10. Penutup memuat kesimpulan + label seri (Mode A) atau callback +
+    label seri (Mode C); fade ke hitam bersih.
     (CTV hadir hanya bila diminta untuk video ini.)
 
 ## Output dan laporan

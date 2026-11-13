@@ -7,7 +7,7 @@ sama, lalu nilai hasil render finalnya dengan asersi di bawah. Skill
 lolos bila versi dengan-skill PASS semua asersi kritis (bertanda *)
 dan baseline terdokumentasi perbedaannya.
 
-## Tiga skenario wajib
+## Empat skenario wajib
 
 1. **Topik aliran/sistem** (mis. perjalanan satu paket udara/darah/air
    melewati sebuah sistem) — menguji struktur ikuti-satu-aliran dan
@@ -18,6 +18,9 @@ dan baseline terdokumentasi perbedaannya.
 3. **Topik bantahan mitos** (satu klaim terkenal yang dipatahkan, dua
    fakta satu topik) — menguji hook bantahan, fade antar segmen, dan
    segmen demonstrasi.
+4. **Topik anatomi Mode C** (mis. perjalanan satu paket darah melewati
+   jantung dan paru) — menguji kode warna aliran, counter detak
+   sinkron, pill tahap, judul tunda, dan penutup callback.
 
 ## Asersi lulus/gagal (ukur dari file final + timeline.json)
 
@@ -33,7 +36,12 @@ dan baseline terdokumentasi perbedaannya.
 - * Loudness −14 LUFS ±1, peak ≤ −1 dB.
 - * Nol gambar 2D/AI sebagai scene; satu rig cahaya & font yang sama
   di semua scene.
-- Manusia hanya siluet; subjek hero tidak close-up (< 8 m).
+- Manusia hanya siluet; subjek hero Mode A tidak close-up (< 8 m).
+- Khusus Mode C (skenario 4): * kode warna aliran tidak terbalik di
+  still mana pun dan partikel berubah warna di titik pertukaran tepat
+  pada kalimatnya; * counter detak sinkron ketukan visual ≤ 0,3 detik;
+  pill tahap sesuai posisi aliran di tiap still; judul tidak muncul
+  di 5 detik pertama; penutup memuat callback ke hook.
 - Penutup memuat kesimpulan + label seri; fade ke hitam bersih
   (CTV hanya bila diminta untuk video itu).
 - Waktu produksi tercatat (untuk target ritme 1–2 video/hari): render
