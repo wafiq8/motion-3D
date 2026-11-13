@@ -68,8 +68,8 @@ klaim kontraintuitif — hadir sebagai teks + suara + visual ≤ 1,5 detik.
   kesimpulan (penonton membawa pulang wawasan). Sesekali — hanya bila
   user memintanya untuk video itu — kalimat penutup boleh berbentuk
   CALL TO VALUE; tidak pernah ajakan membeli.
-- Label seri bernomor tampil di frame penutup ("Sejarah Alam 3D · Part N"
-  atau seri yang sedang berjalan).
+- TIDAK ada label/kartu seri di dalam video (v2.8, keputusan user
+  13 Nov 2026) — identitas seri hanya hidup di caption.
 - Fade ke hitam. Jeda payoff 0,3–1 detik diperbolehkan.
 
 ## Varian A2 — Peta Hidup (geografi / sejarah wilayah)

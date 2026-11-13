@@ -1,9 +1,9 @@
 ---
 name: diorama-basabasi
-description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dari kode untuk seri edukasi Basabasi berbahasa Indonesia, dalam dua mode aktif — Mode A: diorama 3D semi-realistis (lanskap/sejarah, termasuk varian peta hidup); Mode C: ilustrasi anatomi 3D glossy (Seri Tubuh Manusia, ikuti-satu-aliran). Dirender dengan Remotion + Three.js; BUKAN footage asli dan BUKAN slideshow gambar AI. Mengunci timeline.json sebagai sumber kebenaran timing dari audio asli, style lock per mode, teks readout overlay DOM anti-kepotong, gerbang still-frame, QC mandiri fail-closed, render cepat per-scene, dan penutup label seri untuk membangun audiens.
+description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dari kode untuk seri edukasi Basabasi berbahasa Indonesia, dalam dua mode aktif — Mode A: diorama 3D semi-realistis (lanskap/sejarah, termasuk varian peta hidup); Mode C: ilustrasi anatomi 3D glossy (Seri Tubuh Manusia, ikuti-satu-aliran). Dirender dengan Remotion + Three.js; BUKAN footage asli dan BUKAN slideshow gambar AI. Mengunci timeline.json sebagai sumber kebenaran timing dari audio asli, style lock per mode, teks readout overlay DOM anti-kepotong, gerbang still-frame, QC mandiri fail-closed, render cepat per-scene, dan penutup kesimpulan/callback untuk membangun audiens.
 ---
 
-# Diorama Basabasi — Skill Produksi Video Edukasi Basabasi (v2.7)
+# Diorama Basabasi — Skill Produksi Video Edukasi Basabasi (v2.8)
 
 > Prinsip inti: **periksa sebelum render, bukan sesudahnya.** Semua yang
 > bisa dicek murah (timeline, still-frame, lebar teks) WAJIB lolos dulu.
@@ -22,8 +22,11 @@ description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dar
   benda) TIDAK dipakai sampai user memutuskan. Mode dipilih user per
   video lewat prompt mulai; sesi membaca file referensi mode itu
   sebelum Tahap 2.
-- Tujuan: **membangun audiens.** Penutup bawaan = kesimpulan + label
-  seri. Call to value HANYA sesekali, bila topiknya pas dan user
+- Tujuan: **membangun audiens.** Penutup bawaan = kesimpulan (Mode A)
+  / callback (Mode C) + fade ke hitam. TIDAK ada kartu/label seri di
+  dalam video dan TIDAK ada pill tahap/penanda posisi di layar
+  (keputusan user 13 Nov 2026, v2.8) — identitas seri hanya hidup di
+  caption. Call to value HANYA sesekali, bila topiknya pas dan user
   memintanya untuk video itu — bukan elemen wajib. CTA jualan dilarang.
 - Angka/data = **HYBRID**: readout layar (overlay DOM) adalah sistem
   utama untuk SEMUA angka. Pengecualian: maksimal SATU angka hero 3D
@@ -139,8 +142,9 @@ description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dar
   hitam ±0,1 detik.
 - Struktur narasi: untuk topik sistem/alur pakai "ikuti satu aliran";
   satu video boleh memuat dua fakta satu topik dengan segmen demonstrasi.
-- Penutup: beauty shot + judul/era serif diulang + kalimat kesimpulan
-  + label seri bernomor. Fade ke hitam. (Call to value hanya bila
+- Penutup: beauty shot + judul/era serif diulang + kalimat kesimpulan.
+  Fade ke hitam; tanpa label/kartu seri di dalam video (v2.8).
+  (Call to value hanya bila
   diminta untuk video ini.)
 
 ### Mode C — Anatomi (detail di references/mode-c.md)
@@ -158,11 +162,12 @@ description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dar
 - Hook = rujukan waktu-nyata penonton + counter hidup yang berjalan
   sinkron ketukan visual organ sejak detik pertama. Judul serif
   DITUNDA sampai ±5–8 detik (setelah hook), diikuti anotasi fakta.
-- Satu pill tahap satu baris di atas-tengah (titik warna semantik +
-  nama tahap aliran) — satu-satunya elemen HUD yang diizinkan; chip
-  label anatomi menempel di organ dan menyala saat bagiannya aktif.
+- TANPA pill tahap dan tanpa HUD apa pun (v2.8): posisi aliran dibaca
+  dari perjalanan kamera; chip label anatomi menempel di organ dan
+  menyala saat bagiannya aktif.
 - Penutup Mode C: counter finale teranimasi + kalimat CALLBACK yang
-  memantulkan hook + label seri. Dilarang gore/realisme medis grafis.
+  memantulkan hook; fade ke hitam; tanpa kartu/label seri (v2.8).
+  Dilarang gore/realisme medis grafis.
 
 ## Aturan teks (anti-kepotong — penyebab revisi nomor satu)
 
@@ -236,8 +241,9 @@ description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dar
 9. Manusia hanya siluet. Mode A: subjek hero tidak close-up. Mode C:
    organ hero utuh terbaca dan kode warna aliran tidak terbalik
    (cek khusus Mode C di references/mode-c.md WAJIB ikut diperiksa).
-10. Penutup memuat kesimpulan + label seri (Mode A) atau callback +
-    label seri (Mode C); fade ke hitam bersih.
+10. Penutup memuat kesimpulan (Mode A) atau callback (Mode C); fade
+    ke hitam bersih; TIDAK ada kartu/label seri, pill tahap, atau
+    penanda posisi di frame mana pun (v2.8).
     (CTV hadir hanya bila diminta untuk video ini.)
 
 ## Output dan laporan

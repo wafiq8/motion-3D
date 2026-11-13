@@ -10,14 +10,14 @@ Data produksi kali ini:
 - Mode: [A — lanskap/sejarah / C — anatomi]
 - Topik: [ISI TOPIK VIDEO]
 - Sumber fakta utama: [TEMPEL TEKS SUMBER / SEBUTKAN FILE SUMBER DI REPO] — sumber ini menang bila bertentangan dengan sumber lain. Kamu boleh melengkapinya dengan riset web; cantumkan semua sumber tambahan di laporan akhir dan tandai klaim yang belum terverifikasi.
-- Label seri: [MIS. Sejarah Alam 3D] — Part [NOMOR]
+- Label seri: [MIS. Sejarah Alam 3D] — Part [NOMOR] (hanya untuk caption — tidak tampil di dalam video)
 - Naskah narasi: [TEMPEL NASKAH FINAL, ATAU tulis: "belum ada — buatkan draf dari sumber di atas, lalu berhenti dan tunggu persetujuan saya sebelum lanjut"]
 - File MP3 narasi ada di root repo (nama file bebas) → pindahkan ke public/narasi.mp3. File musik saya juga di root repo → public/musik. Kalau salah satu belum ada, berhenti dan kabari saya — jangan menentukan timing apa pun sebelum MP3 narasi tersedia.
 
 Pengingat kunci dari skill (jangan dilanggar):
 - Durasi final 30–60 detik mengikuti audio; timeline.json adalah sumber kebenaran tunggal dan harus lolos scripts/validate_timeline.py sebelum scene dibangun.
 - Angka/data tampil sebagai readout layar; satu-satunya pengecualian: maksimal satu angka hero 3D emas untuk angka puncak video.
-- Penutup = kesimpulan + label seri; call to value hanya bila saya minta untuk video ini; ajakan membeli dilarang.
+- Penutup = kesimpulan (Mode A) / callback (Mode C), tanpa kartu/label seri di dalam video dan tanpa pill tahap/penanda posisi; call to value hanya bila saya minta untuk video ini; ajakan membeli dilarang.
 - Render per scene + concat FFmpeg -c copy; preview skala 0.5; full-res hanya sekali di tahap akhir; jalankan scripts/check_output.sh pada file final.
 - Dua gerbang berhenti: (1) ringkasan timeline, (2) contact sheet still-frame. Tunggu persetujuan saya di keduanya.
 

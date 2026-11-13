@@ -1,4 +1,4 @@
-# Panduan Pakai — Skill diorama-basabasi (v2.7)
+# Panduan Pakai — Skill diorama-basabasi (v2.8)
 
 Alur lengkap pemakaian skill ini dari sisi operator (Wafiq, dari
 tablet), untuk setiap video. Skill terpasang di repo
@@ -68,7 +68,8 @@ kode scene, render, QC) dikerjakan sesi mengikuti SKILL.md.
   halaman 2–4 kata, angka sebagai readout layar (maksimal satu angka
   hero 3D emas untuk angka puncak, selalu diduplikasi readout),
   semua teks wajib-baca sebagai overlay DOM terukur anti-kepotong,
-  penutup kesimpulan + label seri (CTV hanya bila diminta untuk
+  penutup kesimpulan/callback tanpa kartu seri dan tanpa pill
+  tahap/penanda posisi (CTV hanya bila diminta untuk
   video ini).
 - → **GERBANG 2 (operator):** sesi me-render 3 still per scene
   (awal/tengah/akhir) + satu contact sheet, menampilkannya sebagai

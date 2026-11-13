@@ -12,7 +12,7 @@ fail-closed sebelum menyerahkan hasil.
 
 ## Keputusan terkunci (user, 12 Nov 2026; daftar mode diperbarui 13 Nov 2026)
 
-Mode A + Mode C aktif (Mode B parkir) · tujuan bangun audiens (penutup kesimpulan + label seri;
+Mode A + Mode C aktif (Mode B parkir) · tujuan bangun audiens (penutup kesimpulan/callback, tanpa kartu seri & tanpa pill tahap;
 CTV hanya sesekali bila diminta) · angka = readout layar (hybrid: maks.
 satu angka hero 3D emas per video) · durasi 30–60 detik · suara agnostik (MP3 dari user) ·
 musik dari user · fakta: sumber user utama, riset web boleh melengkapi
@@ -30,7 +30,7 @@ Puppeteer/FFmpeg).
   narasi, penutup CTV, dan Varian A2 Peta Hidup.
 - `references/mode-c.md` — detail Mode C (anatomi): organ hero glossy
   di void ungu, kode warna aliran mutlak, struktur ikuti-satu-aliran,
-  hook waktu-nyata + counter hidup, judul tunda, pill tahap, chip
+  hook waktu-nyata + counter hidup, judul tunda, chip
   menyala, penutup callback, QC khusus Mode C.
 - `templates/tabel-kalimat.md` — format baku tabel kalimat & pemetaan.
 - `scripts/validate_timeline.py` — validator fail-closed untuk
@@ -63,6 +63,15 @@ Salin folder `diorama-basabasi` ini ke dalam repo kerja, di lokasi:
 
 ## Versi
 
+- v2.8 (13 Nov 2026) — user menghapus dua elemen layar untuk SEMUA
+  video ke depan setelah melihat hasil Part 2 (Usus Bocor): (1) pill
+  tahap Mode C (nama tahap + penanda "pos n/N" + titik progres)
+  ditiadakan sepenuhnya — posisi aliran dibaca dari kamera, chip,
+  dan narasi; (2) kartu/label seri di dalam video ditiadakan di
+  kedua mode — penutup cukup kesimpulan (A) / callback (C) + fade;
+  identitas seri hanya hidup di caption Instagram. SKILL.md,
+  references/mode-a.md, references/mode-c.md, evals, prompt mulai,
+  dan PANDUAN-PAKAI diselaraskan. Kunci lain tidak berubah.
 - v2.7 (13 Nov 2026) — user mengaktifkan Mode C (anatomi, Seri Tubuh
   Manusia) dari status parkir: file references/mode-c.md baru
   (organ hero glossy di void ungu, kode warna aliran mutlak, struktur

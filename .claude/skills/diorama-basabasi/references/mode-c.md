@@ -28,7 +28,7 @@ Manusia · Part 1" milik @motionformat (52,7 detik, nol hard cut).
   aliran, dan label — bukan detail model. Stilasi glossy yang bersih
   mengalahkan realisme yang tanggung.
 - Belahan/interior organ hanya untuk segmen mekanisme (lihat
-  Struktur), dinyatakan lewat pill tahap; jangan membelah di segmen
+  Struktur); jangan membelah di segmen
   lain.
 
 ## Material & rig cahaya Mode C
@@ -83,13 +83,11 @@ Manusia · Part 1" milik @motionformat (52,7 detik, nol hard cut).
   detik, SETELAH hook — bukan di frame pertama. Di bawahnya anotasi
   fakta bertumpuk (ukuran, jumlah ruang/bagian) muncul satu-satu
   mengikuti narasi.
-- **Pill tahap:** SATU pill satu baris di atas-tengah frame, berisi
-  titik warna semantik (biru/merah sesuai status aliran) + nama tahap
-  perjalanan saat ini ("Oksigennya sudah dipakai" → "Dipompa ke
-  paru-paru" → "Di paru-paru: ambil oksigen" → …). Ini pengecualian
-  terukur dari larangan HUD tumpuk di riset: hanya pill ini, satu
-  baris, isinya berubah mengikuti posisi aliran — dia pembawa
-  struktur aliran, bukan hiasan. Elemen HUD lain tetap dilarang.
+- **Tanpa pill tahap / HUD (v2.8):** dilarang pill tahap, penanda
+  posisi ("pos n/N"), dan elemen HUD apa pun di Mode C. Keputusan
+  user 13 Nov 2026 setelah melihat hasil Part 2: frame lebih bersih
+  tanpa penanda. Posisi aliran WAJIB terbaca dari perjalanan kamera,
+  chip yang menyala, dan narasi — bukan dari teks penanda.
 - **Chip label anatomi:** label DOM terproyeksi menempel pada bagian
   organ; chip MENYALA berwarna aliran (biru/merah) tepat saat bagian
   itu aktif menurut narasi, redup saat tidak aktif.
@@ -109,8 +107,7 @@ Manusia · Part 1" milik @motionformat (52,7 detik, nol hard cut).
 2. **Judul tunda + anotasi** (±5–10 dtk): judul serif muncul, fakta
    ukuran/bagian bertumpuk mengikuti narasi.
 3. **Perjalanan aliran** (bagian terbesar): satu paket diikuti
-   melewati SELURUH sirkuit/sistem tanpa putus; pill tahap berganti
-   di setiap pos; chip menyala mengikuti bagian aktif; tangga zoom
+   melewati SELURUH sirkuit/sistem tanpa putus; chip menyala mengikuti bagian aktif; tangga zoom
    berjalan (termasuk singgah mikroskopis di titik pertukaran, tempat
    partikel berubah warna).
 4. **Segmen mekanisme:** kamera masuk interior (katup/proses kunci),
@@ -119,10 +116,10 @@ Manusia · Part 1" milik @motionformat (52,7 detik, nol hard cut).
 5. **Finale + callback:** counter besar teranimasi untuk angka
    akumulasi narasi (mis. total ketukan per hari, dengan progress
    bar bila cocok), lalu kalimat CALLBACK yang memantulkan hook awal
-   ("Semua itu cuma dalam 1 detak") + kartu seri "Seri Tubuh
-   Manusia · Part N" di frame penutup. Fade ke hitam.
-   (Penutup Mode C = callback + label seri; ini menggantikan beauty
-   shot Mode A. CTV tetap hanya bila diminta untuk video itu.)
+   ("Semua itu cuma dalam 1 detak"). Fade ke hitam.
+   (Penutup Mode C = callback; TANPA kartu/label seri di dalam video
+   sejak v2.8 — identitas seri hanya di caption. Ini menggantikan
+   beauty shot Mode A. CTV tetap hanya bila diminta untuk video itu.)
 
 ## Larangan khusus Mode C
 
@@ -140,8 +137,9 @@ Manusia · Part 1" milik @motionformat (52,7 detik, nol hard cut).
 - Kode warna tidak terbalik di satu pun still; perubahan warna
   partikel di titik pertukaran terlihat jelas dan tepat kalimatnya.
 - Counter detak sinkron ketukan visual organ (≤ 0,3 detik) di preview.
-- Pill tahap di setiap still sesuai posisi aliran scene itu.
+- Tidak ada pill tahap, penanda posisi, atau HUD apa pun di still
+  mana pun (v2.8).
 - Chip hanya menyala pada bagian yang sedang aktif menurut narasi.
 - Judul tidak muncul sebelum hook selesai (±5 detik pertama bersih
   dari judul).
-- Penutup memuat callback ke hook + label seri.
+- Penutup memuat callback ke hook; tidak ada kartu/label seri.

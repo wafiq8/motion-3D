@@ -20,7 +20,7 @@ dan baseline terdokumentasi perbedaannya.
    segmen demonstrasi.
 4. **Topik anatomi Mode C** (mis. perjalanan satu paket darah melewati
    jantung dan paru) — menguji kode warna aliran, counter detak
-   sinkron, pill tahap, judul tunda, dan penutup callback.
+   sinkron, judul tunda, dan penutup callback.
 
 ## Asersi lulus/gagal (ukur dari file final + timeline.json)
 
@@ -40,9 +40,11 @@ dan baseline terdokumentasi perbedaannya.
 - Khusus Mode C (skenario 4): * kode warna aliran tidak terbalik di
   still mana pun dan partikel berubah warna di titik pertukaran tepat
   pada kalimatnya; * counter detak sinkron ketukan visual ≤ 0,3 detik;
-  pill tahap sesuai posisi aliran di tiap still; judul tidak muncul
+  tidak ada pill tahap/penanda posisi/HUD di still mana pun (v2.8);
+  judul tidak muncul
   di 5 detik pertama; penutup memuat callback ke hook.
-- Penutup memuat kesimpulan + label seri; fade ke hitam bersih
+- Penutup memuat kesimpulan (Mode A) / callback (Mode C); tanpa
+  kartu/label seri; fade ke hitam bersih
   (CTV hanya bila diminta untuk video itu).
 - Waktu produksi tercatat (untuk target ritme 1–2 video/hari): render
   per-scene + concat berhasil tanpa render ulang menyeluruh.
