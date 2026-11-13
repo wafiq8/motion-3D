@@ -1,9 +1,10 @@
-# diorama-basabasi — Tool Produksi Video Edukasi Basabasi (Mode A + C)
+# diorama-basabasi — Tool Produksi Video Edukasi Basabasi (Mode A + B + C)
 
 Skill Claude Code untuk membuat video edukasi vertikal 9:16 (30–60 detik)
 bergaya 3D dari kode (Remotion + Three.js), pola Motion Format versi
-Basabasi, dalam dua mode aktif: Mode A — diorama 3D semi-realistis
-(lanskap/sejarah + varian peta hidup); Mode C — ilustrasi anatomi 3D
+Basabasi, dalam tiga mode aktif: Mode A — diorama 3D semi-realistis
+(lanskap/sejarah + varian peta hidup); Mode B — bongkar benda
+(cara kerja benda/mesin); Mode C — ilustrasi anatomi 3D
 glossy (Seri Tubuh Manusia). Tujuannya membangun audiens. Dirancang agar render final pertama
 langsung lolos QC: timing diukur dari audio asli ke dalam satu
 timeline.json yang divalidasi mesin, teks readout tidak bisa keluar
@@ -12,7 +13,7 @@ fail-closed sebelum menyerahkan hasil.
 
 ## Keputusan terkunci (user, 12 Nov 2026; daftar mode diperbarui 13 Nov 2026)
 
-Mode A + Mode C aktif (Mode B parkir) · tujuan bangun audiens (penutup kesimpulan/callback, tanpa kartu seri & tanpa pill tahap;
+Mode A + B + C aktif · tujuan bangun audiens (penutup kesimpulan/callback, tanpa kartu seri & tanpa pill tahap;
 CTV hanya sesekali bila diminta) · angka = readout layar (hybrid: maks.
 satu angka hero 3D emas per video) · durasi 30–60 detik · suara agnostik (MP3 dari user) ·
 musik dari user · fakta: sumber user utama, riset web boleh melengkapi
@@ -22,12 +23,16 @@ Puppeteer/FFmpeg).
 
 ## Isi paket
 
-- `SKILL.md` — inti (259 baris): keputusan terkunci, larangan keras,
-  aturan timing/timeline.json, style lock ringkas dua mode, aturan teks, audio,
+- `SKILL.md` — inti (294 baris): keputusan terkunci, larangan keras,
+  aturan timing/timeline.json, style lock ringkas tiga mode, aturan teks, audio,
   alur 5 tahap dengan 2 gerbang, pipeline render cepat, QC 10 poin.
 - `references/mode-a.md` — detail Mode A: gaya visual + palet + rig
   cahaya, tipografi serif, bahasa kamera & tangga zoom, tiga struktur
   narasi, penutup CTV, dan Varian A2 Peta Hidup.
+- `references/mode-b.md` — detail Mode B (bongkar benda): dua tahap
+  konteks → lab, satu model objek untuk ledakan + belahan, label
+  bagian dwibahasa berurutan narasi, belahan berjalan ikuti-satu-
+  aliran, makro mekanisme, payoff label prinsip, tanpa HUD, QC khusus.
 - `references/mode-c.md` — detail Mode C (anatomi): organ hero glossy
   di void ungu, kode warna aliran mutlak, struktur ikuti-satu-aliran,
   hook waktu-nyata + counter hidup, judul tunda, chip
@@ -37,8 +42,8 @@ Puppeteer/FFmpeg).
   timeline.json (sudah diuji: PASS pada contoh valid).
 - `scripts/check_output.sh` — pemeriksa file final via ffprobe/ffmpeg:
   resolusi, fps, durasi 30–60, keheningan, loudness (sudah diuji).
-- `evals/evals.md` — 4 skenario uji (aliran, peta, bantahan mitos,
-  anatomi Mode C) +
+- `evals/evals.md` — 5 skenario uji (aliran, peta, bantahan mitos,
+  anatomi Mode C, bongkar benda Mode B) +
   asersi lulus/gagal terukur; jalankan sebelum skill disebut selesai.
 - `prompt-mulai-sesi-baru.txt` — prompt pendek yang ditempel user sebagai
   pesan pertama setiap produksi baru di sesi Claude Code cloud.
@@ -63,6 +68,17 @@ Salin folder `diorama-basabasi` ini ke dalam repo kerja, di lokasi:
 
 ## Versi
 
+- v2.9 (13 Nov 2026) — user mengaktifkan Mode B (bongkar benda —
+  cara kerja benda/mesin) dari status parkir: references/mode-b.md
+  baru, dibangun dari bedah rice cooker + mesin jet @motionformat,
+  dalam versi BERSIH — grammar konteks → zoom → dibongkar → dibelah
+  → saat menyala → makro mekanisme → payoff prinsip dipakai, tetapi
+  HUD permanen referensi (breadcrumb, counter zoom, minimap)
+  DIBUANG sesuai putusan riset 12 Nov dan arah v2.8. SKILL.md
+  membawa ringkasan Mode B + penyesuaian aturan jarak, eval
+  bertambah skenario 5 (bongkar benda), prompt mulai kini memilih
+  tiga mode. Paket publik DITUNDA atas keputusan user — Mode B
+  dulu, urusan publik belakangan. Kunci lain tidak berubah.
 - v2.8 (13 Nov 2026) — user menghapus dua elemen layar untuk SEMUA
   video ke depan setelah melihat hasil Part 2 (Usus Bocor): (1) pill
   tahap Mode C (nama tahap + penanda "pos n/N" + titik progres)

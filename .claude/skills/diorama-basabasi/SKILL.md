@@ -1,25 +1,26 @@
 ---
 name: diorama-basabasi
-description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dari kode untuk seri edukasi Basabasi berbahasa Indonesia, dalam dua mode aktif — Mode A: diorama 3D semi-realistis (lanskap/sejarah, termasuk varian peta hidup); Mode C: ilustrasi anatomi 3D glossy (Seri Tubuh Manusia, ikuti-satu-aliran). Dirender dengan Remotion + Three.js; BUKAN footage asli dan BUKAN slideshow gambar AI. Mengunci timeline.json sebagai sumber kebenaran timing dari audio asli, style lock per mode, teks readout overlay DOM anti-kepotong, gerbang still-frame, QC mandiri fail-closed, render cepat per-scene, dan penutup kesimpulan/callback untuk membangun audiens.
+description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dari kode untuk seri edukasi Basabasi berbahasa Indonesia, dalam tiga mode aktif — Mode A: diorama 3D semi-realistis (lanskap/sejarah, termasuk varian peta hidup); Mode B: bongkar benda (cara kerja benda/mesin); Mode C: ilustrasi anatomi 3D glossy (Seri Tubuh Manusia, ikuti-satu-aliran). Dirender dengan Remotion + Three.js; BUKAN footage asli dan BUKAN slideshow gambar AI. Mengunci timeline.json sebagai sumber kebenaran timing dari audio asli, style lock per mode, teks readout overlay DOM anti-kepotong, gerbang still-frame, QC mandiri fail-closed, render cepat per-scene, dan penutup kesimpulan/callback untuk membangun audiens.
 ---
 
-# Diorama Basabasi — Skill Produksi Video Edukasi Basabasi (v2.8)
+# Diorama Basabasi — Skill Produksi Video Edukasi Basabasi (v2.9)
 
 > Prinsip inti: **periksa sebelum render, bukan sesudahnya.** Semua yang
 > bisa dicek murah (timeline, still-frame, lebar teks) WAJIB lolos dulu.
 > Render full-res hanya sekali, di ujung, setelah semua gerbang hijau.
 >
 > File ini adalah INTI. Detail visual per mode ada di `references/`
-> — `mode-a.md` untuk Mode A, `mode-c.md` untuk Mode C (WAJIB dibaca
+> — `mode-a.md` untuk Mode A, `mode-b.md` untuk Mode B, `mode-c.md`
+> untuk Mode C (WAJIB dibaca
 > yang sesuai mode video ini, sebelum membangun scene). Skenario uji
 > ada di `evals/evals.md`. Skrip di `scripts/` dijalankan PERSIS apa
 > adanya — jangan menulis ulang fungsinya.
 
 ## Keputusan terkunci (dari user, 12 Nov 2026 — jangan diubah diam-diam)
 
-- **Dua mode aktif: Mode A** (lanskap/sejarah + varian peta hidup)
-  dan **Mode C** (anatomi — Seri Tubuh Manusia). Mode B (bongkar
-  benda) TIDAK dipakai sampai user memutuskan. Mode dipilih user per
+- **Tiga mode aktif: Mode A** (lanskap/sejarah + varian peta hidup),
+  **Mode B** (bongkar benda — cara kerja benda/mesin), dan **Mode C**
+  (anatomi — Seri Tubuh Manusia). Mode dipilih user per
   video lewat prompt mulai; sesi membaca file referensi mode itu
   sebelum Tahap 2.
 - Tujuan: **membangun audiens.** Penutup bawaan = kesimpulan (Mode A)
@@ -72,7 +73,9 @@ description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dar
 - Manusia hanya siluet gelap kecil tanpa wajah. Subjek utama Mode A
   tidak close-up (jarak kamera minimum 8 m untuk hewan/objek hero
   lanskap) — di Mode C aturan jarak ini tidak berlaku: organ hero
-  memang mengisi frame (lihat references/mode-c.md).
+  memang mengisi frame; di Mode B aturan ini hanya mengikat framing
+  tahap konteks — objek hero di tahap lab memang mengisi frame
+  (lihat references/mode-b.md dan references/mode-c.md).
 - Satu renderer, satu set material, satu rig cahaya untuk semua scene.
 - Dilarang menebak durasi dari jumlah kata/storyboard. Timing HANYA dari
   audio asli (lihat Timing).
@@ -147,6 +150,27 @@ description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dar
   (Call to value hanya bila
   diminta untuk video ini.)
 
+### Mode B — Bongkar Benda (detail di references/mode-b.md)
+
+- DUA tahap dunia: diorama KONTEKS hangat gaya Mode A (benda tampil
+  utuh di habitatnya) → tahap LAB berlatar grid teknis gelap tempat
+  benda dibongkar; transisi lewat zoom kontinu (latar memudar/iris),
+  tanpa hard cut.
+- Satu model objek hero prosedural dibangun sekali; tampak ledakan
+  dan belahan diturunkan dari model yang sama.
+- TANPA kartu judul (hook = kalimat pertama narasi di shot konteks)
+  dan TANPA HUD permanen apa pun — breadcrumb, counter zoom, dan
+  minimap referensi DIBUANG (putusan riset + arah v2.8). Navigasi
+  dari kamera kontinu, label leader-line, dan judul fase sesaat.
+- Fase baku: konteks → zoom + label objek → DIBONGKAR (label bagian
+  dwibahasa ID + istilah EN, muncul sesuai urutan narasi) → DIBELAH
+  (proses dianimasikan + readout proses) → SAAT MENYALA (belahan
+  berjalan, ikuti satu aliran, label proses, partikel aliran
+  berkode warna semantik) → makro mekanisme penentu → payoff label
+  prinsip satu baris saat kamera menarik mundur.
+- Penutup Mode B: kalimat kesimpulan/prinsip + fade ke hitam; tanpa
+  kartu/label seri (v2.8).
+
 ### Mode C — Anatomi (detail di references/mode-c.md)
 
 - BUKAN diorama: satu organ hero 3D glossy melayang di kehampaan ungu
@@ -201,7 +225,8 @@ description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dar
 - **Tahap 1 — Timeline:** sesuai bagian Timing → validator PASS →
   Gerbang 1 (persetujuan user).
 - **Tahap 2 — Bangun scene** membaca timeline.json dan file referensi
-  mode video ini (references/mode-a.md atau references/mode-c.md).
+  mode video ini (references/mode-a.md, references/mode-b.md, atau
+  references/mode-c.md).
 - **Tahap 3 — Gerbang still:** render 3 still per scene (awal/tengah/
   akhir scene) + contact sheet; tampilkan; TUNGGU persetujuan user.
   (Format mengikuti tangga pelonggaran Gerbang 2 di Keputusan terkunci.)
@@ -238,10 +263,14 @@ description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dar
 6. Tidak ada keheningan tanpa alasan > 1 detik; jeda payoff ≤ 1 detik.
 7. Loudness −14 LUFS ±1, peak ≤ −1 dB.
 8. Gaya konsisten antar scene (palet, rig cahaya, font, gaya caption).
-9. Manusia hanya siluet. Mode A: subjek hero tidak close-up. Mode C:
+9. Manusia hanya siluet. Mode A: subjek hero tidak close-up. Mode B:
+   label bagian sesuai urutan narasi dan tidak ada HUD permanen
+   (cek khusus Mode B di references/mode-b.md WAJIB ikut diperiksa).
+   Mode C:
    organ hero utuh terbaca dan kode warna aliran tidak terbalik
    (cek khusus Mode C di references/mode-c.md WAJIB ikut diperiksa).
-10. Penutup memuat kesimpulan (Mode A) atau callback (Mode C); fade
+10. Penutup memuat kesimpulan (Mode A), kesimpulan/prinsip (Mode B),
+    atau callback (Mode C); fade
     ke hitam bersih; TIDAK ada kartu/label seri, pill tahap, atau
     penanda posisi di frame mana pun (v2.8).
     (CTV hadir hanya bila diminta untuk video ini.)

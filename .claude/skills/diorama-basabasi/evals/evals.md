@@ -7,7 +7,7 @@ sama, lalu nilai hasil render finalnya dengan asersi di bawah. Skill
 lolos bila versi dengan-skill PASS semua asersi kritis (bertanda *)
 dan baseline terdokumentasi perbedaannya.
 
-## Empat skenario wajib
+## Lima skenario wajib
 
 1. **Topik aliran/sistem** (mis. perjalanan satu paket udara/darah/air
    melewati sebuah sistem) — menguji struktur ikuti-satu-aliran dan
@@ -21,6 +21,11 @@ dan baseline terdokumentasi perbedaannya.
 4. **Topik anatomi Mode C** (mis. perjalanan satu paket darah melewati
    jantung dan paru) — menguji kode warna aliran, counter detak
    sinkron, judul tunda, dan penutup callback.
+5. **Topik bongkar benda Mode B** (mis. cara kerja rice cooker atau
+   mesin) — menguji zoom konteks→lab tanpa hard cut, label bagian
+   dwibahasa sesuai urutan narasi, belahan berjalan dengan readout
+   proses, makro mekanisme, payoff label prinsip, dan ketiadaan HUD
+   permanen.
 
 ## Asersi lulus/gagal (ukur dari file final + timeline.json)
 
@@ -43,7 +48,14 @@ dan baseline terdokumentasi perbedaannya.
   tidak ada pill tahap/penanda posisi/HUD di still mana pun (v2.8);
   judul tidak muncul
   di 5 detik pertama; penutup memuat callback ke hook.
-- Penutup memuat kesimpulan (Mode A) / callback (Mode C); tanpa
+- Khusus Mode B (skenario 5): * label bagian muncul satu-satu sesuai
+  urutan narasi dan leader line menunjuk bagian yang benar; * tidak
+  ada HUD permanen (breadcrumb/counter zoom/minimap/pill) di still
+  mana pun; * tampak ledakan tanpa bagian saling menembus; *
+  partikel aliran konsisten kode warnanya; * label prinsip tampil
+  tepat pada kalimat penutup.
+- Penutup memuat kesimpulan (Mode A) / kesimpulan-prinsip (Mode B) /
+  callback (Mode C); tanpa
   kartu/label seri; fade ke hitam bersih
   (CTV hanya bila diminta untuk video itu).
 - Waktu produksi tercatat (untuk target ritme 1–2 video/hari): render
