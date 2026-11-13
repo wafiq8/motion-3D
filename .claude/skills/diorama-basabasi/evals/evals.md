@@ -36,7 +36,7 @@ dan baseline terdokumentasi perbedaannya.
 - Manusia hanya siluet; subjek hero tidak close-up (< 8 m).
 - Penutup memuat kesimpulan + label seri; fade ke hitam bersih
   (CTV hanya bila diminta untuk video itu).
-- Waktu produksi tercatat (untuk target ritme 2 video/hari): render
+- Waktu produksi tercatat (untuk target ritme 1–2 video/hari): render
   per-scene + concat berhasil tanpa render ulang menyeluruh.
 
 ## Cara mencatat

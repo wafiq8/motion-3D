@@ -3,7 +3,7 @@ name: diorama-basabasi
 description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya diorama 3D semi-realistis Mode A (lanskap/sejarah, termasuk varian peta hidup) yang dirender dari kode dengan Remotion + Three.js, untuk seri edukasi Basabasi berbahasa Indonesia. Pakai skill ini setiap kali user meminta video edukasi baru seri Basabasi — sejarah, alam, geografi, budaya — yang visualnya dunia 3D prosedural berkamera bergerak; BUKAN footage asli dan BUKAN slideshow gambar AI. Mengunci timeline.json sebagai sumber kebenaran timing dari audio asli, style lock Mode A, teks readout overlay DOM anti-kepotong, gerbang still-frame, QC mandiri fail-closed, render cepat per-scene, dan penutup kesimpulan + label seri untuk membangun audiens.
 ---
 
-# Diorama Basabasi — Skill Produksi Video Edukasi Mode A (v2.5)
+# Diorama Basabasi — Skill Produksi Video Edukasi Mode A (v2.6)
 
 > Prinsip inti: **periksa sebelum render, bukan sesudahnya.** Semua yang
 > bisa dicek murah (timeline, still-frame, lebar teks) WAJIB lolos dulu.
@@ -38,8 +38,9 @@ description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya dioram
   fakta.
 - Operator tunggal: user sendiri, dari tablet. Semua hasil WAJIB tampil
   sebagai file di sesi (still, preview, final) agar bisa diunduh.
-- Target ritme 2 video/hari: efisiensi adalah syarat desain — pakai ulang
-  scaffold, primitif, dan komponen; jangan membangun ulang yang sudah ada.
+- Target ritme: **1–2 video/hari**. Efisiensi adalah syarat desain —
+  pakai ulang scaffold, primitif, dan komponen; jangan membangun ulang
+  yang sudah ada.
 - Gerbang: TETAP DUA — Gerbang 1 (ringkasan timeline) dan Gerbang 2
   (contact sheet still). Pelonggaran demi efisiensi BOLEH, bertahap,
   berbasis bukti, dan hanya untuk Gerbang 2:

@@ -16,7 +16,7 @@ CTV hanya sesekali bila diminta) · angka = readout layar (hybrid: maks.
 satu angka hero 3D emas per video) · durasi 30–60 detik · suara agnostik (MP3 dari user) ·
 musik dari user · fakta: sumber user utama, riset web boleh melengkapi
 + wajib cantumkan sumber · operator tunggal ·
-target 2 video/hari · render cepat per-scene + concat (pola optimasi
+target 1–2 video/hari · render cepat per-scene + concat (pola optimasi
 Puppeteer/FFmpeg).
 
 ## Isi paket
@@ -57,6 +57,8 @@ Salin folder `diorama-basabasi` ini ke dalam repo kerja, di lokasi:
 
 ## Versi
 
+- v2.6 (13 Nov 2026) — target ritme dilunakkan user menjadi 1–2
+  video/hari (dari kunci datar 2/hari).
 - v2.5 (13 Nov 2026) — gerbang diputuskan user: tetap dua; Gerbang 2
   (still) boleh dilonggarkan bertahap demi efisiensi setelah
   berturut-turut lolos bersih (tangga pelonggaran di SKILL.md);
