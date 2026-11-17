@@ -16,7 +16,7 @@ Data produksi kali ini:
 - File MP3 narasi ada di root repo (nama file bebas) → pindahkan ke public/narasi.mp3. File musik saya juga di root repo → public/musik. Kalau salah satu belum ada, berhenti dan kabari saya — jangan menentukan timing apa pun sebelum MP3 narasi tersedia.
 
 Pengingat kunci dari skill (jangan dilanggar):
-- Durasi final 30–60 detik mengikuti audio; timeline.json adalah sumber kebenaran tunggal dan harus lolos scripts/validate_timeline.py sebelum scene dibangun.
+- Durasi final 30–60 detik mengikuti audio (Varian A2: 30–120 detik); timeline.json adalah sumber kebenaran tunggal dan harus lolos scripts/validate_timeline.py sebelum scene dibangun.
 - Angka/data tampil sebagai readout layar; satu-satunya pengecualian: maksimal satu angka hero 3D emas untuk angka puncak video.
 - Penutup = kesimpulan (Mode A) / kesimpulan-prinsip (Mode B) / callback (Mode C), tanpa kartu/label seri di dalam video dan tanpa pill tahap/penanda posisi; call to value hanya bila saya minta untuk video ini; ajakan membeli dilarang.
 - Render per scene + concat FFmpeg -c copy; preview skala 0.5; full-res hanya sekali di tahap akhir; jalankan scripts/check_output.sh pada file final.

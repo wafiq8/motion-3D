@@ -24,7 +24,7 @@ kode scene, render, QC) dikerjakan sesi mengikuti SKILL.md.
    lanjut (diatur di prompt mulai).
 4. MP3 narasi: buat dari naskah memakai TTS pilihan sendiri
    (ElevenLabs, Gemini, atau apa pun — skill ini agnostik suara).
-   Total audio wajib masuk 30–60 detik.
+   Total audio wajib masuk 30–60 detik (Varian A2: 30–120 detik).
 5. File musik latar pilihan sendiri (sesi dilarang memilihkan musik).
 6. Upload MP3 narasi + file musik ke ROOT repo motion-3D
    (GitHub web dari tablet: Add file → Upload files). Nama file bebas;
@@ -61,7 +61,7 @@ kode scene, render, QC) dikerjakan sesi mengikuti SKILL.md.
   → **GERBANG 1 (operator):** sesi menampilkan ringkasan timeline
   (jumlah kalimat, pemetaan kalimat → scene, total durasi) lalu
   BERHENTI. Tugas operator: periksa pemetaan masuk akal dan total
-  durasi 30–60 detik; balas setuju, atau sebutkan yang harus diubah.
+  durasi sesuai rentang format (30–60; A2: 30–120); balas setuju, atau sebutkan yang harus diubah.
 - **Tahap 2 — Bangun scene.** Sesi menulis kode scene (Remotion +
   Three.js) dari timeline.json dan file mode terpilih (mode-a.md /
   mode-b.md / mode-c.md): style lock mode itu,
@@ -120,7 +120,7 @@ kode scene, render, QC) dikerjakan sesi mengikuti SKILL.md.
 - **Sesi berhenti sebelum mulai:** hampir pasti MP3 narasi atau file
   musik belum ada di root repo — memang dirancang berhenti dan
   mengabari. Upload dulu, lalu suruh sesi lanjut.
-- **Durasi audio di luar 30–60 detik:** sesi melapor, bukan memotong
+- **Durasi audio di luar rentang format (30–60; A2: 30–120):** sesi melapor, bukan memotong
   diam-diam. Sesuaikan naskah/TTS, buat MP3 baru.
 - **Sesi gagal push hasil ke GitHub (403):** itu izin aplikasi Claude
   milik Anthropic untuk repo ini — berbeda dari aplikasi GitHub Muse

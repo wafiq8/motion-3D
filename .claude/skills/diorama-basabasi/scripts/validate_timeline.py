@@ -9,6 +9,7 @@ import sys
 
 TOL = 0.3          # toleransi batas scene vs awal kalimat (detik)
 DUR_MIN, DUR_MAX = 30.0, 60.0
+DUR_MAX_A2 = 120.0  # Varian A2 (format peta): rentang 30–120 detik
 TAIL_MAX = 5.0     # total non-narasi maksimum di luar jeda payoff
 
 fails = []
@@ -27,7 +28,11 @@ def main(path):
     check(t.get("fps") == 30, "fps == 30", f"fps={t.get('fps')}")
     total = float(t["total_duration_s"])
     audio = float(t["audio_duration_s"])
-    check(DUR_MIN <= total <= DUR_MAX, "total durasi 30–60 detik", f"{total:.2f}s")
+    variant = str(t.get("variant", "")).strip().upper()
+    dur_max = DUR_MAX_A2 if variant == "A2" else DUR_MAX
+    check(DUR_MIN <= total <= dur_max,
+          f"total durasi 30–{int(dur_max)} detik" + (" (Varian A2)" if variant == "A2" else ""),
+          f"{total:.2f}s")
     check(abs(audio - total) <= TAIL_MAX + 1.0, "durasi audio masuk akal vs total",
           f"audio={audio:.2f}s total={total:.2f}s")
 

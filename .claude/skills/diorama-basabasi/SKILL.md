@@ -1,6 +1,6 @@
 ---
 name: diorama-basabasi
-description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dari kode untuk seri edukasi Basabasi berbahasa Indonesia, dalam tiga mode aktif — Mode A: diorama 3D semi-realistis (lanskap/sejarah, termasuk varian peta hidup); Mode B: bongkar benda (cara kerja benda/mesin); Mode C: ilustrasi anatomi 3D glossy (Seri Tubuh Manusia, ikuti-satu-aliran). Dirender dengan Remotion + Three.js; BUKAN footage asli dan BUKAN slideshow gambar AI. Mengunci timeline.json sebagai sumber kebenaran timing dari audio asli, style lock per mode, teks readout overlay DOM anti-kepotong, gerbang still-frame, QC mandiri fail-closed, render cepat per-scene, dan penutup kesimpulan/callback untuk membangun audiens.
+description: Produksi video edukasi vertikal 9:16 (30–60 detik; Varian A2: 30–120 detik) bergaya 3D dari kode untuk seri edukasi Basabasi berbahasa Indonesia, dalam tiga mode aktif — Mode A: diorama 3D semi-realistis (lanskap/sejarah, termasuk varian peta hidup); Mode B: bongkar benda (cara kerja benda/mesin); Mode C: ilustrasi anatomi 3D glossy (Seri Tubuh Manusia, ikuti-satu-aliran). Dirender dengan Remotion + Three.js; BUKAN footage asli dan BUKAN slideshow gambar AI. Mengunci timeline.json sebagai sumber kebenaran timing dari audio asli, style lock per mode, teks readout overlay DOM anti-kepotong, gerbang still-frame, QC mandiri fail-closed, render cepat per-scene, dan penutup kesimpulan/callback untuk membangun audiens.
 ---
 
 # Diorama Basabasi — Skill Produksi Video Edukasi Basabasi (v3.0)
@@ -34,7 +34,8 @@ description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dar
   emas di dalam scene per video, hanya untuk angka puncak video itu —
   dan angka yang sama WAJIB tetap tampil sebagai readout/caption,
   karena versi 3D adalah penekanan visual, bukan pembawa informasi.
-- Durasi final **30–60 detik**, mengikuti audio.
+- Durasi final **30–60 detik**, mengikuti audio. Pengecualian
+  Varian A2 (format peta): **30–120 detik**.
 - Suara: skill ini AGNOSTIK suara — pakai MP3 narasi apa pun yang
   disediakan user di `public/narasi.mp3`.
 - Musik: file dari user di `public/musik.*` — jangan memilihkan musik.
@@ -141,6 +142,10 @@ sejak produksi pertama.
 }
 ```
 
+   Field `"variant": "A2"` WAJIB diisi untuk produksi Varian A2 —
+   validator membaca field ini untuk batas durasi 30–120 detik;
+   tanpa field itu batas 30–60 detik berlaku.
+
 4. Aturan pemetaan: batas scene = detik MULAI kalimat pertama scene
    berikutnya; pemetaan berdasarkan ISI kalimat — dilarang mengelompokkan
    kalimat demi mengisi durasi; selisih potongan aktual vs timeline
@@ -149,7 +154,8 @@ sejak produksi pertama.
    Kalau FAIL: perbaiki timeline, ulangi. Dilarang lanjut saat FAIL.
 6. Tampilkan ringkasan timeline (jumlah kalimat, pemetaan scene, total
    durasi) ke user dan TUNGGU persetujuan — ini Gerbang 1.
-7. `total_duration_s` harus 30–60 detik. Di luar itu: laporkan ke user
+7. `total_duration_s` harus masuk rentang formatnya (30–60 detik;
+   Varian A2: 30–120 detik). Di luar itu: laporkan ke user
    (narasi kepanjangan/kependekan), jangan memotong atau menambal diam-diam.
    Keheningan tanpa alasan dilarang; jeda payoff 0,3–1 detik di penutup
    diperbolehkan dan dihitung dalam total.
@@ -270,7 +276,9 @@ sejak produksi pertama.
   QC di bawah atas hasil sendiri, perbaiki semua temuan (render ulang
   hanya scene yang berubah) sebelum melapor.
 - **Tahap 5 — Final:** render full-res SEKALI; jalankan
-  `bash scripts/check_output.sh out/<slug>-final.mp4`; tampilkan file +
+  `bash scripts/check_output.sh out/<slug>-final.mp4`
+  (Varian A2: rentang 30–120 terbaca otomatis dari timeline.json,
+  atau beri argumen `30 120`); tampilkan file +
   laporan QC di sesi.
 
 ## Render cepat (pipeline terkunci)
@@ -288,7 +296,8 @@ sejak produksi pertama.
 ## QC mandiri wajib (fail-closed — semua harus PASS)
 
 1. `validate_timeline.py` PASS dan file final ter-probe: 1080×1920,
-   30 fps, durasi 30–60 detik, audio ada sampai mendekati akhir.
+   30 fps, durasi masuk rentang format (30–60; A2: 30–120), audio
+   ada sampai mendekati akhir.
 2. Setiap batas scene ≤ 0,3 detik dari awal kalimat pemetaannya.
 3. Tidak ada teks terpotong/keluar zona aman di contact sheet & preview.
 4. Hook lengkap (teks+suara+visual) hadir di 1,5 detik pertama.

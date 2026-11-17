@@ -3,6 +3,15 @@
 # Pakai: bash scripts/check_output.sh out/<slug>-final.mp4
 set -u
 F="${1:?path file final wajib diisi}"
+# Rentang durasi: argumen [dur_min] [dur_max]; tanpa argumen max, Varian A2
+# terbaca otomatis dari docs/timeline.json di sebelah file final (30–120).
+DMIN="${2:-30}"
+DMAX="${3:-}"
+if [ -z "$DMAX" ]; then
+  DMAX=60
+  TL="$(dirname "$F")/../docs/timeline.json"
+  if [ -f "$TL" ] && grep -q '"variant"[[:space:]]*:[[:space:]]*"A2"' "$TL"; then DMAX=120; fi
+fi
 fail=0
 say() { echo "$1 $2"; [ "$1" = "FAIL" ] && fail=1; return 0; }
 
@@ -16,8 +25,8 @@ FPSN=$(echo "$FPS" | awk -F/ '{printf "%.0f", $1/$2}')
 [ "$W" = "1080" ] && [ "$H" = "1920" ] \
   && say PASS "resolusi 1080x1920" || say FAIL "resolusi ${W}x${H}"
 [ "$FPSN" = "30" ] && say PASS "fps 30" || say FAIL "fps $FPSN"
-awk "BEGIN{exit !($DUR>=30 && $DUR<=60)}" \
-  && say PASS "durasi ${DUR}s (30–60)" || say FAIL "durasi ${DUR}s di luar 30–60"
+awk "BEGIN{exit !($DUR>=$DMIN && $DUR<=$DMAX)}" \
+  && say PASS "durasi ${DUR}s ($DMIN–$DMAX)" || say FAIL "durasi ${DUR}s di luar $DMIN–$DMAX"
 
 GAPS=$(ffmpeg -hide_banner -i "$F" -af "silencedetect=noise=-45dB:d=1.2" -f null - 2>&1 \
   | grep -c 'silence_start' || true)

@@ -29,7 +29,7 @@ dan baseline terdokumentasi perbedaannya.
 
 ## Asersi lulus/gagal (ukur dari file final + timeline.json)
 
-- * File final: 1080×1920, 30 fps, durasi 30–60 detik (ffprobe).
+- * File final: 1080×1920, 30 fps, durasi masuk rentang format (30–60; A2: 30–120) (ffprobe).
 - * `validate_timeline.py` PASS; semua batas scene ≤ 0,3 detik dari
   awal kalimat pemetaannya.
 - * Tidak ada teks terpotong atau keluar zona aman pada contact sheet
