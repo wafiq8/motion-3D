@@ -1,7 +1,7 @@
 # diorama-basabasi — Tool Produksi Video Edukasi Basabasi (Mode A + B + C)
 
 Skill Claude Code untuk membuat video edukasi vertikal 9:16 (30–60 detik; A2: 30–120 detik)
-bergaya 3D dari kode (Remotion + Three.js), pola Motion Format versi
+bergaya 3D dari kode (Remotion + Three.js; prosedural secara bawaan, format peta memakai data asli & model berlisensi terbuka), pola Motion Format versi
 Basabasi, dalam tiga mode aktif: Mode A — diorama 3D semi-realistis
 (lanskap/sejarah + varian peta hidup); Mode B — bongkar benda
 (cara kerja benda/mesin); Mode C — ilustrasi anatomi 3D
@@ -78,7 +78,7 @@ Salin folder `diorama-basabasi` ini ke dalam repo kerja, di lokasi:
   ngebut ber-blur), hero 3D di atas peta (piktogram 2D dicabut,
   pengecualian jarak kamera), tahap bawah permukaan (penampang
   batimetri + segmen bawah air), layer data berlegenda, dua struktur
-  narasi (mesin waktu / perjalanan bukti). Item 3: durasi Varian A2 menjadi 30–120 detik — validator membaca field variant di timeline.json, check_output membaca rentang yang sama (otomatis dari timeline atau argumen); mode lain tetap 30–60. Item 4: penutup Varian A2 struktur perjalanan bukti menjadi verdict singkat + pertanyaan terbuka spesifik (pertanyaan generik pancingan komentar dilarang, tanpa CTA); mesin waktu dan mode lain tidak berubah. Item 5: sitasi & label kejujuran pindah ke layar untuk semua mode — readout hitungan wajib berkredit sumber di frame yang sama; label ILUSTRASI / DISEDERHANAKAN / BELUM TERBUKTI terpicu kondisi (bukan HUD permanen); QC 5 menegakkan. Item 6 menyusul per persetujuan user.
+  narasi (mesin waktu / perjalanan bukti). Item 3: durasi Varian A2 menjadi 30–120 detik — validator membaca field variant di timeline.json, check_output membaca rentang yang sama (otomatis dari timeline atau argumen); mode lain tetap 30–60. Item 4: penutup Varian A2 struktur perjalanan bukti menjadi verdict singkat + pertanyaan terbuka spesifik (pertanyaan generik pancingan komentar dilarang, tanpa CTA); mesin waktu dan mode lain tidak berubah. Item 5: sitasi & label kejujuran pindah ke layar untuk semua mode — readout hitungan wajib berkredit sumber di frame yang sama; label ILUSTRASI / DISEDERHANAKAN / BELUM TERBUKTI terpicu kondisi (bukan HUD permanen); QC 5 menegakkan. Item 6: klaim publik ditulis ulang mengikuti aturan baru (prosedural secara bawaan; format peta memakai data geografi asli & model berlisensi terbuka; sitasi tampil di layar) — README utama, plugin.json, marketplace.json, dan kit berbagi diselaraskan. AMENDEMEN TUNTAS: keenam item selesai..
 - v2.9 (13 Nov 2026) — user mengaktifkan Mode B (bongkar benda —
   cara kerja benda/mesin) dari status parkir: references/mode-b.md
   baru, dibangun dari bedah rice cooker + mesin jet @motionformat,
