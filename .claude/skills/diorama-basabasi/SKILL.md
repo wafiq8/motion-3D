@@ -3,7 +3,7 @@ name: diorama-basabasi
 description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dari kode untuk seri edukasi Basabasi berbahasa Indonesia, dalam tiga mode aktif — Mode A: diorama 3D semi-realistis (lanskap/sejarah, termasuk varian peta hidup); Mode B: bongkar benda (cara kerja benda/mesin); Mode C: ilustrasi anatomi 3D glossy (Seri Tubuh Manusia, ikuti-satu-aliran). Dirender dengan Remotion + Three.js; BUKAN footage asli dan BUKAN slideshow gambar AI. Mengunci timeline.json sebagai sumber kebenaran timing dari audio asli, style lock per mode, teks readout overlay DOM anti-kepotong, gerbang still-frame, QC mandiri fail-closed, render cepat per-scene, dan penutup kesimpulan/callback untuk membangun audiens.
 ---
 
-# Diorama Basabasi — Skill Produksi Video Edukasi Basabasi (v2.9)
+# Diorama Basabasi — Skill Produksi Video Edukasi Basabasi (v3.0)
 
 > Prinsip inti: **periksa sebelum render, bukan sesudahnya.** Semua yang
 > bisa dicek murah (timeline, still-frame, lebar teks) WAJIB lolos dulu.
@@ -65,8 +65,10 @@ description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dar
 
 ## Larangan keras
 
-- Dilarang gambar AI/foto/2D/sprite/tekstur luar/model unduhan sebagai
-  scene. Semua visual = geometri 3D prosedural Three.js.
+- Dilarang gambar AI/foto/2D/sprite sebagai scene. Model unduhan dan
+  tekstur/data luar HANYA boleh dipakai mengikuti bagian "Aset unduhan
+  & data luar"; di luar itu semua visual = geometri 3D prosedural
+  Three.js.
 - Dilarang letterbox; kamera native 9:16.
 - Gerakan hanya dari kamera di ruang 3D (parallax nyata). Dilarang
   mensimulasikan gerak via zoom/pan gambar 2D.
@@ -82,6 +84,33 @@ description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dar
 - Dilarang animasi dari `useFrame()`, `Math.random()`, `Date.now()`, atau
   akumulasi frame — semua gerak diturunkan dari `useCurrentFrame()` dan
   konstanta acak ber-seed tetap.
+
+
+## Aset unduhan & data luar (amendemen jalur sudutpeta — Item 1)
+
+Sejak versi ini, larangan total atas model unduhan dan tekstur/data
+luar DICABUT dan diganti aturan berlisensi berikut. Di luar aturan ini,
+semua visual tetap geometri 3D prosedural Three.js.
+
+Model 3D unduhan (hero/prop) diizinkan bila SEMUA syarat terpenuhi:
+1. Lisensinya mengizinkan pemakaian komersial: CC BY, CC0, atau lisensi
+   Polyfork. DILARANG: BY-NC, BY-SA, Standard, editorial-only.
+2. Badge lisensi dicek di halaman modelnya sendiri sebelum diunduh;
+   nama model, pembuat, lisensi, dan tanggal cek dicatat untuk laporan
+   akhir (lihat Output dan laporan).
+3. File di-vendor ke repo proyek (GLB) — DILARANG hotlink CDN atau
+   mengambil file saat render; render harus tetap deterministik.
+4. Kredit pembuat + lisensi dicantumkan di laporan akhir dan di
+   caption postingan.
+
+Tekstur & data luar diizinkan KHUSUS untuk panggung peta: citra satelit
+S2Cloudless oleh EOX (CC BY 4.0), heightmap GEBCO (atribusi), batas dan
+label dari OpenStreetMap (© OpenStreetMap contributors), Natural Earth,
+dan Marine Regions (CC BY 4.0). Semua file di-vendor ke repo proyek.
+
+Ukuran setiap aset dan totalnya dicatat di laporan akhir, bersama
+catatan waktu render, agar aset yang memberatkan pipeline terlihat
+sejak produksi pertama.
 
 ## Timing — timeline.json adalah sumber kebenaran tunggal
 
@@ -282,6 +311,10 @@ description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dar
   `docs/timeline.json`.
 - Laporan akhir WAJIB memuat: tabel kalimat ringkas, pemetaan scene,
   hasil validator + check_output, dan hasil 10 poin QC satu per satu.
+- Bila memakai aset unduhan/data luar: laporan WAJIB memuat daftar aset
+  (nama, pembuat, lisensi, tanggal cek badge, ukuran file), total ukuran
+  aset, catatan waktu render, dan baris kredit aset yang siap ditempel
+  ke caption.
 - Caption Instagram: informatif, menutup dengan label seri + hashtag
   relevan.
 

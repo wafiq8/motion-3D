@@ -68,6 +68,12 @@ Salin folder `diorama-basabasi` ini ke dalam repo kerja, di lokasi:
 
 ## Versi
 
+- v3.0 (17 Nov 2026) — amendemen jalur sudutpeta, dibangun per item.
+  Item 1: aturan aset diganti — larangan total model unduhan dan
+  tekstur/data luar dicabut, diganti aturan berlisensi (CC BY/CC0/
+  Polyfork saja; badge dicek per model; GLB di-vendor; kredit di
+  laporan + caption; data peta S2Cloudless/GEBCO/OSM khusus panggung
+  peta). Item 2–6 menyusul per persetujuan user.
 - v2.9 (13 Nov 2026) — user mengaktifkan Mode B (bongkar benda —
   cara kerja benda/mesin) dari status parkir: references/mode-b.md
   baru, dibangun dari bedah rice cooker + mesin jet @motionformat,
