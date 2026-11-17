@@ -89,7 +89,7 @@ export const Stage: React.FC = () => {
 
   // terrain: 540x480 segmen, elevasi GEBCO x VS
   const terrain = useMemo(() => {
-    const g = new THREE.PlaneGeometry(27, 24, 540, 480);
+    const g = new THREE.PlaneGeometry(27, 24, 432, 384);
     g.rotateX(-Math.PI / 2);
     const p = g.attributes.position as THREE.BufferAttribute;
     for (let i = 0; i < p.count; i++) p.setY(i, yOf(elevM(p.getX(i) + 121.5, -p.getZ(i) - 2)));
@@ -301,7 +301,7 @@ const Pools: React.FC<{t: number}> = ({t}) => {
   const vis = win(t, SEC.pools, 24.3, 0.3, 0.45);
   const tmp = new THREE.Object3D();
   const cx = wx(122.0), cz = wz(-1.6);
-  for (let i = 0; i < 6000; i++) {
+  if (vis > 0.001) for (let i = 0; i < 6000; i++) {
     const r = Math.floor(i / 100), c = i % 100;
     const a = easeOut((t - SEC.pools - (r / 60) * 1.0) / 0.35) * vis;
     tmp.position.set(cx + (c - 49.5) * 0.085, 0.9 + (1 - a) * 0.8, cz + (r - 29.5) * 0.085);
