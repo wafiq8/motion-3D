@@ -46,7 +46,8 @@ description: Produksi video edukasi vertikal 9:16 (30–60 detik; Varian A2: 30�
   sumber dicantumkan di laporan akhir, utamakan sumber otoritatif
   (jurnal, lembaga, resmi), dan klaim yang belum terverifikasi WAJIB
   ditandai sebagai belum pasti — dilarang menyajikan tebakan sebagai
-  fakta.
+  fakta. Kredit sumber dan status kejujuran klaim juga tampil DI
+  LAYAR — lihat bagian "Sitasi & label kejujuran di layar".
 - Operator tunggal: user sendiri, dari tablet. Semua hasil WAJIB tampil
   sebagai file di sesi (still, preview, final) agar bisa diunduh.
 - Target ritme: **1–2 video/hari**. Efisiensi adalah syarat desain —
@@ -116,6 +117,31 @@ dan Marine Regions (CC BY 4.0). Semua file di-vendor ke repo proyek.
 Ukuran setiap aset dan totalnya dicatat di laporan akhir, bersama
 catatan waktu render, agar aset yang memberatkan pipeline terlihat
 sejak produksi pertama.
+
+## Sitasi & label kejujuran di layar (amendemen jalur sudutpeta — Item 5)
+
+Berlaku untuk SEMUA mode. Kredit sumber dan status kejujuran klaim
+tidak cukup hidup di laporan akhir — bagian yang menghadap penonton
+WAJIB tampil di layar:
+
+- **Kredit di readout:** setiap readout angka hasil hitungan/olahan
+  sesi (jarak terukur, durasi terhitung, persentase turunan) WAJIB
+  membawa baris kredit kecil di frame yang sama — pola: "HITUNGAN
+  KAMI · JALUR MENURUT DOUBLE DKK. 2014" / "MENURUT THUMS DKK.
+  2022". Angka kutipan langsung dikreditkan ke sumbernya dengan cara
+  yang sama. Kredit adalah sub-baris readout (teks DOM), bukan teks
+  3D, dan tidak memakan jatah satu angka hero.
+- **Label kejujuran** — chip kecil sementara, tipografi keluarga
+  readout, di zona aman; muncul bersama klaimnya dan hilang
+  bersamanya (BUKAN HUD permanen, bukan pill tahap):
+  · ILUSTRASI — visual staging yang bisa disangka data/footage asli
+    (hero di atas peta data asli, rekonstruksi, penampang).
+  · DISEDERHANAKAN — rute/skala/proses yang disederhanakan, mis.
+    "JALUR DISEDERHANAKAN".
+  · BELUM TERBUKTI — tampil selama kalimat yang menyatakan dugaan
+    yang masih diperdebatkan dibacakan.
+- Laporan akhir WAJIB mendaftar kredit dan label yang dipakai, per
+  scene.
 
 ## Timing — timeline.json adalah sumber kebenaran tunggal
 
@@ -307,7 +333,10 @@ sejak produksi pertama.
 4. Hook lengkap (teks+suara+visual) hadir di 1,5 detik pertama.
 5. Counter/readout muncul sinkron dengan kalimat angkanya. Angka hero
    3D (bila dipakai) maksimal satu, utuh di dalam frame, dan angkanya
-   juga terbaca sebagai readout/caption.
+   juga terbaca sebagai readout/caption. Readout hitungan tanpa kredit
+   sumber di frame yang sama = FAIL; label kejujuran (ILUSTRASI /
+   DISEDERHANAKAN / BELUM TERBUKTI) wajib tampil pada klaim/visual
+   pemicunya.
 6. Tidak ada keheningan tanpa alasan > 1 detik; jeda payoff ≤ 1 detik.
 7. Loudness −14 LUFS ±1, peak ≤ −1 dB.
 8. Gaya konsisten antar scene (palet, rig cahaya, font, gaya caption).
@@ -331,7 +360,8 @@ sejak produksi pertama.
   `out/<slug>-final.mp4`, `out/contact-sheet.png`,
   `docs/timeline.json`.
 - Laporan akhir WAJIB memuat: tabel kalimat ringkas, pemetaan scene,
-  hasil validator + check_output, dan hasil 10 poin QC satu per satu.
+  hasil validator + check_output, hasil 10 poin QC satu per satu,
+  dan daftar kredit & label kejujuran per scene.
 - Bila memakai aset unduhan/data luar: laporan WAJIB memuat daftar aset
   (nama, pembuat, lisensi, tanggal cek badge, ukuran file), total ukuran
   aset, catatan waktu render, dan baris kredit aset yang siap ditempel

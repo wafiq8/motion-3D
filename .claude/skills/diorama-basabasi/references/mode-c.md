@@ -99,6 +99,10 @@ Manusia · Part 1" milik @motionformat (52,7 detik, nol hard cut).
 - Angka tetap HYBRID per inti: semua angka = readout DOM; counter
   finale adalah readout teranimasi. Angka hero 3D emas secara bawaan
   TIDAK dipakai di Mode C.
+- Klaim anatomi mengikuti bagian "Sitasi & label kejujuran di layar"
+  di SKILL.md: angka hasil hitungan berkredit sumber di readout-nya,
+  dan klaim yang masih diperdebatkan membawa label BELUM TERBUKTI di
+  layar selama kalimatnya dibacakan.
 
 ## Struktur narasi Mode C (wajib — ikuti satu aliran)
 

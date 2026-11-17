@@ -134,6 +134,10 @@ disebut di bagian ini tetap berlaku.
 - **Counter parameter tetap menggerakkan dunia** (warisan Sundaland):
   readout besar beranimasi sinkron narasi dan keadaan peta berubah
   mengikutinya (muka laut, musim, arus) — termasuk diputar balik.
+- Kredit & label di A2 mengikuti bagian "Sitasi & label kejujuran
+  di layar" di SKILL.md: SEMUA readout hitungan (jarak, durasi,
+  suhu) wajib berkredit, dan label ILUSTRASI wajib pada hero model
+  di atas peta data asli.
 - Header bab era di atas-tengah HANYA untuk struktur mesin waktu;
   struktur perjalanan bukti memakai label in-scene tanpa header
   permanen.
