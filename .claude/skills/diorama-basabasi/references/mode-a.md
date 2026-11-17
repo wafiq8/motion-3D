@@ -152,4 +152,13 @@ disebut di bagian ini tetap berlaku.
    rute, bukti tampil satu per satu di titik geografisnya (readout
    menghitung, layer data, penampang) → perbandingan skala bila angka
    abstrak → dua dugaan bersaing bila faktanya memang belum pasti →
-   verdict. Penutup mengikuti Keputusan terkunci di SKILL.md.
+   verdict singkat → **pertanyaan terbuka sebagai kalimat terakhir**
+   (penutup bawaan struktur ini, menggantikan kesimpulan). Syarat
+   pertanyaan: spesifik pada isi video dan bisa dijawab dari bukti
+   yang baru ditampilkan (pola: dua dugaan bersaing dipaparkan,
+   penonton ditanya condong ke mana dan kenapa). Pertanyaan generik
+   pancingan komentar ("menurut kalian gimana?") DILARANG. Tanpa CTA
+   dalam bentuk apa pun. Pertanyaan tampil sebagai karaoke kalimat
+   terakhir, lalu ditahan sebagai teks penutup selama jeda payoff di
+   atas beauty shot peta/hero yang tetap bergerak, lalu fade ke
+   hitam.
