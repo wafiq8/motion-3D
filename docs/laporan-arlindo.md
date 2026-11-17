@@ -35,13 +35,24 @@ Produksi 03 · skill diorama-basabasi v3.0 · Mode A, **Varian A2 — struktur p
 
 ## Hasil validator & check_output
 
-HASIL_VALIDATOR
+`python3 scripts/validate_timeline.py docs/timeline.json` → **PASS SEMUA** (fps 30; total 102,20 dtk dalam rentang A2 30–120; ekor 0,92 dtk; 9 scene mulai tepat di awal kalimat pemetaannya; scene bersebelahan).
 
-HASIL_CHECK_OUTPUT
+`bash scripts/check_output.sh out/arlindo-final.mp4` (rentang A2 terbaca otomatis) → **PASS SEMUA**: resolusi 1080×1920 · fps 30 · durasi 102,200 dtk (30–120) · tidak ada keheningan > 1,2 dtk · loudness −14,1 LUFS.
 
 ## QC mandiri 10 poin
 
-HASIL_QC
+| # | Cek | Hasil |
+|---|---|---|
+| 1 | Validator PASS; file final 1080×1920, 30 fps, 102,2 dtk (A2 30–120); audio AAC 48 kHz sepanjang 102,2 dtk | PASS |
+| 2 | Batas scene ≤ 0,3 dtk dari awal kalimat (diukur dari jumlah frame file per scene yang di-concat) | PASS: selisih maks 0,013 dtk (S5, S7) |
+| 3 | Tidak ada teks terpotong / keluar zona aman (contact sheet, grid preview tiap 2 dtk, frame full-res) | PASS: readout dan teks besar mulai di y ≥ 300 px, subtitle di atas zona 310 px bawah, chip di atas subtitle; semua teks diukur dengan fitText/measureText |
+| 4 | Hook lengkap ≤ 1,5 dtk | PASS: judul serif, karaoke "Setiap detik", dan peta satelit sejak frame 0; jalur menyala ±0,5 dtk; readout 15 juta mulai menghitung di 0,76 dtk |
+| 5 | Readout sinkron, angka hero 3D maksimal satu, kredit di frame yang sama, label kejujuran | PASS: satu angka hero (15 JUTA, S3) juga tampil sebagai readout; setiap readout membawa sub-baris kredit A/B; chip ILUSTRASI/DISEDERHANAKAN tampil bersama pemicunya (tabel di bawah) |
+| 6 | Keheningan > 1 dtk tanpa alasan tidak ada; jeda payoff ≤ 1 dtk | PASS: silencedetect −45 dB nihil; jeda payoff 0,92 dtk dengan musik tetap berjalan |
+| 7 | Loudness −14 LUFS ±1, peak ≤ −1 dB | PASS: −14,1 LUFS, true peak −1,3 dBTP |
+| 8 | Gaya konsisten | PASS: satu renderer, satu rig (hemisphere #FFE3B3/#8A6B45 0,9 + directional #FFD9A0 2,2, ACES 1,1), satu panggung peta, satu gaya readout/caption, Playfair Display + Inter |
+| 9 | Manusia hanya siluet; aturan close-up | PASS: tidak ada figur manusia; A2 membebaskan jarak hero (paket air di-tracking dekat) |
+| 10 | Penutup A2 perjalanan bukti | PASS: verdict TERBUKTI (kal. 14), lalu pertanyaan terbuka spesifik Lombok vs Timor sebagai kalimat terakhir, ditahan selama jeda payoff, fade hitam bersih; tanpa CTA, tanpa kartu/label seri, tanpa pill tahap |
 
 ## Kredit & label kejujuran per scene (tampil di layar)
 
@@ -84,8 +95,8 @@ Hero paket air, garis arus, mooring, cincin pintu, garis ukur, kolam, dan angka 
 ## Catatan render
 
 - Renderer: Chromium headless + ANGLE/SwiftShader (`--gl=swangle`, GL perangkat lunak), `--concurrency=4` (= `nproc`).
-- Preview 0,5×: 1.483 dtk untuk 3.066 frame (±0,48 dtk/frame), per scene.
-- Final 1×: WAKTU_FINAL
+- Preview 0,5×: ±1.480 dtk untuk 3.066 frame (±0,48 dtk/frame), per scene; QC preview: readout Ombai diperpanjang sampai 72,9 dtk (scene 7 dirender ulang).
+- Final 1×: 1.719 dtk (±28,7 menit) untuk 3.066 frame (±0,56 dtk/frame): S1 204 · S2 102 · S3 281 · S4 208 · S5 186 · S6 167 · S7 163 · S8 267 · S9 141 dtk. File final 148 MB (H.264 CRF 18, AAC 256 kbps).
 - Terrain 432×384 segmen (diturunkan dari 540×480 demi kecepatan); kolam 6.000 di-instancing; tidak ada bayangan real-time (hillshade di-bake ke albedo).
 
 ## Caption Instagram (siap tempel)
