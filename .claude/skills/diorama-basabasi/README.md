@@ -73,7 +73,13 @@ Salin folder `diorama-basabasi` ini ke dalam repo kerja, di lokasi:
   tekstur/data luar dicabut, diganti aturan berlisensi (CC BY/CC0/
   Polyfork saja; badge dicek per model; GLB di-vendor; kredit di
   laporan + caption; data peta S2Cloudless/GEBCO/OSM khusus panggung
-  peta). Item 2–6 menyusul per persetujuan user.
+  peta). Item 2: Varian A2 ditulis ulang jadi format peta penuh —
+  terrain satelit + heightmap GEBCO, satu penerbangan kontinu (zoom
+  ngebut ber-blur), hero 3D di atas peta (piktogram 2D dicabut,
+  pengecualian jarak kamera), tahap bawah permukaan (penampang
+  batimetri + segmen bawah air), layer data berlegenda, dua struktur
+  narasi (mesin waktu / perjalanan bukti). Item 3–6 menyusul per
+  persetujuan user.
 - v2.9 (13 Nov 2026) — user mengaktifkan Mode B (bongkar benda —
   cara kerja benda/mesin) dari status parkir: references/mode-b.md
   baru, dibangun dari bedah rice cooker + mesin jet @motionformat,

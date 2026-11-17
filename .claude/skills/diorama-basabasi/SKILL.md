@@ -74,7 +74,9 @@ description: Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dar
   mensimulasikan gerak via zoom/pan gambar 2D.
 - Manusia hanya siluet gelap kecil tanpa wajah. Subjek utama Mode A
   tidak close-up (jarak kamera minimum 8 m untuk hewan/objek hero
-  lanskap) — di Mode C aturan jarak ini tidak berlaku: organ hero
+  lanskap) — di Varian A2 aturan ini tidak berlaku (hero objek
+  peta, boleh close tracking) dan di Mode C aturan jarak ini tidak
+  berlaku: organ hero
   memang mengisi frame; di Mode B aturan ini hanya mengikat framing
   tahap konteks — objek hero di tahap lab memang mengisi frame
   (lihat references/mode-b.md dan references/mode-c.md).
@@ -174,6 +176,10 @@ sejak produksi pertama.
   hitam ±0,1 detik.
 - Struktur narasi: untuk topik sistem/alur pakai "ikuti satu aliran";
   satu video boleh memuat dua fakta satu topik dengan segmen demonstrasi.
+- Varian A2 (peta hidup): format peta penuh — terrain satelit +
+  heightmap data asli, satu penerbangan kontinu, hero 3D di atas
+  peta, tahap bawah permukaan, layer data berlegenda; struktur
+  mesin waktu atau perjalanan bukti (detail di references/mode-a.md).
 - Penutup: beauty shot + judul/era serif diulang + kalimat kesimpulan.
   Fade ke hitam; tanpa label/kartu seri di dalam video (v2.8).
   (Call to value hanya bila
@@ -292,7 +298,8 @@ sejak produksi pertama.
 6. Tidak ada keheningan tanpa alasan > 1 detik; jeda payoff ≤ 1 detik.
 7. Loudness −14 LUFS ±1, peak ≤ −1 dB.
 8. Gaya konsisten antar scene (palet, rig cahaya, font, gaya caption).
-9. Manusia hanya siluet. Mode A: subjek hero tidak close-up. Mode B:
+9. Manusia hanya siluet. Mode A: subjek hero tidak close-up
+  (kecuali Varian A2). Mode B:
    label bagian sesuai urutan narasi dan tidak ada HUD permanen
    (cek khusus Mode B di references/mode-b.md WAJIB ikut diperiksa).
    Mode C:

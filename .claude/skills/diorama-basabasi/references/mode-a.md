@@ -18,7 +18,9 @@ Sundaland/Zaman Es (55 dtk). Baca file ini sebelum membangun scene.
   kayu #6B4226, laut #2E6E8E, senja #F08A2E, emas #D9A62E, kabut #F2D8AE,
   siluet manusia #1F150C, awan #FFF3DC, aksen #FFB03A.
 - Awan = 5–9 bola menyatu per gumpalan. Rumput/vegetasi berulang =
-  instancing. Tanpa tekstur file luar.
+  instancing. Tanpa tekstur file luar (pengecualian aset
+  berlisensi di SKILL.md; Varian A2 memakai tekstur satelit —
+  lihat bagian A2).
 
 ## Tipografi & teks layar
 
@@ -57,7 +59,8 @@ Sundaland/Zaman Es (55 dtk). Baca file ini sebelum membangun scene.
 2. **Dua fakta satu topik**: fakta 1 (sering bantahan mitos) → fade →
    fakta 2 sebagai segmen DEMONSTRASI (klaim dibuktikan visual: proses
    dibuat, diuji, dibandingkan).
-3. **Mesin waktu peta** (Varian A2, di bawah).
+3. **Peta hidup** (Varian A2, di bawah): mesin waktu atau
+   perjalanan bukti.
 
 Hook selalu kalimat pertama: pertanyaan, bantahan mitos terkenal, atau
 klaim kontraintuitif — hadir sebagai teks + suara + visual ≤ 1,5 detik.
@@ -72,29 +75,81 @@ klaim kontraintuitif — hadir sebagai teks + suara + visual ≤ 1,5 detik.
   13 Nov 2026) — identitas seri hanya hidup di caption.
 - Fade ke hitam. Jeda payoff 0,3–1 detik diperbolehkan.
 
-## Varian A2 — Peta Hidup (geografi / sejarah wilayah)
+## Varian A2 — Peta Hidup (geografi / sejarah wilayah / migrasi)
 
-Seluruh video = SATU peta relief 3D (terrain timbul dari heightmap di
-atas alas seperti maket) sebagai mesin waktu. Dari contoh "Sundaland":
+Format peta penuh — ditulis ulang pada amendemen jalur sudutpeta
+(Item 2), dibedah dari @sudutpeta (video paus biru kerdil ke Laut
+Banda) dan contoh "Sundaland" @motionformat. Seluruh video = SATU
+panggung geografi asli yang kontinu. Aturan Mode A umum yang tidak
+disebut di bagian ini tetap berlaku.
 
-- Header bab era permanen di atas-tengah ("ZAMAN ES" → "HARI INI"),
-  berganti hanya saat era berganti; tetap di zona aman atas.
-- **Counter parameter menggerakkan dunia:** readout besar ("MUKA LAUT
-  −120 m") beranimasi sinkron narasi; keadaan peta (garis pantai,
-  daratan muncul/tenggelam, inset kecil pendukung) berubah MENGIKUTI
-  angka itu. Parameter yang sama diputar balik untuk memutar waktu.
-- Hook: klaim kontraintuitif + garis rute bercahaya yang menggambar
-  dirinya di peta.
-- Label wilayah muncul di posisi geografis sebenarnya saat disebut
-  narasi; garis batas (mis. garis Wallace) tergambar sebagai garis
-  putus-putus beranimasi.
-- Nama konsep besar ("SUNDALAND") = judul raksasa tepat di momen
-  penyatuan/kejadiannya — penamaan adalah payoff segmen.
-- Fauna/manusia di atas peta = IKON DATAR 2D piktogram yang bergerak
-  sederhana mengikuti rute — bukan model 3D berakting.
-- Struktur: klaim → mekanisme (counter bergerak) → penamaan → konsekuensi
-  → twist pengecualian ("tapi ada satu … yang tidak pernah …") →
-  pembalikan → cermin masa kini: objek modern kecil bergerak di peta,
-  permukaan dibuat tembus pandang, lapisan masa lalu menyala di bawahnya.
-- Implementasi prosedural: heightmap terrain + bidang air berlevel
-  animasi + label DOM. Ini varian paling ringan dirender.
+### Panggung
+
+- Terrain = bidang peta bertekstur citra satelit S2Cloudless oleh EOX
+  + displacement heightmap GEBCO (keduanya di-vendor ke repo proyek —
+  lihat bagian "Aset unduhan & data luar" di SKILL.md). TANPA alas
+  maket; terrain prosedural hanya bila data wilayahnya tidak tersedia,
+  dan itu dicatat di laporan.
+- Satu penerbangan kamera kontinu di atas panggung yang sama dari awal
+  sampai akhir. Perpindahan antarwilayah = zoom ngebut dengan blur
+  gerak mengikuti jalur kamera — BUKAN fade hitam ±0,1 detik (itu
+  transisi antar-segmen Mode A biasa) dan bukan hard cut.
+- Permukaan laut berada di atas terrain batimetri yang sama; garis
+  pantai mengikuti data, bukan digambar tangan.
+
+### Hero di atas peta
+
+- Fauna/subjek utama = SATU model 3D (stok berlisensi menurut aturan
+  aset di SKILL.md, atau prosedural) yang dipakai ulang di semua
+  skala — aturan lama "ikon datar 2D piktogram" DICABUT untuk A2.
+- Gerak mengikuti rute: posisi dari kurva rute per timeline; renang/
+  terbang = tekuk sine tulang punggung yang diturunkan dari frame
+  (bukan useFrame); sirip/sayap prosedural bila modelnya tidak
+  membawa animasi.
+- Pengecualian jarak kamera: aturan minimum 8 m Mode A TIDAK berlaku
+  di A2 — hero dibingkai sebagai objek peta (jarak relatif terhadap
+  skala peta) dan boleh close tracking, terutama di tahap bawah air.
+
+### Tahap bawah permukaan
+
+- Penampang batimetri: mesh terrain GEBCO yang sama dilihat dari
+  samping (dinding canyon / lembah laut) untuk relief dasar laut
+  yang relevan dengan klaim.
+- Segmen bawah air: scene yang sama di bawah permukaan — FogExp2 biru
+  pekat, partikel marine snow (Points; sebaran dari seed tercatat),
+  kerucut cahaya dari permukaan; hero berenang di ruang ini.
+
+### Layer data & label
+
+- Rute menggambar dirinya mengikuti narasi (garis bercahaya, warna
+  kontras terhadap citra satelit — mis. merah di atas biru laut).
+- Outline wilayah yang dibahas menyala saat disebut; wilayah/negara
+  boleh terisi warna atau bendera.
+- Label wilayah di posisi geografis sebenarnya, muncul saat disebut
+  narasi; garis batas (mis. garis Wallace) sebagai garis putus-putus
+  beranimasi.
+- Layer data berlegenda dianjurkan bila klaimnya memang data: heatmap
+  (mis. suhu permukaan laut per bulan), arus, kedalaman. Legenda
+  rentang WAJIB tampil di frame selama layernya tampil.
+- **Counter parameter tetap menggerakkan dunia** (warisan Sundaland):
+  readout besar beranimasi sinkron narasi dan keadaan peta berubah
+  mengikutinya (muka laut, musim, arus) — termasuk diputar balik.
+- Header bab era di atas-tengah HANYA untuk struktur mesin waktu;
+  struktur perjalanan bukti memakai label in-scene tanpa header
+  permanen.
+- Nama konsep besar tetap menjadi penamaan-payoff di momen
+  kejadiannya.
+
+### Struktur narasi (pilih satu per video)
+
+1. **Mesin waktu** (perubahan wilayah lintas era): klaim → mekanisme
+   (counter bergerak) → penamaan → konsekuensi → twist pengecualian
+   ("tapi ada satu … yang tidak pernah …") → pembalikan → cermin masa
+   kini: objek modern kecil bergerak di peta, permukaan tembus
+   pandang, lapisan masa lalu menyala di bawahnya.
+2. **Perjalanan bukti** (migrasi / perjalanan subjek): klaim berbentuk
+   pertanyaan → dugaan diajukan ("BENARKAH?") → perjalanan mengikuti
+   rute, bukti tampil satu per satu di titik geografisnya (readout
+   menghitung, layer data, penampang) → perbandingan skala bila angka
+   abstrak → dua dugaan bersaing bila faktanya memang belum pasti →
+   verdict. Penutup mengikuti Keputusan terkunci di SKILL.md.
