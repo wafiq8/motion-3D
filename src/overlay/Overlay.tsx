@@ -71,7 +71,7 @@ const READOUTS: RO[] = [
     {t: SEC.frac, value: 77, prefix: '±', unit: '% SELURUH ARUS MASUK', label: 'LEBIH DARI 3/4'}], credit: `${GORDON}\n77%: ${KAMI} (11,6 ÷ 15)`, anchor: [118.4, -2.6]},
   {a: SEC.lombokW, b: 67.1, y: 330, title: 'PINTU 1 · SELAT LOMBOK', rows: [{t: SEC.lombokW, value: 20, unit: 'KM LEBAR TERSEMPIT'},
     {t: SEC.sill + 0.7, value: 350, unit: 'M AMBANG DANGKAL'}, {t: SEC.q26, value: 2.6, dec: 1, unit: 'JUTA m³/DETIK'}], credit: GORDON, anchor: [115.72, -8.62]},
-  {a: SEC.q49, b: 71.1, y: 330, title: 'PINTU 2 · SELAT OMBAI', rows: [{t: SEC.q49, value: 4.9, dec: 1, unit: 'JUTA m³/DETIK'}], credit: GORDON, anchor: [125.05, -8.45]},
+  {a: SEC.q49, b: 72.9, y: 330, title: 'PINTU 2 · SELAT OMBAI', rows: [{t: SEC.q49, value: 4.9, dec: 1, unit: 'JUTA m³/DETIK'}], credit: GORDON, anchor: [125.05, -8.45]},
   {a: SEC.timorW, b: 76.6, y: 330, title: 'PINTU 3 · CELAH TIMOR', rows: [{t: SEC.timorW, value: 160, unit: 'KM LEBAR'},
     {t: SEC.q75, value: 7.5, dec: 1, unit: 'JUTA m³/DETIK'}], credit: GORDON, anchor: [124.4, -10.9]},
 ];
