@@ -42,7 +42,7 @@ const T = {
 const K1: V3 = [4, 0, 0];               // feeding komodo
 const GOAT: V3 = [5.25, 0, 0.35];
 const TOUR_A: [number, number] = [-9.5, 4.2], TOUR_B: [number, number] = [-3.2, 2.6], TOUR_C: [number, number] = [-1.3, 1.9];
-const K2_A: [number, number] = [-3.6, -11.5], K2_B: [number, number] = [-1.75, 0.95];
+const K2_A: [number, number] = [-3.6, -11.5], K2_B: [number, number] = [-1.52, 0.62];
 
 const tourist = (t: number) => {
   // walk A->B during S1, stand, raise camera, step B->C
