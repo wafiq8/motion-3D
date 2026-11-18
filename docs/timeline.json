@@ -1,0 +1,969 @@
+{
+ "fps": 30,
+ "audio_duration_s": 56.78,
+ "total_duration_s": 57.5,
+ "slug": "komodo-tamu",
+ "sentences": [
+  {
+   "id": 1,
+   "text": "Mei dua ribu tujuh belas. Seorang turis asal Singapura datang ke Pulau Komodo dengan satu keinginan: memotret komodo dari dekat.",
+   "start_s": 0.0,
+   "end_s": 6.6,
+   "scene": 1,
+   "words": [
+    {
+     "w": "Mei",
+     "s": 0.0,
+     "e": 0.3
+    },
+    {
+     "w": "dua",
+     "s": 0.3,
+     "e": 0.45
+    },
+    {
+     "w": "ribu",
+     "s": 0.45,
+     "e": 0.6
+    },
+    {
+     "w": "tujuh",
+     "s": 0.6,
+     "e": 0.75
+    },
+    {
+     "w": "belas.",
+     "s": 0.75,
+     "e": 0.9
+    },
+    {
+     "w": "Seorang",
+     "s": 1.52,
+     "e": 2.04
+    },
+    {
+     "w": "turis",
+     "s": 2.04,
+     "e": 2.4
+    },
+    {
+     "w": "asal",
+     "s": 2.4,
+     "e": 2.66
+    },
+    {
+     "w": "Singapura",
+     "s": 2.66,
+     "e": 3.0
+    },
+    {
+     "w": "datang",
+     "s": 3.0,
+     "e": 3.42
+    },
+    {
+     "w": "ke",
+     "s": 3.42,
+     "e": 3.5
+    },
+    {
+     "w": "Pulau",
+     "s": 3.5,
+     "e": 3.74
+    },
+    {
+     "w": "Komodo",
+     "s": 3.74,
+     "e": 4.02
+    },
+    {
+     "w": "dengan",
+     "s": 4.02,
+     "e": 4.24
+    },
+    {
+     "w": "satu",
+     "s": 4.24,
+     "e": 4.48
+    },
+    {
+     "w": "keinginan:",
+     "s": 4.48,
+     "e": 5.02
+    },
+    {
+     "w": "memotret",
+     "s": 5.08,
+     "e": 5.7
+    },
+    {
+     "w": "komodo",
+     "s": 5.7,
+     "e": 6.08
+    },
+    {
+     "w": "dari",
+     "s": 6.08,
+     "e": 6.3
+    },
+    {
+     "w": "dekat.",
+     "s": 6.3,
+     "e": 6.6
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "text": "Di hadapannya, seekor komodo sedang menyantap bangkai kambing. Kamera terangkat, ia melangkah lebih dekat.",
+   "start_s": 7.03,
+   "end_s": 12.16,
+   "scene": 2,
+   "words": [
+    {
+     "w": "Di",
+     "s": 7.03,
+     "e": 7.06
+    },
+    {
+     "w": "hadapannya,",
+     "s": 7.06,
+     "e": 7.5
+    },
+    {
+     "w": "seekor",
+     "s": 7.62,
+     "e": 8.12
+    },
+    {
+     "w": "komodo",
+     "s": 8.12,
+     "e": 8.46
+    },
+    {
+     "w": "sedang",
+     "s": 8.46,
+     "e": 8.74
+    },
+    {
+     "w": "menyantap",
+     "s": 8.74,
+     "e": 9.14
+    },
+    {
+     "w": "bangkai",
+     "s": 9.14,
+     "e": 9.42
+    },
+    {
+     "w": "kambing.",
+     "s": 9.42,
+     "e": 9.82
+    },
+    {
+     "w": "Kamera",
+     "s": 9.94,
+     "e": 10.36
+    },
+    {
+     "w": "terangkat,",
+     "s": 10.36,
+     "e": 10.9
+    },
+    {
+     "w": "ia",
+     "s": 11.0,
+     "e": 11.26
+    },
+    {
+     "w": "melangkah",
+     "s": 11.26,
+     "e": 11.68
+    },
+    {
+     "w": "lebih",
+     "s": 11.68,
+     "e": 11.82
+    },
+    {
+     "w": "dekat.",
+     "s": 11.82,
+     "e": 12.16
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "text": "Yang tak ia sadari: bahaya jarang datang dari komodo yang sedang kamu lihat.",
+   "start_s": 12.5,
+   "end_s": 15.86,
+   "scene": 3,
+   "words": [
+    {
+     "w": "Yang",
+     "s": 12.5,
+     "e": 12.58
+    },
+    {
+     "w": "tak",
+     "s": 12.58,
+     "e": 12.76
+    },
+    {
+     "w": "ia",
+     "s": 12.76,
+     "e": 12.88
+    },
+    {
+     "w": "sadari:",
+     "s": 12.88,
+     "e": 13.32
+    },
+    {
+     "w": "bahaya",
+     "s": 13.38,
+     "e": 13.92
+    },
+    {
+     "w": "jarang",
+     "s": 13.92,
+     "e": 14.24
+    },
+    {
+     "w": "datang",
+     "s": 14.24,
+     "e": 14.54
+    },
+    {
+     "w": "dari",
+     "s": 14.54,
+     "e": 14.66
+    },
+    {
+     "w": "komodo",
+     "s": 14.66,
+     "e": 15.0
+    },
+    {
+     "w": "yang",
+     "s": 15.0,
+     "e": 15.18
+    },
+    {
+     "w": "sedang",
+     "s": 15.18,
+     "e": 15.46
+    },
+    {
+     "w": "kamu",
+     "s": 15.46,
+     "e": 15.6
+    },
+    {
+     "w": "lihat.",
+     "s": 15.6,
+     "e": 15.86
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "text": "Dari samping, seekor komodo lain — lebih kecil — mendekat tanpa suara, lalu menggigit betis kirinya.",
+   "start_s": 16.31,
+   "end_s": 21.5,
+   "scene": 3,
+   "words": [
+    {
+     "w": "Dari",
+     "s": 16.31,
+     "e": 16.48
+    },
+    {
+     "w": "samping,",
+     "s": 16.48,
+     "e": 16.88
+    },
+    {
+     "w": "seekor",
+     "s": 16.92,
+     "e": 17.42
+    },
+    {
+     "w": "komodo",
+     "s": 17.42,
+     "e": 17.72
+    },
+    {
+     "w": "lain",
+     "s": 17.72,
+     "e": 17.92
+    },
+    {
+     "w": "lebih",
+     "s": 18.08,
+     "e": 18.38
+    },
+    {
+     "w": "kecil",
+     "s": 18.38,
+     "e": 18.8
+    },
+    {
+     "w": "mendekat",
+     "s": 18.84,
+     "e": 19.38
+    },
+    {
+     "w": "tanpa",
+     "s": 19.38,
+     "e": 19.68
+    },
+    {
+     "w": "suara,",
+     "s": 19.68,
+     "e": 20.02
+    },
+    {
+     "w": "lalu",
+     "s": 20.12,
+     "e": 20.54
+    },
+    {
+     "w": "menggigit",
+     "s": 20.54,
+     "e": 20.96
+    },
+    {
+     "w": "betis",
+     "s": 20.96,
+     "e": 21.18
+    },
+    {
+     "w": "kirinya.",
+     "s": 21.18,
+     "e": 21.5
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "text": "Dan di situlah gigitan komodo berbeda. Di rahang bawahnya ada kelenjar bisa: racunnya membuat darah sulit membeku dan tekanan darah anjlok, jadi luka berdarah jauh lebih lama dari luka biasa.",
+   "start_s": 21.96,
+   "end_s": 31.26,
+   "scene": 4,
+   "words": [
+    {
+     "w": "Dan",
+     "s": 21.96,
+     "e": 22.04
+    },
+    {
+     "w": "di",
+     "s": 22.04,
+     "e": 22.27
+    },
+    {
+     "w": "situlah",
+     "s": 22.27,
+     "e": 22.5
+    },
+    {
+     "w": "gigitan",
+     "s": 22.5,
+     "e": 22.84
+    },
+    {
+     "w": "komodo",
+     "s": 22.84,
+     "e": 23.18
+    },
+    {
+     "w": "berbeda.",
+     "s": 23.18,
+     "e": 23.62
+    },
+    {
+     "w": "Di",
+     "s": 23.72,
+     "e": 24.02
+    },
+    {
+     "w": "rahang",
+     "s": 24.02,
+     "e": 24.28
+    },
+    {
+     "w": "bawahnya",
+     "s": 24.28,
+     "e": 24.64
+    },
+    {
+     "w": "ada",
+     "s": 24.64,
+     "e": 24.8
+    },
+    {
+     "w": "kelenjar",
+     "s": 24.8,
+     "e": 25.18
+    },
+    {
+     "w": "bisa:",
+     "s": 25.18,
+     "e": 25.34
+    },
+    {
+     "w": "racunnya",
+     "s": 25.66,
+     "e": 26.26
+    },
+    {
+     "w": "membuat",
+     "s": 26.26,
+     "e": 26.54
+    },
+    {
+     "w": "darah",
+     "s": 26.54,
+     "e": 26.82
+    },
+    {
+     "w": "sulit",
+     "s": 26.82,
+     "e": 27.08
+    },
+    {
+     "w": "membeku",
+     "s": 27.08,
+     "e": 27.42
+    },
+    {
+     "w": "dan",
+     "s": 27.42,
+     "e": 27.74
+    },
+    {
+     "w": "tekanan",
+     "s": 27.74,
+     "e": 28.16
+    },
+    {
+     "w": "darah",
+     "s": 28.16,
+     "e": 28.46
+    },
+    {
+     "w": "anjlok,",
+     "s": 28.46,
+     "e": 28.8
+    },
+    {
+     "w": "jadi",
+     "s": 28.8,
+     "e": 29.24
+    },
+    {
+     "w": "luka",
+     "s": 29.24,
+     "e": 29.54
+    },
+    {
+     "w": "berdarah",
+     "s": 29.54,
+     "e": 29.92
+    },
+    {
+     "w": "jauh",
+     "s": 29.92,
+     "e": 30.18
+    },
+    {
+     "w": "lebih",
+     "s": 30.18,
+     "e": 30.3
+    },
+    {
+     "w": "lama",
+     "s": 30.3,
+     "e": 30.5
+    },
+    {
+     "w": "dari",
+     "s": 30.5,
+     "e": 30.72
+    },
+    {
+     "w": "luka",
+     "s": 30.72,
+     "e": 30.92
+    },
+    {
+     "w": "biasa.",
+     "s": 30.92,
+     "e": 31.26
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "text": "Tahun dua ribu sembilan, di pulau yang sama, warga bernama Muhamad Anwar digigit dua ekor komodo — ia meninggal kehabisan darah dalam perjalanan ke Flores.",
+   "start_s": 31.82,
+   "end_s": 39.44,
+   "scene": 5,
+   "words": [
+    {
+     "w": "Tahun",
+     "s": 31.82,
+     "e": 32.04
+    },
+    {
+     "w": "dua",
+     "s": 32.04,
+     "e": 32.17
+    },
+    {
+     "w": "ribu",
+     "s": 32.17,
+     "e": 32.29
+    },
+    {
+     "w": "sembilan,",
+     "s": 32.29,
+     "e": 32.42
+    },
+    {
+     "w": "di",
+     "s": 32.88,
+     "e": 33.16
+    },
+    {
+     "w": "pulau",
+     "s": 33.16,
+     "e": 33.46
+    },
+    {
+     "w": "yang",
+     "s": 33.46,
+     "e": 33.56
+    },
+    {
+     "w": "sama,",
+     "s": 33.56,
+     "e": 33.78
+    },
+    {
+     "w": "warga",
+     "s": 33.96,
+     "e": 34.48
+    },
+    {
+     "w": "bernama",
+     "s": 34.48,
+     "e": 34.82
+    },
+    {
+     "w": "Muhamad",
+     "s": 34.82,
+     "e": 35.04
+    },
+    {
+     "w": "Anwar",
+     "s": 35.04,
+     "e": 35.46
+    },
+    {
+     "w": "digigit",
+     "s": 35.46,
+     "e": 35.92
+    },
+    {
+     "w": "dua",
+     "s": 35.92,
+     "e": 36.04
+    },
+    {
+     "w": "ekor",
+     "s": 36.04,
+     "e": 36.36
+    },
+    {
+     "w": "komodo",
+     "s": 36.36,
+     "e": 36.68
+    },
+    {
+     "w": "ia",
+     "s": 36.8,
+     "e": 37.24
+    },
+    {
+     "w": "meninggal",
+     "s": 37.24,
+     "e": 37.66
+    },
+    {
+     "w": "kehabisan",
+     "s": 37.66,
+     "e": 38.04
+    },
+    {
+     "w": "darah",
+     "s": 38.04,
+     "e": 38.34
+    },
+    {
+     "w": "dalam",
+     "s": 38.34,
+     "e": 38.5
+    },
+    {
+     "w": "perjalanan",
+     "s": 38.5,
+     "e": 39.04
+    },
+    {
+     "w": "ke",
+     "s": 39.04,
+     "e": 39.12
+    },
+    {
+     "w": "Flores.",
+     "s": 39.12,
+     "e": 39.44
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "text": "Turis itu lebih beruntung: pertolongan pertama di lokasi, perahu ke Labuan Bajo, rumah sakit. Ia selamat.",
+   "start_s": 39.93,
+   "end_s": 45.44,
+   "scene": 6,
+   "words": [
+    {
+     "w": "Turis",
+     "s": 39.93,
+     "e": 40.14
+    },
+    {
+     "w": "itu",
+     "s": 40.14,
+     "e": 40.26
+    },
+    {
+     "w": "lebih",
+     "s": 40.26,
+     "e": 40.44
+    },
+    {
+     "w": "beruntung:",
+     "s": 40.44,
+     "e": 40.92
+    },
+    {
+     "w": "pertolongan",
+     "s": 41.06,
+     "e": 41.66
+    },
+    {
+     "w": "pertama",
+     "s": 41.66,
+     "e": 41.84
+    },
+    {
+     "w": "di",
+     "s": 41.84,
+     "e": 42.1
+    },
+    {
+     "w": "lokasi,",
+     "s": 42.1,
+     "e": 42.52
+    },
+    {
+     "w": "perahu",
+     "s": 42.56,
+     "e": 43.06
+    },
+    {
+     "w": "ke",
+     "s": 43.06,
+     "e": 43.14
+    },
+    {
+     "w": "Labuan",
+     "s": 43.14,
+     "e": 43.5
+    },
+    {
+     "w": "Bajo,",
+     "s": 43.5,
+     "e": 43.76
+    },
+    {
+     "w": "rumah",
+     "s": 43.9,
+     "e": 44.24
+    },
+    {
+     "w": "sakit.",
+     "s": 44.24,
+     "e": 44.68
+    },
+    {
+     "w": "Ia",
+     "s": 44.74,
+     "e": 45.08
+    },
+    {
+     "w": "selamat.",
+     "s": 45.08,
+     "e": 45.44
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "text": "Jadi kalau kamu berdiri di tanah komodo: jaga jarak, jangan berpisah dari ranger, dan awasi sekelilingmu — bukan cuma komodo di depan kamera.",
+   "start_s": 45.83,
+   "end_s": 52.74,
+   "scene": 7,
+   "words": [
+    {
+     "w": "Jadi",
+     "s": 45.83,
+     "e": 45.98
+    },
+    {
+     "w": "kalau",
+     "s": 45.98,
+     "e": 46.16
+    },
+    {
+     "w": "kamu",
+     "s": 46.16,
+     "e": 46.38
+    },
+    {
+     "w": "berdiri",
+     "s": 46.38,
+     "e": 46.76
+    },
+    {
+     "w": "di",
+     "s": 46.76,
+     "e": 46.86
+    },
+    {
+     "w": "tanah",
+     "s": 46.86,
+     "e": 47.08
+    },
+    {
+     "w": "komodo:",
+     "s": 47.08,
+     "e": 47.42
+    },
+    {
+     "w": "jaga",
+     "s": 47.54,
+     "e": 48.04
+    },
+    {
+     "w": "jarak,",
+     "s": 48.04,
+     "e": 48.4
+    },
+    {
+     "w": "jangan",
+     "s": 48.4,
+     "e": 48.74
+    },
+    {
+     "w": "berpisah",
+     "s": 48.74,
+     "e": 49.22
+    },
+    {
+     "w": "dari",
+     "s": 49.22,
+     "e": 49.36
+    },
+    {
+     "w": "ranger,",
+     "s": 49.36,
+     "e": 49.72
+    },
+    {
+     "w": "dan",
+     "s": 49.82,
+     "e": 50.12
+    },
+    {
+     "w": "awasi",
+     "s": 50.12,
+     "e": 50.5
+    },
+    {
+     "w": "sekelilingmu",
+     "s": 50.5,
+     "e": 51.06
+    },
+    {
+     "w": "bukan",
+     "s": 51.14,
+     "e": 51.62
+    },
+    {
+     "w": "cuma",
+     "s": 51.62,
+     "e": 51.76
+    },
+    {
+     "w": "komodo",
+     "s": 51.76,
+     "e": 52.16
+    },
+    {
+     "w": "di",
+     "s": 52.16,
+     "e": 52.3
+    },
+    {
+     "w": "depan",
+     "s": 52.3,
+     "e": 52.54
+    },
+    {
+     "w": "kamera.",
+     "s": 52.54,
+     "e": 52.74
+    }
+   ]
+  },
+  {
+   "id": 9,
+   "text": "Karena komodo selalu tampak lambat. Sampai detik ia tidak lambat lagi.",
+   "start_s": 53.25,
+   "end_s": 56.38,
+   "scene": 7,
+   "words": [
+    {
+     "w": "Karena",
+     "s": 53.25,
+     "e": 53.34
+    },
+    {
+     "w": "komodo",
+     "s": 53.34,
+     "e": 53.8
+    },
+    {
+     "w": "selalu",
+     "s": 53.8,
+     "e": 54.14
+    },
+    {
+     "w": "tampak",
+     "s": 54.14,
+     "e": 54.46
+    },
+    {
+     "w": "lambat.",
+     "s": 54.46,
+     "e": 54.8
+    },
+    {
+     "w": "Sampai",
+     "s": 54.82,
+     "e": 55.34
+    },
+    {
+     "w": "detik",
+     "s": 55.34,
+     "e": 55.62
+    },
+    {
+     "w": "ia",
+     "s": 55.62,
+     "e": 55.72
+    },
+    {
+     "w": "tidak",
+     "s": 55.72,
+     "e": 55.9
+    },
+    {
+     "w": "lambat",
+     "s": 55.9,
+     "e": 56.26
+    },
+    {
+     "w": "lagi.",
+     "s": 56.26,
+     "e": 56.38
+    }
+   ]
+  }
+ ],
+ "scenes": [
+  {
+   "id": 1,
+   "sentence_ids": [
+    1
+   ],
+   "start_s": 0.0,
+   "end_s": 7.03
+  },
+  {
+   "id": 2,
+   "sentence_ids": [
+    2
+   ],
+   "start_s": 7.03,
+   "end_s": 12.5
+  },
+  {
+   "id": 3,
+   "sentence_ids": [
+    3,
+    4
+   ],
+   "start_s": 12.5,
+   "end_s": 21.96
+  },
+  {
+   "id": 4,
+   "sentence_ids": [
+    5
+   ],
+   "start_s": 21.96,
+   "end_s": 31.82
+  },
+  {
+   "id": 5,
+   "sentence_ids": [
+    6
+   ],
+   "start_s": 31.82,
+   "end_s": 39.93
+  },
+  {
+   "id": 6,
+   "sentence_ids": [
+    7
+   ],
+   "start_s": 39.93,
+   "end_s": 45.83
+  },
+  {
+   "id": 7,
+   "sentence_ids": [
+    8,
+    9
+   ],
+   "start_s": 45.83,
+   "end_s": 57.5
+  }
+ ]
+}
