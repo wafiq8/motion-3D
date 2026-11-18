@@ -1,0 +1,28 @@
+{
+  "name": "motion-3d",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "studio": "remotion studio",
+    "tsc": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/playfair-display": "^5.3.0",
+    "@react-three/fiber": "^8.17.10",
+    "@remotion/bundler": "^4.0.544",
+    "@remotion/cli": "^4.0.544",
+    "@remotion/layout-utils": "^4.0.544",
+    "@remotion/renderer": "^4.0.544",
+    "@remotion/three": "^4.0.544",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.544",
+    "three": "^0.169.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.31",
+    "@types/three": "^0.169.0",
+    "typescript": "^7.0.2"
+  }
+}
