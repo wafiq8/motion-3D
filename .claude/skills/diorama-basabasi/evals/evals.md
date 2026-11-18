@@ -41,7 +41,8 @@ dan baseline terdokumentasi perbedaannya.
 - * Loudness −14 LUFS ±1, peak ≤ −1 dB.
 - * Nol gambar 2D/AI sebagai scene; satu rig cahaya & font yang sama
   di semua scene.
-- Manusia hanya siluet; subjek hero Mode A tidak close-up (< 8 m).
+- Figur manusia siluet plus (proporsi, bersendi, wajah kosong);
+  subjek hero Mode A tidak close-up (< 8 m).
 - Khusus Mode C (skenario 4): * kode warna aliran tidak terbalik di
   still mana pun dan partikel berubah warna di titik pertukaran tepat
   pada kalimatnya; * counter detak sinkron ketukan visual ≤ 0,3 detik;

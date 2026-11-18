@@ -68,6 +68,10 @@ Salin folder `diorama-basabasi` ini ke dalam repo kerja, di lokasi:
 
 ## Versi
 
+- v3.1 (18 Nov 2026) — aturan figur manusia dilunakkan menjadi
+  'siluet plus': proporsi manusia + sendi bergerak + maks. satu
+  warna peran muted; wajah tetap wajib kosong; figur realistis
+  tetap dilarang.
 - v3.0 (17 Nov 2026) — amendemen jalur sudutpeta, dibangun per item.
   Item 1: aturan aset diganti — larangan total model unduhan dan
   tekstur/data luar dicabut, diganti aturan berlisensi (CC BY/CC0/

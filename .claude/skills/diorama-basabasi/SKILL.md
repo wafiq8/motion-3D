@@ -76,7 +76,13 @@ description: Produksi video edukasi vertikal 9:16 (30–60 detik; Varian A2: 30�
 - Dilarang letterbox; kamera native 9:16.
 - Gerakan hanya dari kamera di ruang 3D (parallax nyata). Dilarang
   mensimulasikan gerak via zoom/pan gambar 2D.
-- Manusia hanya siluet gelap kecil tanpa wajah. Subjek utama Mode A
+- Figur manusia = "siluet plus": berproporsi manusia dan bersendi
+  (lengan, kaki, kepala bergerak dari timeline), dasar gelap netral,
+  boleh satu warna peran muted (pakaian/topi/properti khas — kamera,
+  tongkat ranger). Wajah WAJIB kosong: tanpa mata, mulut, atau
+  geometri wajah; tanpa detail kulit; figur manusia realistis
+  (termasuk model stok ber-rig) dilarang. Figur tetap kecil dalam
+  frame. Subjek utama Mode A
   tidak close-up (jarak kamera minimum 8 m untuk hewan/objek hero
   lanskap) — di Varian A2 aturan ini tidak berlaku (hero objek
   peta, boleh close tracking) dan di Mode C aturan jarak ini tidak
@@ -340,7 +346,9 @@ WAJIB tampil di layar:
 6. Tidak ada keheningan tanpa alasan > 1 detik; jeda payoff ≤ 1 detik.
 7. Loudness −14 LUFS ±1, peak ≤ −1 dB.
 8. Gaya konsisten antar scene (palet, rig cahaya, font, gaya caption).
-9. Manusia hanya siluet. Mode A: subjek hero tidak close-up
+9. Figur manusia = siluet plus (proporsi + sendi bergerak +
+   maks. satu warna peran muted; wajah kosong; tidak realistis).
+   Mode A: subjek hero tidak close-up
   (kecuali Varian A2). Mode B:
    label bagian sesuai urutan narasi dan tidak ada HUD permanen
    (cek khusus Mode B di references/mode-b.md WAJIB ikut diperiksa).

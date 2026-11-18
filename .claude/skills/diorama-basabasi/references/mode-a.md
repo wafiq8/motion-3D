@@ -16,7 +16,7 @@ Sundaland/Zaman Es (55 dtk). Baca file ini sebelum membangun scene.
 - Palet dasar (boleh bergeser mengikuti topik/musim — contoh asli memakai
   oranye musim gugur untuk Tembok Besar): sabana #C8A24A, pasir #EAD9B0,
   kayu #6B4226, laut #2E6E8E, senja #F08A2E, emas #D9A62E, kabut #F2D8AE,
-  siluet manusia #1F150C, awan #FFF3DC, aksen #FFB03A.
+  figur manusia (dasar) #1F150C, awan #FFF3DC, aksen #FFB03A.
 - Awan = 5–9 bola menyatu per gumpalan. Rumput/vegetasi berulang =
   instancing. Tanpa tekstur file luar (pengecualian aset
   berlisensi di SKILL.md; Varian A2 memakai tekstur satelit —
